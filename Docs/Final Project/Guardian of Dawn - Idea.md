@@ -1,0 +1,7 @@
+- Infinite waves of the melted
+- The longer the players survives, the stronger the melted
+- To reach good ending, players must discover and research on light-adaptation (or something like that) which allows humanity to walk freely under the sun
+- Bad endings include:
+	- fail to protect safe area
+- Game play mechanics
+	- 

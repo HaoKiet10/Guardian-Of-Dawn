@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Classroom Paper Prototype</title>
+<style>
+  :root {
+    --ink: #1a1a1a; --muted: #555; --line: #bbb; --bg: #fff;
+    --desk: #d9b98c; --teacher: #a8794a; --chair: #9fc5e8; --paper: #fff7c2;
+    --witch: #b48ad8; --power: #8fd18f; --zone: #f4c7c7; --door: #333;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #eee; color: var(--ink); font: 14px/1.4 system-ui, "Segoe UI", sans-serif; }
+  .page { background: var(--bg); width: 297mm; min-height: 210mm; margin: 12px auto; padding: 10mm 12mm; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+  h1 { margin: 0 0 2px; font-size: 22px; }
+  h2 { margin: 0 0 4px; font-size: 18px; }
+  .sub { color: var(--muted); margin: 0 0 8px; }
+  .row { display: flex; gap: 10mm; align-items: flex-start; }
+  .map { flex: 0 0 auto; }
+  .side { flex: 1; font-size: 12.5px; }
+  .side h3 { font-size: 13px; margin: 8px 0 2px; }
+  .side ul { margin: 0; padding-left: 16px; }
+  table { border-collapse: collapse; font-size: 12px; width: 100%; }
+  td, th { border: 1px solid var(--line); padding: 3px 5px; text-align: left; vertical-align: top; }
+  svg text { font-family: system-ui, "Segoe UI", sans-serif; }
+  .tokens { display: flex; flex-wrap: wrap; gap: 4mm; }
+  .tokens svg { border: 1px dashed #999; }
+  .cols { columns: 2; column-gap: 10mm; font-size: 13px; }
+  .cols h3 { margin: 6px 0 2px; font-size: 14px; break-after: avoid; }
+  .cols ul, .cols ol { margin: 0 0 4px; padding-left: 18px; }
+  @page { size: A4 landscape; margin: 0; }
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; }
+  }
+  @media (max-width: 900px) {
+    .page { width: auto; min-height: 0; margin: 8px; padding: 16px; }
+    .row { flex-direction: column; }
+    .map svg { width: 100%; height: auto; }
+    .cols { columns: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: RULES -->
+<section class="page">
+  <h1>Classroom Paper Prototype: "Collect the Papers"</h1>
+  <p class="sub">2 levels · 1 player · turn-based board version. Print pages 3–5, cut out the tokens on page 5, and play on the maps.</p>
+  <div class="cols">
+    <h3>Goal</h3>
+    <ul><li>Collect <b>every paper</b> in the classroom, then walk out the <b>EXIT</b> door.</li></ul>
+
+    <h3>Map pieces (fixed)</h3>
+    <ul>
+      <li><b>Desk</b> (brown rectangle): obstacle. Nobody walks through it.</li>
+      <li><b>Teacher Desk</b> (dark brown): obstacle.</li>
+      <li><b>Chair</b> (blue square): where students sit. You can walk over it.</li>
+      <li><b>Paper</b> (yellow note, P1…): step on it to collect it.</li>
+      <li><b>Power-up</b> (green circle): step on it to pick it up.</li>
+      <li><b>START / EXIT</b>: doors. EXIT stays locked until all papers are collected.</li>
+    </ul>
+
+    <h3>Turn order</h3>
+    <ol>
+      <li><b>Student turn:</b> move up to <b>3 squares</b> (up/down/left/right, no diagonals). You may use 1 held power-up.</li>
+      <li><b>Witch turn:</b> every witch moves <b>2 squares</b> along its dashed route, following the arrow. At the end of a back-and-forth route it turns around; a loop route keeps going round.</li>
+      <li>Mark one box on the turn tracker.</li>
+    </ol>
+
+    <h3>Witches: "Sit down!"</h3>
+    <ul>
+      <li>If a witch is <b>on or next to</b> (orthogonally) the student at the end of any move, the student is <b>caught</b>.</li>
+      <li>Caught: move the student to the <b>nearest free Chair</b> and <b>sit out 2 turns</b> (Level 2: 3 turns). Witches keep moving.</li>
+      <li>A seated student can't be caught again.</li>
+      <li><b>Hide:</b> you can choose to sit on a chair on purpose: witches ignore you, but you skip your next turn.</li>
+    </ul>
+
+    <h3>Power-ups (hold max 1)</h3>
+    <ul>
+      <li><b>Speed</b> (Sneakers): move 5 squares for your next 3 turns.</li>
+      <li><b>Pass</b> (Hall Pass): witches can't catch you for 3 turns.</li>
+      <li><b>Bell</b> (Freeze Bell, Level 2): all witches skip their next 2 turns.</li>
+      <li><b>Magnet</b> (Level 2): instantly collect every paper within 2 squares.</li>
+    </ul>
+
+    <h3>Level 2 extras</h3>
+    <ul>
+      <li><b>Head Witch</b> sits at the Teacher Desk and never moves. Ending a move in her <b>red watch zone</b> = caught.</li>
+      <li><b>Bell rings at turn 30:</b> if you haven't left, you lose.</li>
+    </ul>
+
+    <h3>What each level is for</h3>
+    <table>
+      <tr><th></th><th>Level 1: First Period</th><th>Level 2: Exam Day</th></tr>
+      <tr><td>Teaches</td><td>Moving, collecting, reading witch routes, chairs as penalty &amp; hiding</td><td>Planning a route under a time limit, timing 3 witches, choosing power-ups</td></tr>
+      <tr><td>Papers</td><td>6</td><td>10</td></tr>
+      <tr><td>Witches</td><td>2 patrol</td><td>3 patrol + 1 Head Witch</td></tr>
+      <tr><td>Chairs</td><td>4</td><td>3 (fewer safe spots)</td></tr>
+      <tr><td>Power-ups</td><td>Speed, Pass</td><td>Speed, Pass, Bell, Magnet</td></tr>
+      <tr><td>Desks</td><td>12, wide aisles</td><td>18, maze-like, dead ends</td></tr>
+      <tr><td>Time limit</td><td>None</td><td>30 turns</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PAGE 2: LEVEL SPECS -->
+<section class="page">
+  <h2>Level specs</h2>
+  <p class="sub">Written to the GDD template's section 5 (Missions, Levels &amp; Progression) and the segment/bottleneck rules from the level flow notes. Order: Level 1 → Level 2 (Level 2 unlocks when Level 1 is cleared).</p>
+  <table>
+    <tr><th style="width:17%"></th><th>Level 1: First Period (tutorial)</th><th>Level 2: Exam Day</th></tr>
+    <tr><td><b>Purpose</b></td><td>Teach moving, collecting, reading witch routes, and chairs (penalty and hiding)</td><td>Test route planning under a time limit; add the Head Witch, the loop patrol, Bell and Magnet</td></tr>
+    <tr><td><b>Player goal</b></td><td>Collect P1–P6, leave by EXIT (N1)</td><td>Collect P1–P10, leave by EXIT (N1) before turn 30</td></tr>
+    <tr><td><b>Environment</b></td><td>Normal classroom: 3 rows of desks, wide aisles</td><td>Exam layout: 4 tight desk rows, dead ends, Head Witch at the front</td></tr>
+    <tr><td><b>Expected duration</b></td><td>16–22 turns (best route 12), about 10 min on paper</td><td>22–30 turns (best route 18), about 15 min on paper</td></tr>
+    <tr><td><b>Critical path</b></td><td>START (A10) → <i>safe back area</i>: P4, P6, P5, Speed, then P3 on W2's lane → <b>BOTTLENECK: cross W1's row 5</b> → front area: P1, P2 → EXIT</td><td>START (A10) → <i>back area, W3 still far away</i>: P9, P10 → middle rows: P4–P8 (W2 on row 6) → front: P1, P2, P3 near the watch zone → <b>FINAL BOTTLENECK: exit run past W1 at N2</b> → EXIT</td></tr>
+    <tr><td><b>Optional routes</b></td><td>Pass (N7): a detour next to W1's turn point</td><td>Speed (G4), Pass (A7), Bell (N7), Magnet (J8): each one is a detour that costs turns</td></tr>
+    <tr><td><b>Progress tracking</b></td><td>Paper checklist 0/6 + turn tracker</td><td>Paper checklist 0/10 + turn tracker (red box = 30)</td></tr>
+    <tr><td><b>Reward</b></td><td>Unlocks Level 2. ★ if cleared in 20 turns or fewer</td><td>Level complete. ★ if cleared in 24 turns or fewer</td></tr>
+    <tr><td><b>Failure state</b></td><td>None (tutorial): getting caught only costs turns</td><td>Still inside when turn 30 ends → restart Level 2</td></tr>
+    <tr><td><b>First-play success</b></td><td>Player gets caught at least once, recovers, and finishes without help</td><td>Player uses at least one power-up on purpose and finishes within 30 turns</td></tr>
+  </table>
+
+  <h3 style="margin:10px 0 4px;font-size:14px">Checked against the level flow rules</h3>
+  <table>
+    <tr><th style="width:30%">Rule</th><th style="width:8%">Result</th><th>How</th></tr>
+    <tr><td>1. Each segment has one job</td><td>OK</td><td>L1 teaches the basics; L2 adds pressure (timer, more witches, new power-ups)</td></tr>
+    <tr><td>2. A bottleneck tests only what was taught</td><td>OK</td><td>L1 bottleneck = timing one patrol (W2 taught it first at P3). L2 final run = timing W1 + avoiding the watch zone, which P2 makes you face first</td></tr>
+    <tr><td>3. Rest after a bottleneck</td><td>OK</td><td>L2 starts in the back area, which W3 reaches only after about 8 turns: a calm start</td></tr>
+    <tr><td>4. New things after a bottleneck, not before</td><td>OK</td><td>Bell, Magnet and the Head Witch first appear in L2, after L1 is cleared</td></tr>
+    <tr><td>5. The final bottleneck tests everything</td><td>OK</td><td>L2 exit run: patrol timing (L1) + zone + turns left over (L2)</td></tr>
+    <tr><td>6. Telegraph bottlenecks</td><td>OK</td><td>Orange BOTTLENECK boxes on the maps, red watch zone, red box on the turn tracker</td></tr>
+    <tr><td>Mistake: the wall</td><td>Watch</td><td>L2 adds 5 new things at once. If testers fail early, remove the Magnet or raise the limit to 35</td></tr>
+    <tr><td>Mistake: same peak twice</td><td>OK</td><td>L1 peak = crossing a patrol; L2 peak = a timed exit run past a fixed watcher</td></tr>
+  </table>
+</section>
+
+<!-- PAGE 3: LEVEL 1 -->
+<section class="page">
+  <h2>Level 1: First Period</h2>
+  <p class="sub">Tutorial. Open aisles, two predictable witches. Start bottom-left, exit top-right.</p>
+  <div class="row">
+    <div class="map" id="map1"></div>
+    <div class="side">
+      <h3>Pieces</h3>
+      <ul>
+        <li>12 Desks, 1 Teacher Desk</li>
+        <li>6 Papers: P1–P6</li>
+        <li>4 Chairs</li>
+        <li>W1: back-and-forth along row 5</li>
+        <li>W2: back-and-forth down column H</li>
+        <li>Power-ups: Speed (D9), Pass (N7)</li>
+      </ul>
+      <h3>Design intent</h3>
+      <ul>
+        <li>P1 and P6 sit far from both witches: safe first pickups.</li>
+        <li>P3 (H6) sits on W2's lane: teaches timing.</li>
+        <li>W1 cuts the room in half at row 5: you must cross it at least once.</li>
+        <li>Pass (N7) is next to W1's turn-around: reward for a risk.</li>
+        <li>Chairs at C4 and J4 sit right by W1's row, so a catch there costs little distance.</li>
+      </ul>
+      <h3>Turn tracker</h3>
+      <div id="track1"></div>
+      <h3>Papers</h3>
+      <p>☐ P1 ☐ P2 ☐ P3 ☐ P4 ☐ P5 ☐ P6 · ★ in 20 turns or fewer</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3: LEVEL 2 -->
+<section class="page">
+  <h2>Level 2: Exam Day</h2>
+  <p class="sub">Tighter rows, dead ends, 3 patrolling witches + the Head Witch. 30-turn limit.</p>
+  <div class="row">
+    <div class="map" id="map2"></div>
+    <div class="side">
+      <h3>Pieces</h3>
+      <ul>
+        <li>18 Desks, 1 Teacher Desk</li>
+        <li>10 Papers: P1–P10</li>
+        <li>3 Chairs</li>
+        <li>W1: back-and-forth along row 2 (front)</li>
+        <li>W2: back-and-forth along row 6</li>
+        <li>W3: loop around the back (rows 8–10)</li>
+        <li>Head Witch: fixed, watch zone E2–J2</li>
+        <li>Power-ups: Speed (G4), Pass (A7), Bell (N7), Magnet (J8)</li>
+      </ul>
+      <h3>Design intent</h3>
+      <ul>
+        <li>Rows 5 and 9 leave only 4 gaps each: you have to plan which gap to use.</li>
+        <li>P2 (F3) is just below the watch zone: reach it from the side.</li>
+        <li>Magnet (J8) grabs P8 and P9 at once, but it sits on W3's loop.</li>
+        <li>Bell (N7) freezes everyone: save it for the front row and the exit run.</li>
+        <li>Only 3 chairs: getting caught sends you further away.</li>
+      </ul>
+      <h3>Turn tracker (lose at 30)</h3>
+      <div id="track2"></div>
+      <h3>Papers</h3>
+      <p>☐ P1 ☐ P2 ☐ P3 ☐ P4 ☐ P5 ☐ P6 ☐ P7 ☐ P8 ☐ P9 ☐ P10 · ★ in 24 turns or fewer</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4: TOKENS -->
+<section class="page">
+  <h2>Cut-out tokens</h2>
+  <p class="sub">Moving pieces. Place them on the matching starting squares. Papers and power-ups can be crossed off on the map instead if you don't want to cut them.</p>
+  <div class="tokens" id="tokens"></div>
+</section>
+
+<script>
+const CELL = 46, COLS = 14, ROWS = 10, PAD = 22;
+const COL_NAMES = "ABCDEFGHIJKLMN";
+const W = COLS * CELL + PAD, H = ROWS * CELL + PAD + 26;
+
+const levels = {
+  map1: {
+    teacher: { c: 5, r: 0, w: 4 },
+    desks: [2, 5, 7].flatMap(r => [1, 4, 8, 11].map(c => ({ c, r }))),
+    chairs: [[2,3],[9,3],[5,6],[12,8]],
+    papers: [[3,2],[13,1],[7,5],[0,5],[10,7],[13,9]],
+    power: [["Speed",3,8],["Pass",13,6]],
+    witches: [
+      { name: "W1", start: [13,4], route: [[0,4],[13,4]], loop: false },
+      { name: "W2", start: [7,1], route: [[7,1],[7,9]], loop: false },
+    ],
+    start: [0,9], exit: [13,0], zone: null,
+    bottleneck: { c: 0, r: 4, w: 14, h: 1, label: "BOTTLENECK: cross W1's row" },
+  },
+  map2: {
+    teacher: { c: 5, r: 0, w: 4 },
+    desks: [
+      ...[1,3,8,10].map(c => ({ c, r: 2 })),
+      ...[0,3,6,9,12].map(c => ({ c, r: 4 })),
+      ...[1,4,8,11].map(c => ({ c, r: 6 })),
+      ...[1,3,6,9,11].map(c => ({ c, r: 8 })),
+    ],
+    chairs: [[2,3],[11,5],[5,9]],
+    papers: [[0,2],[5,2],[13,2],[2,4],[8,4],[11,4],[3,6],[10,6],[8,8],[13,8]],
+    power: [["Speed",6,3],["Pass",0,6],["Bell",13,6],["Magnet",9,7]],
+    witches: [
+      { name: "W1", start: [0,1], route: [[0,1],[13,1]], loop: false },
+      { name: "W2", start: [13,5], route: [[0,5],[13,5]], loop: false },
+      { name: "W3", start: [13,7], route: [[0,7],[13,7],[13,9],[0,9],[0,7]], loop: true },
+    ],
+    head: [5, 0],
+    start: [0,9], exit: [13,0], zone: { c: 4, r: 1, w: 6 },
+    bottleneck: { c: 10, r: 0, w: 4, h: 2, label: "FINAL BOTTLENECK" },
+  },
+};
+
+const x = c => PAD + c * CELL, y = r => PAD + r * CELL;
+const cx = c => x(c) + CELL / 2, cy = r => y(r) + CELL / 2;
+
+function txt(X, Y, s, size = 10, weight = 600, fill = "#1a1a1a") {
+  return `<text x="${X}" y="${Y}" font-size="${size}" font-weight="${weight}" fill="${fill}" text-anchor="middle" dominant-baseline="central">${s}</text>`;
+}
+const tri = (X, Y, s) => `${X},${Y - s} ${X + s * 0.95},${Y + s * 0.7} ${X - s * 0.95},${Y + s * 0.7}`;
+
+function drawMap(id) {
+  const L = levels[id];
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
+  s += `<defs><marker id="arr${id}" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4fa8"/></marker></defs>`;
+  // grid labels
+  for (let c = 0; c < COLS; c++) s += txt(cx(c), PAD / 2, COL_NAMES[c], 10, 500, "#777");
+  for (let r = 0; r < ROWS; r++) s += txt(PAD / 2, cy(r), r + 1, 10, 500, "#777");
+  // floor grid
+  for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++)
+    s += `<rect x="${x(c)}" y="${y(r)}" width="${CELL}" height="${CELL}" fill="#fff" stroke="#ddd"/>`;
+  // watch zone
+  if (L.zone) {
+    const z = L.zone;
+    s += `<rect x="${x(z.c)}" y="${y(z.r)}" width="${z.w * CELL}" height="${CELL}" fill="var(--zone)" stroke="#c44" stroke-dasharray="4 3"/>`;
+    s += txt(x(z.c) + z.w * CELL / 2, cy(z.r) + 14, "HEAD WITCH WATCH ZONE", 8, 700, "#a22");
+  }
+  // bottleneck marker
+  if (L.bottleneck) {
+    const b = L.bottleneck;
+    s += `<rect x="${x(b.c) + 1}" y="${y(b.r) + 1}" width="${b.w * CELL - 2}" height="${b.h * CELL - 2}" fill="none" stroke="#e08a00" stroke-width="3"/>`;
+    s += `<text x="${x(b.c) + 6}" y="${y(b.r) + b.h * CELL - 6}" font-size="9" font-weight="800" fill="#c06a00">${b.label}</text>`;
+  }
+  // walls + whiteboard
+  s += `<rect x="${PAD}" y="${PAD}" width="${COLS * CELL}" height="${ROWS * CELL}" fill="none" stroke="#222" stroke-width="3"/>`;
+  s += `<rect x="${x(1)}" y="${PAD - 6}" width="${3 * CELL}" height="5" fill="#666"/>`;
+  s += `<rect x="${x(10)}" y="${PAD - 6}" width="${2 * CELL}" height="5" fill="#666"/>`;
+  // witch routes
+  L.witches.forEach(w => {
+    const pts = w.route.map(([c, r]) => `${cx(c)},${cy(r)}`).join(" ");
+    s += `<polyline points="${pts}" fill="none" stroke="#7a4fa8" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arr${id})" ${w.loop ? "" : `marker-start="url(#arr${id})"`} opacity=".75"/>`;
+  });
+  // teacher desk
+  const t = L.teacher;
+  s += `<rect x="${x(t.c) + 2}" y="${y(t.r) + 4}" width="${t.w * CELL - 4}" height="${CELL - 8}" rx="3" fill="var(--teacher)" stroke="#222"/>`;
+  s += txt(x(t.c) + t.w * CELL / 2 + (L.head ? CELL / 2 : 0), cy(t.r), "Teacher Desk", 11, 700, "#fff");
+  // desks
+  L.desks.forEach(d => {
+    s += `<rect x="${x(d.c) + 3}" y="${y(d.r) + 6}" width="${2 * CELL - 6}" height="${CELL - 12}" rx="3" fill="var(--desk)" stroke="#222"/>`;
+    s += txt(x(d.c) + CELL, cy(d.r), "Desk", 11);
+  });
+  // chairs
+  L.chairs.forEach(([c, r]) => {
+    s += `<rect x="${x(c) + 8}" y="${y(r) + 8}" width="${CELL - 16}" height="${CELL - 16}" rx="2" fill="var(--chair)" stroke="#222"/>`;
+    s += txt(cx(c), cy(r), "Chair", 8.5);
+  });
+  // papers
+  L.papers.forEach(([c, r], i) => {
+    s += `<path d="M${x(c) + 12} ${y(r) + 8} h${CELL - 30} l6 6 v${CELL - 22} h${-(CELL - 24)} z" fill="var(--paper)" stroke="#222"/>`;
+    s += txt(cx(c), cy(r) + 1, `P${i + 1}`, 10, 700);
+  });
+  // power-ups
+  L.power.forEach(([n, c, r]) => {
+    s += `<circle cx="${cx(c)}" cy="${cy(r)}" r="${CELL / 2 - 4}" fill="var(--power)" stroke="#222"/>`;
+    s += txt(cx(c), cy(r), n, n.length > 5 ? 8.5 : 10, 700);
+  });
+  // doors
+  const door = ([c, r], label) => {
+    s += `<rect x="${x(c) + 3}" y="${y(r) + 3}" width="${CELL - 6}" height="${CELL - 6}" fill="none" stroke="var(--door)" stroke-width="2.5" stroke-dasharray="3 2"/>`;
+    s += txt(cx(c), cy(r), label, 9, 800);
+  };
+  door(L.start, "START");
+  door(L.exit, "EXIT");
+  // witch start positions
+  L.witches.forEach(w => {
+    const [c, r] = w.start;
+    s += `<polygon points="${tri(cx(c), cy(r) + 2, 17)}" fill="var(--witch)" stroke="#222"/>`;
+    s += txt(cx(c), cy(r) + 6, w.name, 10, 800);
+  });
+  if (L.head) {
+    const [c, r] = L.head;
+    s += `<polygon points="${tri(cx(c), cy(r) + 1, 15)}" fill="#7a3fb0" stroke="#222"/>`;
+    s += txt(cx(c), cy(r) + 5, "HW", 8, 800, "#fff");
+  }
+  // legend
+  const ly = PAD + ROWS * CELL + 14;
+  const items = [["#d9b98c","rect","Desk"],["#a8794a","rect","Teacher"],["#9fc5e8","rect","Chair"],["#fff7c2","rect","Paper"],["#8fd18f","circ","Power-up"],["#b48ad8","tri","Witch"]];
+  items.forEach(([f, k, n], i) => {
+    const lx = PAD + i * 88;
+    if (k === "rect") s += `<rect x="${lx}" y="${ly - 6}" width="14" height="12" fill="${f}" stroke="#222"/>`;
+    if (k === "circ") s += `<circle cx="${lx + 7}" cy="${ly}" r="7" fill="${f}" stroke="#222"/>`;
+    if (k === "tri") s += `<polygon points="${tri(lx + 7, ly + 1, 8)}" fill="${f}" stroke="#222"/>`;
+    s += `<text x="${lx + 20}" y="${ly}" font-size="11" dominant-baseline="central">${n}</text>`;
+  });
+  s += `<line x1="${PAD + 530}" y1="${ly}" x2="${PAD + 560}" y2="${ly}" stroke="#7a4fa8" stroke-width="2" stroke-dasharray="6 4"/><text x="${PAD + 566}" y="${ly}" font-size="11" dominant-baseline="central">Route</text>`;
+  s += `</svg>`;
+  document.getElementById(id).innerHTML = s;
+}
+
+function drawTracker(id, n) {
+  const per = 10, sz = 22;
+  let s = `<svg width="${per * sz + 2}" height="${Math.ceil(n / per) * sz + 2}">`;
+  for (let i = 0; i < n; i++) {
+    const X = (i % per) * sz + 1, Y = Math.floor(i / per) * sz + 1;
+    s += `<rect x="${X}" y="${Y}" width="${sz}" height="${sz}" fill="${i === n - 1 && n === 30 ? "#f4c7c7" : "#fff"}" stroke="#888"/>`;
+    s += `<text x="${X + sz / 2}" y="${Y + sz / 2}" font-size="9" fill="#888" text-anchor="middle" dominant-baseline="central">${i + 1}</text>`;
+  }
+  document.getElementById(id).innerHTML = s + `</svg>`;
+}
+
+function drawTokens() {
+  const S = CELL;
+  const one = inner => `<svg width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">${inner}</svg>`;
+  const out = [];
+  const student = one(`<circle cx="${S/2}" cy="${S/2}" r="${S/2-5}" fill="#f6a96b" stroke="#222"/>` + txt(S/2, S/2, "Student", 8.5, 800));
+  out.push(student, student);
+  ["W1","W2","W3"].forEach(n => { const t = one(`<polygon points="${tri(S/2, S/2+3, 17)}" fill="#b48ad8" stroke="#222"/>` + txt(S/2, S/2+7, n, 10, 800)); out.push(t, t); });
+  out.push(one(`<polygon points="${tri(S/2, S/2+3, 17)}" fill="#7a3fb0" stroke="#222"/>` + txt(S/2, S/2+7, "HW", 9, 800, "#fff")));
+  for (let i = 1; i <= 10; i++) out.push(one(`<path d="M12 8 h${S-30} l6 6 v${S-22} h${-(S-24)} z" fill="#fff7c2" stroke="#222"/>` + txt(S/2, S/2+1, "P" + i, 10, 700)));
+  ["Speed","Speed","Pass","Pass","Bell","Magnet"].forEach(n => out.push(one(`<circle cx="${S/2}" cy="${S/2}" r="${S/2-4}" fill="#8fd18f" stroke="#222"/>` + txt(S/2, S/2, n, n.length > 5 ? 8.5 : 10, 700))));
+  for (let i = 0; i < 4; i++) out.push(one(`<rect x="4" y="4" width="${S-8}" height="${S-8}" fill="#fff" stroke="#222"/>` + txt(S/2, S/2-6, "Sit-out", 8, 700) + txt(S/2, S/2+7, "turn", 8, 500)));
+  document.getElementById("tokens").innerHTML = out.join("");
+}
+
+drawMap("map1"); drawMap("map2");
+drawTracker("track1", 40); drawTracker("track2", 30);
+drawTokens();
+</script>
+</body>
+</html>
