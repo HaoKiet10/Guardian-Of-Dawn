@@ -2,7 +2,7 @@
 
 Mỗi folder là một bản đồ, gồm ảnh nền, 4 lớp tường theo cấp, file layout JSON và `README.md` ghi bố cục, thông số Unity và các hiệu ứng động cần code.
 
-Bản mẫu chạy được (có quái, tháp tự bắn, kỹ năng chỉ huy, ngày/đêm): https://claude.ai/artifact/7QeXzB3ZA9yPA9KdfVewdN. Bản offline: `Docs/Final Project/Guardian of Dawn - Map Prototype.html`, mở bằng trình duyệt.
+Bản mẫu chạy được (quái, tháp tự bắn, ngày/đêm): `Docs/Final Project/Guardian of Dawn - Map Prototype.html`, mở bằng trình duyệt.
 
 ## Quy cách chung
 - Góc 3/4 từ trên cao, phong cách hoạt hình vẽ tay: viền tím than đậm, tô bóng mềm, ánh sáng từ trên bên trái
@@ -31,12 +31,4 @@ Thứ tự vẽ: ảnh nền → lớp tường → tháp, quái, hiệu ứng (
 - `lights`, `fires`, `lanterns`, `beacons`: dùng cho Light 2D ban đêm (màu `r,g,b`, bán kính tính bằng unit)
 - `ambient`: điểm cho hoạt ảnh nền: cửa sổ có người ngó ra, khói từ mái sập, chỗ quạ đậu, giọt sáp, nắp cống bốc hơi, biển neon, hologram
 
-| Folder | Bản đồ | Trong GDD |
-|---|---|---|
-| `Outskirts` | 1 · Ngoại ô | có |
-| `Harbor` | 2 · Cầu cảng | có |
-| `OldTown` | 3 · Phố cổ đổ nát | có |
-| `WhitePlains` | 4 · Đồng bằng trắng | có |
-| `Observatory` | 5 · Đài thiên văn | có |
-| `FloodedQuarter` | Khu ngập lụt (trời mưa) | đề xuất, chưa có trong GDD |
-| `NewYork` | New York (cyberpunk) | đề xuất, chưa có trong GDD |
+Hiện chưa có folder bản đồ nào. Các bản đồ kiểu cũ đã bỏ; ảnh của 5 bản đồ mới (Ngoại ô, Cầu cảng, Phố cổ đổ nát, Đồng bằng trắng, Đài thiên văn) sẽ được xuất lại từ bản mẫu theo quy cách trên.
