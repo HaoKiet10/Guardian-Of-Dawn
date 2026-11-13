@@ -26,9 +26,15 @@ Thứ tự vẽ: ảnh nền → lớp tường → tháp, quái, hiệu ứng (
 - Toạ độ tính bằng unit, gốc ở góc dưới trái, trục y hướng lên: khớp với ảnh nền đặt ở (0, 0)
 - `grid`: 24 dòng × 40 ký tự, dòng đầu là hàng trên cùng. Nghĩa từng ký tự nằm trong `gridLegend`
 - `routes`: điểm giữa đường đi theo thứ tự quái đi, từ điểm xuất hiện tới tường
-- `buildZone.masksByWallLevel[cấp]`: 24 dòng chuỗi `0/1`, `1` là ô nhỏ xây được. Một ô xây (1 unit) hợp lệ khi đủ 2×2 ô nhỏ đều là `1`
-- `props`: đạo cụ kể chuyện (tên, đoạn chữ hiện khi rê chuột, `hope` = chi tiết hy vọng trong tiền đồn, `blocksBuilding`)
+- `buildZone.masksByWallLevel[cấp]`: 24 dòng chuỗi `0/1`, `1` là ô nhỏ xây được (GDD 4.5: giống nhau ở mọi cấp tường). Một ô xây (1 unit) hợp lệ khi đủ 2×2 ô nhỏ đều là `1`
+- `props`: đạo cụ có tên (tên, ghi chú hiện khi rê chuột, `blocksBuilding`)
 - `lights`, `fires`, `lanterns`, `beacons`: dùng cho Light 2D ban đêm (màu `r,g,b`, bán kính tính bằng unit)
 - `ambient`: điểm cho hoạt ảnh nền: cửa sổ có người ngó ra, khói từ mái sập, chỗ quạ đậu, giọt sáp, nắp cống bốc hơi, biển neon, hologram
 
-Hiện chưa có folder bản đồ nào. Các bản đồ kiểu cũ đã bỏ; ảnh của 5 bản đồ mới (Ngoại ô, Cầu cảng, Phố cổ đổ nát, Đồng bằng trắng, Đài thiên văn) sẽ được xuất lại từ bản mẫu theo quy cách trên.
+| Folder | Bản đồ |
+|---|---|
+| `Outskirts` | 1 · Ngoại ô |
+| `Harbor` | 2 · Cầu cảng |
+| `OldTown` | 3 · Phố cổ đổ nát |
+| `WhitePlains` | 4 · Đồng bằng trắng |
+| `Observatory` | 5 · Đài thiên văn |
