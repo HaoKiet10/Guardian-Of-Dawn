@@ -417,7 +417,7 @@ Hành động không hợp lệ: nút bị làm mờ, chi phí còn thiếu hi�
 **Quy định:**
 
 - Bản đồ chia thành ô xây; 1 ô = 1 unit. Công trình phải đặt ở vị trí đủ rộng (bằng hoặc lớn hơn kích thước của công trình), không chồng lên công trình khác, đống đổ nát hay lối đi.
-- **Đặt tự do:** công trình xây được trên mọi ô đất trống phía trước tường thành, ở mọi cấp tường; không xây trên lối đi, trên vật cản hay phía sau tường. Người chơi rải công trình dọc lối đi để đánh Dị Thể Sáp suốt quãng đường tới tường.
+- **Đặt tự do:** công trình xây được trên mọi ô đất trống phía trước tường thành, ở mọi cấp tường; không có ô xây cố định. Không xây trên lối đi, trên vật cản hay phía sau tường. Người chơi rải công trình dọc lối đi để đánh Dị Thể Sáp suốt quãng đường tới tường.
 - Xây xa tường không bị tấn công (Dị Thể Sáp không đánh công trình), nhưng Công binh phải đi xa hơn để xây lại sau bão, nên chậm hơn và dễ bị tấn công hơn.
 - Mỗi loại công trình có kích thước, loại và số lượng tài nguyên cần thiết khác nhau. Nâng cấp công trình cần mở khóa nghiên cứu nhất định.
 - Giới hạn binh lính: tối đa 3 đội lính cùng lúc (sau khi đã mở khóa binh lính qua nghiên cứu). Lính trấn thủ được đặt cố định tại một vị trí trên tường thành (chọn vào ban đêm).
@@ -851,11 +851,85 @@ Tiêu chí thành công của trải nghiệm đầu tiên (Đề xuất): ngư�
 
 **Bản đồ 2 – Cầu cảng.** Mục đích: hổ sáp buộc người chơi phủ tốc độ (Súng máy, Thợ săn, bẫy); 2 hướng tấn công chia nhỏ phòng tuyến; bão bắt đầu ngẫu nhiên. Bối cảnh: bến cảng, cần cẩu, container. Trùm: Hổ Sáp Đầu Đàn – lao thẳng vào tường, triệu hồi hổ con. Thời lượng dự kiến: 25–35 phút.
 
-**Bản đồ 3 – Phố cổ đổ nát.** Mục đích: Dị Thể Sáp hồi phục buộc phải có sát thương lan và chống hồi máu; đất xây hẹp làm mỗi ô xây quý giá hơn, và mất một công trình vì bão đau hơn. Bối cảnh: phố hẹp, nhà sụp, cây sáp mọc xuyên đường. Trùm: Cây Sáp Mẹ – đứng yên ở xa, hồi máu cho cả đợt. Thời lượng dự kiến: 30–40 phút.
+**Bản đồ 3 – Phố cổ đổ nát.** Mục đích: Dị Thể Sáp hồi phục buộc phải có sát thương lan và chống hồi máu; đất xây hẹp làm mỗi ô xây quý giá hơn, và mất một công trình vì bão đau hơn. Bối cảnh: phố hẹp, nhà sụp, cây sáp mọc xuyên đường. Trùm: Cây Sáp Mẹ – cây sáp khổng lồ đi bằng rễ về phía tường, hồi máu cho đám hộ tống quanh nó. Thời lượng dự kiến: 30–40 phút.
 
 **Bản đồ 4 – Đồng bằng trắng.** Mục đích: Dị Thể Sáp thấu kính đe dọa công trình bằng hội tụ; 3 hướng tấn công chia mỏng phòng tuyến. Bối cảnh: cánh đồng muối trắng, không chỗ che. Trùm: Lăng Kính Sống – hội tụ lên nhiều công trình cùng lúc. Thời lượng dự kiến: 30–40 phút.
 
 **Bản đồ 5 – Đài thiên văn.** Mục đích: kiểm tra mọi kỹ năng; bão thường xuyên nhất. Bối cảnh: đài thiên văn nơi Dị Thể Mặt Trời lần đầu được ghi nhận. Trùm: Khối Sáp Vạn Người – Dị Thể Sáp tối thượng lớn nhất, chậm, máu cực cao, tự hồi phục. Thời lượng dự kiến: 40–50 phút.
+
+#### Trùm (chi tiết)
+
+*Mọi con số trong phần này là đề xuất, cần cân bằng qua playtest.*
+
+**Quy tắc chung:**
+
+- Trùm là phiên bản lớn của bậc mới trên bản đồ đó: Tháp phóng lưới chỉ làm chậm, không trói được trùm.
+- Trùm chỉ kiểm tra những gì bản đồ đó đã dạy; lời giải luôn nghiên cứu được trước khi trùm xuất hiện.
+- Mọi kỹ năng nguy hiểm có cảnh báo hình ảnh ít nhất 2 giây.
+- Bình minh của ngày trước ngày trùm có cảnh báo “Trùm sắp xuất hiện”; khi trùm vào trận, thanh máu riêng của nó hiện trên HUD.
+- Kỹ năng theo ngưỡng máu (66%, 50%, 33%, 10%) kích hoạt đúng một lần khi máu trùm giảm qua ngưỡng đó.
+
+##### Trùm 1 – Sáp Nguyên Thủy (Ngoại ô, ngày 8)
+
+**Hình ảnh:** người đầu tiên trong vùng bị hóa sáp; một Dị Thể Sáp bậc 1 khổng lồ, trên người còn dính mảnh quần áo.
+
+- **Bong tróc (66% và 33% máu):** các mảng sáp rơi khỏi người, thành 8–10 Sáp vụn quanh trùm. Cảnh báo: vết nứt trên người phát sáng 3 giây. Lời giải: sát thương lan – Súng phun lửa, Súng cối, Tháp điện chuỗi.
+- **Bước nặng (luôn có):** chậm, máu rất cao, đánh tường rất mạnh. Lời giải: sát thương đơn mục tiêu (Súng máy, súng máy trên tường); Giữ vững của Lính trấn thủ khi trùm tới tường.
+
+**Kiểm tra:** sát thương đơn mục tiêu (trùm) và sát thương lan (bầy Sáp vụn) cùng lúc.
+
+**Khi chết:** sáp tan, để lộ thoáng chốc một hình người bên trong – mở đầu cho câu hỏi “Còn ai trong đó?” (R01, C1).
+
+##### Trùm 2 – Hổ Sáp Đầu Đàn (Cầu cảng, ngày 10)
+
+**Hình ảnh:** hổ đầu đàn hợp nhất với sáp, đầy sẹo, cổ còn vòng xích gãy.
+
+- **Vồ (mỗi ~15 giây):** cúi người rồi nhảy một quãng xa dọc lối đi, vượt qua vùng phủ của công trình. Cảnh báo: cúi người 2 giây, vạch đỏ chỉ điểm rơi. Lời giải: Hạ sát của Thợ săn trúng lúc trùm đang cúi sẽ hủy cú vồ; Tháp phóng lưới và Bẫy hắc ín kéo dài thời gian cúi.
+- **Gọi bầy (50% máu):** triệu hồi 4–6 hổ con (nhỏ, nhanh, máu thấp) từ cả hai hướng tấn công. Cảnh báo: tiếng gầm, mép màn hình nhấp nháy. Lời giải: phủ cả hai hướng – Súng máy, Tháp phóng lưới.
+
+- **Húc tường (đòn đầu tiên lên tường):** gây sát thương rất lớn. Cảnh báo: cúi đầu 1,5 giây. Lời giải: dùng Giữ vững đúng lúc.
+
+**Kiểm tra:** xử lý tốc độ, phủ hai hướng tấn công và canh thời điểm kỹ năng đội lính.
+
+##### Trùm 3 – Cây Sáp Mẹ (Phố cổ đổ nát, ngày 12)
+
+**Hình ảnh:** một cây sáp khổng lồ đi bằng rễ về phía tường thành, cành còn vướng mảnh nhà cũ. Trùm luôn di chuyển, không đứng yên.
+
+- **Rễ nuôi (luôn có):** Dị Thể Sáp quanh trùm hồi máu chậm khi nó đi, nên đám hộ tống rất khó giết. Cảnh báo: vòng xanh trên mặt đất quanh trùm. Lời giải: Dị Thể Sáp đang cháy hoặc dính dung môi không thể hồi máu; Mồi nhiệt kéo đám hộ tống ra khỏi vòng.
+- **Vỏ cây (luôn có):** lớp vỏ dày phía trước giảm mạnh sát thương đánh trực diện, giống Sáp vỏ cua. Lời giải: Súng cối bắn từ trên; Tháp phun dung môi làm tan vỏ trong vài giây.
+
+- **Gieo hạt (66% và 33% máu):** thả 4–6 quả hạt dọc lối đi phía sau; mỗi quả nở thành một Dị Thể Sáp hồi phục sau 5 giây. Cảnh báo: quả hạt nhấp nháy. Lời giải: sát thương lan lên quả hạt trước khi nở – Súng cối, Súng phun lửa.
+
+**Kiểm tra:** chống hồi máu, xuyên giáp phía trước (đã dạy qua Sáp vỏ cua ở bản đồ 2) và sát thương lan.
+
+##### Trùm 4 – Lăng Kính Sống (Đồng bằng trắng, ngày 12)
+
+**Hình ảnh:** một lăng kính sống bằng nước và muối, tách ánh sáng mặt trời thành các tia.
+
+- **Hội tụ (mỗi ~20 giây):** dừng cạnh công trình gần nhất và hội tụ ánh sáng lên nó như Dị Thể Sáp bậc 4, nhưng tầm xa hơn. Cảnh báo: tia sáng nạp trong 5 giây. Lời giải: Tháp làm lạnh ngắt hội tụ; Cột thu sáng và Giáp phản quang bảo vệ công trình.
+- **Hội tụ đa điểm (một lần, 50% máu):** đánh dấu 3 công trình và phá hủy chúng như tia bão. Cảnh báo: 3 tia nạp trong 5 giây. Lời giải: như Hội tụ, thêm Dựng khẩn cấp để xây lại.
+
+- **Da gương (luôn có):** phản lại một phần sát thương đơn mục tiêu. Lời giải: lửa, Tháp điện chuỗi và Súng cối không bị phản.
+- **Mở lõi (khi đang nạp tia):** trùm nhận gấp đôi sát thương. Cảnh báo: lõi phát sáng. Lời giải: dồn sát thương lúc này – Pháo xuyên giáp, Hạ sát.
+
+**Kiểm tra:** bảo vệ công trình khỏi ánh sáng (chủ đề của bản đồ 4) và nhịp phòng thủ rồi dồn sát thương.
+
+**Khi chết:** để lại NL4 – Lõi khúc xạ.
+
+##### Trùm 5 – Khối Sáp Vạn Người (Đài thiên văn, ngày 15)
+
+**Hình ảnh:** một khối sáp chậm chạp như ngọn núi, hợp nhất từ hàng nghìn người, những khuôn mặt hiện trên bề mặt.
+
+- **Hấp thụ (luôn có):** chậm, tự hồi máu và hấp thụ Dị Thể Sáp chết gần đó để hồi thêm. Cảnh báo: xác bị kéo về phía trùm. Lời giải: lửa hoặc dung môi chặn hồi máu; Mồi nhiệt kéo Dị Thể Sáp nhỏ ra xa để giết chúng xa trùm.
+- **Vạn người (hai lần, 66% và 33% máu):** sinh ra hỗn hợp mọi bậc kèm Sáp kích động tăng tốc cả bầy. Cảnh báo: các khuôn mặt gào thét. Lời giải: Tháp phóng lưới, Thợ săn ưu tiên Sáp kích động, sát thương lan.
+
+- **Trái tim cuối cùng (10% máu):** lớp vỏ ngoài hóa cứng – công trình và súng máy trên tường không còn gây sát thương. Trái tim mở ra trên lưng và chỉ đội lính đánh được vào nó. Trùm đi nhanh hơn về phía tường; nếu tới tường, nó rút máu tường rất nhanh. Cảnh báo: thân nứt, tim phát sáng, màn hình tối lại 3 giây. Lời giải: Thợ săn đuổi theo và đánh vào tim (Hạ sát gây sát thương lớn); Lính trấn thủ bắn tim khi trùm tới gần tường, Giữ vững câu thêm thời gian; Công binh sửa tường trong lúc trùm lao tới.
+
+**Kiểm tra:** mọi thứ – và đòn kết liễu phải đến từ những đội lính người chơi đã giữ được qua cả chiến dịch.
+
+**Khi chết:** sáp chảy tràn, những người bị giam bên trong hiện ra; trái tim còn lại là NL5 – Tim sáp, dẫn thẳng vào đêm cuối và C5.
+
+**Câu hỏi mở:** người chơi không có đội lính nào sẽ không thể thắng Trái tim cuối cùng. Đề xuất: bình minh hôm trước nhắc “Hãy chuẩn bị đội lính”, và nếu không có đội nào thì lớp vỏ cứng chỉ kéo dài 20 giây.
 
 ### 5.4 Tuyến đường chính và bố cục bản đồ
 
@@ -868,13 +942,65 @@ Bố cục bản đồ chơi (sơ đồ khái niệm):
 ```
  [Hướng tấn công A]        [Hướng tấn công B]
         │                          │
-        ▼        ô xây             ▼
+        ▼      đất trống           ▼
    ─────┼── ô đất trống: đặt tự do ──┼─────
         │    (công trình dọc lối đi)  │
         ▼                          ▼
  ══ TƯỜNG THÀNH (một thanh máu chung · súng máy trên tường) ══
             tiền đồn · người đã được chữa (từ C4)
 ```
+
+Bố cục thực tế của từng bản đồ (ảnh chụp bản mẫu trong Google Doc và `Guardian of Dawn - Map Prototype.html`; ảnh dưới đây là ảnh nền bản đồ trong `Assets/Art/Maps/`):
+
+#### Bản đồ 1 – Ngoại ô
+
+- **Hướng tấn công:** 1 – HƯỚNG 1 ở rìa trên.
+- **Tuyến đường:** lối chữ S dài qua khu dân cư bỏ hoang, kết thúc ở tường thành góc dưới bên phải.
+- **Bố trí:** đất xây rộng; công trình đặt tự do trên đất trống dọc hai bên đường; nhiều khúc cua giúp một công trình phủ được nhiều đoạn đường.
+
+![Bố cục Bản đồ 1 – Ngoại ô (bản mẫu)](../../Assets/Art/Maps/Outskirts/map_outskirts_background.png)
+
+*Bố cục Bản đồ 1 – Ngoại ô (bản mẫu).*
+
+#### Bản đồ 2 – Cầu cảng
+
+- **Hướng tấn công:** 2 – HƯỚNG 1 (đất liền, rìa trên) và HƯỚNG 2 (cầu tàu, rìa trái).
+- **Tuyến đường:** HƯỚNG 1 đi lối ván gỗ uốn vòng trên đất liền; HƯỚNG 2 đi cầu tàu hình chữ U trên mặt nước; hai lối gặp nhau ở tiền đồn sát bờ, mép phải.
+- **Bố trí:** mặt nước chia đôi phòng tuyến; trên mặt nước chỉ xây được trên các bệ nổi giữa các khúc cầu tàu (đất trống, đặt tự do). Container, cần cẩu và tàu hàng mắc cạn chỉ để trang trí.
+
+![Bố cục Bản đồ 2 – Cầu cảng (bản mẫu)](../../Assets/Art/Maps/Harbor/map_harbor_background.png)
+
+*Bố cục Bản đồ 2 – Cầu cảng (bản mẫu).*
+
+#### Bản đồ 3 – Phố cổ đổ nát
+
+- **Hướng tấn công:** 2 – HƯỚNG 1 (rìa trái) và HƯỚNG 2 (rìa phải), bố trí đối xứng.
+- **Tuyến đường:** mỗi hướng vòng quanh quảng trường cây sáp vàng, nhập lại ở cây cầu duy nhất qua kênh, rồi chạy dọc phía dưới tới tường thành góc dưới bên phải.
+- **Bố trí:** cây cầu là nút thắt chung; đất xây hẹp, đất trống chủ yếu nằm trong quảng trường và giữa các khúc đường.
+
+![Bố cục Bản đồ 3 – Phố cổ đổ nát (bản mẫu)](../../Assets/Art/Maps/OldTown/map_old_town_background.png)
+
+*Bố cục Bản đồ 3 – Phố cổ đổ nát (bản mẫu).*
+
+#### Bản đồ 4 – Đồng bằng trắng
+
+- **Hướng tấn công:** 3 – HƯỚNG 1 (rìa trên), HƯỚNG 2 (rìa trái), HƯỚNG 3 (rìa phải).
+- **Tuyến đường:** ba lối uốn khúc dồn về tiền đồn ở giữa, sát bờ biển: HƯỚNG 1 đánh vào cổng trên, HƯỚNG 2 vào cạnh trái, HƯỚNG 3 qua cầu gỗ nhỏ vào cạnh phải.
+- **Bố trí:** ruộng muối trắng bằng phẳng, không có chỗ che; phòng tuyến bị chia ba nên người chơi phải chọn hướng cần phủ mạnh nhất.
+
+![Bố cục Bản đồ 4 – Đồng bằng trắng (bản mẫu)](../../Assets/Art/Maps/WhitePlains/map_white_plains_background.png)
+
+*Bố cục Bản đồ 4 – Đồng bằng trắng (bản mẫu).*
+
+#### Bản đồ 5 – Đài thiên văn
+
+- **Hướng tấn công:** 3 – HƯỚNG 1 (phía trên, cạnh đài thiên văn), HƯỚNG 2 (rìa trái), HƯỚNG 3 (rìa phải).
+- **Tuyến đường:** các lối đi qua cầu gỗ bắc ngang vực rồi dồn về tiền đồn ở giữa; HƯỚNG 1 và HƯỚNG 2 đánh vào cạnh trái, HƯỚNG 3 vào cạnh phải.
+- **Bố trí:** mỏm núi tuyết bị chia cắt bởi vực; cầu gỗ là nút thắt tự nhiên; đất xây hẹp, chỉ có trên các mỏm cạnh đường.
+
+![Bố cục Bản đồ 5 – Đài thiên văn (bản mẫu)](../../Assets/Art/Maps/Observatory/map_observatory_background.png)
+
+*Bố cục Bản đồ 5 – Đài thiên văn (bản mẫu).*
 
 ### 5.5 Nhiệm vụ và thử thách
 
@@ -939,7 +1065,7 @@ Chi tiết từng bản đồ ở mục 5.3.
 
 **Binh lính:** Lính trấn thủ, Thợ săn, Công binh – tối đa 3 đội; mở khóa qua nghiên cứu; huấn luyện, nâng cấp, có skill tree và cấp bậc riêng của từng đội.
 
-**Ô xây và lối đi:** ô xây được tô sáng khi đang đặt công trình; lối đi của Dị Thể Sáp hiển thị bằng mũi tên mờ vào ban đêm.
+**Đất trống và lối đi:** khi đang đặt công trình, các ô đất trống đặt được sẽ được tô sáng (không có ô xây cố định); lối đi của Dị Thể Sáp hiển thị bằng mũi tên mờ vào ban đêm.
 
 ### 6.5 Thời tiết, ngày/đêm và thời gian
 
@@ -1117,18 +1243,19 @@ Quy cách chung: ô 128×128 px, Pixels Per Unit = 128; mỗi thư mục có `RE
 
 ### 9.1 HUD
 
-| Thành phần | Vị trí (Đề xuất) | Hiển thị khi |
-|---|---|---|
-| Bộ đếm ngày “Ngày X/N” + biểu tượng trùm ở ngày cuối | Trên giữa | Luôn luôn |
-| Tài nguyên | Trên trái | Luôn luôn |
-| Mẫu vật M1–M5 (chỉ các loại đã gặp) | Trên trái, dưới tài nguyên | Luôn luôn |
-| Nghiên cứu đang chạy + số đêm còn lại | Trên phải | Có nút đang nghiên cứu |
-| Thanh máu tường thành | Trên giữa, cạnh bộ đếm ngày | Luôn luôn; nhấp nháy khi < 25% |
-| Thẻ đội lính (máu, cấp bậc, kỹ năng hồi) | Dưới trái | Đã có đội |
-| Thanh xây dựng (công trình đã mở khóa + giá) | Dưới giữa | Ban đêm |
-| Banner cảnh báo bão / bình minh | Trên giữa, dưới bộ đếm ngày | Bình minh, khi bão nhắm mục tiêu |
-| Thanh máu trùm | Trên giữa | Khi trùm xuất hiện |
-| Tạm dừng / tốc độ ×1 ×2 | Trên phải | Ban ngày |
+| # | Thành phần | Vị trí (Đề xuất) | Hiển thị khi |
+|---|---|---|---|
+| 1 | Bộ đếm ngày “Ngày X/N” + biểu tượng trùm ở ngày cuối | Trên giữa | Luôn luôn |
+| 2 | Tài nguyên | Trên trái | Luôn luôn |
+| 3 | Mẫu vật M1–M5 (chỉ các loại đã gặp) | Trên trái, dưới tài nguyên | Luôn luôn |
+| 4 | Nghiên cứu đang chạy + số đêm còn lại | Trên phải | Có nút đang nghiên cứu |
+| 5 | Thanh máu tường thành | Trên giữa, cạnh bộ đếm ngày | Luôn luôn; nhấp nháy khi < 25% |
+| 6 | Thẻ đội lính (máu, cấp bậc, kỹ năng hồi) | Dưới trái | Đã có đội |
+| 7 | Thanh xây dựng (công trình đã mở khóa + giá) | Dưới giữa | Ban đêm |
+| 8 | Banner cảnh báo bão / bình minh | Trên giữa, dưới bộ đếm ngày | Bình minh, khi bão nhắm mục tiêu |
+| 9 | Thanh máu trùm | Trên giữa | Khi trùm xuất hiện |
+| 10 | Tạm dừng / tốc độ ×1 ×2 | Trên phải | Ban ngày |
+| 11 | Nút “Đón bình minh” | Dưới phải | Ban đêm |
 
 Ưu tiên khi chồng nhau: cảnh báo bão > máu trùm > thông báo khác.
 
@@ -1151,6 +1278,8 @@ Trong trận
 ├── Ban đêm: Thanh xây dựng · Mạng nghiên cứu · Đội lính · Nút “Đón bình minh”
 └── Tạm dừng: Tiếp tục · Cài đặt · Về bản đồ chiến dịch (xác nhận) · Thoát game (xác nhận)
 ```
+
+Màn hình chính – bản mẫu: menu gồm đúng các mục của Menu chính ở trên; dòng dưới cùng hiện tiến trình chiến dịch (bản đồ, nguyên liệu, cột mốc chữa trị). Ảnh bản mẫu: xem Google Doc.
 
 Mọi màn hình đều có nút Quay lại và phím Esc dẫn về màn hình trước; các hành động làm mất tiến độ luôn có hộp xác nhận.
 
@@ -1227,18 +1356,18 @@ Xây dựng thành công: công trình xuất hiện kèm âm thanh và hiệu �
 
 ### 9.9 Danh sách màn hình và wireframe
 
-Chưa có wireframe. Các màn hình cần wireframe trước khi làm giao diện (Đề xuất, đặt tại `Docs/Final Project/Wireframes/`):
+Đã có bản mẫu cho menu chính (mục 9.2); các màn hình còn lại cần wireframe trước khi làm giao diện (Đề xuất, đặt tại `Docs/Final Project/Wireframes/`):
 
-| Mã | Màn hình | Liên quan |
-|---|---|---|
-| UI-01 | Menu chính | 9.2 |
-| UI-02 | Bản đồ chiến dịch | 5.4, 9.2 |
-| UI-03 | HUD ban đêm (thanh xây dựng) | 9.1 |
-| UI-04 | HUD ban ngày (đội lính, tốc độ, cảnh báo bão) | 9.1 |
-| UI-05 | Mạng nghiên cứu | 4.9 |
-| UI-06 | Hồ sơ / lore | 7.6 |
-| UI-07 | Tổng kết ngày | 3.4 |
-| UI-08 | Dawnhold đã thất thủ (màn hình chờ) | 3.5 |
+| Mã | Màn hình | Liên quan | Bản mẫu |
+|---|---|---|---|
+| UI-01 | Menu chính | 9.2 | Có (mục 9.2) |
+| UI-02 | Bản đồ chiến dịch | 5.4, 9.2 | Chưa |
+| UI-03 | HUD ban đêm (thanh xây dựng) | 9.1 | Chưa |
+| UI-04 | HUD ban ngày (đội lính, tốc độ, cảnh báo bão) | 9.1 | Chưa |
+| UI-05 | Mạng nghiên cứu | 4.9 | Chưa |
+| UI-06 | Hồ sơ / lore | 7.6 | Chưa |
+| UI-07 | Tổng kết ngày | 3.4 | Chưa |
+| UI-08 | Dawnhold đã thất thủ (màn hình chờ) | 3.5 | Chưa |
 
 Luồng chuyển màn hình: xem sơ đồ ở mục 3.5.
 
