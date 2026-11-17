@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f820c260f55f64586ab7f4d7a797f9, type: 3}
   m_Name: Standard Wax
   m_EditorClassIdentifier: Assembly-CSharp::GuardianOfDawn.WaxDefinition
-  displayName: Standard Wax
+  displayName: "D\u1ECB th\u1EC3 s\xE1p ti\xEAu chu\u1EA9n"
   maxHp: 20
   speed: 2
   wallDamagePerSecond: 1

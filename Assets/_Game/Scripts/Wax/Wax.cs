@@ -1,5 +1,4 @@
 using UnityEngine;
-
 namespace GuardianOfDawn
 {
     public class Wax : MonoBehaviour
@@ -7,10 +6,12 @@ namespace GuardianOfDawn
         [SerializeField] private WaxDefinition definition;
         [SerializeField] private WaxPath path;
         [SerializeField] private float hp;
+        [SerializeField] private float distanceTraveled = 0f; 
         [SerializeField] private int nextWayPoint;
         [SerializeField] private WaxState state;
 
         public WaxState State => state;
+        public float DistanceTraveled => distanceTraveled;
         public event System.Action<Wax> Died;
 
         public void Init(WaxDefinition definition, WaxPath path)
@@ -55,8 +56,10 @@ namespace GuardianOfDawn
 
         private void Walk()
         {
+            Vector2 currentPosition = this.transform.position;
             Vector2 target = this.path.GetPoint(this.nextWayPoint);
             this.transform.position = Vector2.MoveTowards(this.transform.position, target, this.definition.Speed * Time.deltaTime);
+            this.distanceTraveled += Vector2.Distance(currentPosition, this.transform.position);
 
             if ((Vector2)this.transform.position == target)
             {
@@ -96,6 +99,16 @@ namespace GuardianOfDawn
             this.state = WaxState.Dead;
             Died?.Invoke(this);
             Destroy(gameObject);
+        }
+
+        private void OnEnable()
+        {
+            WaxRegistry.Register(this);
+        }
+
+        private void OnDisable()
+        {
+            WaxRegistry.Unregister(this);
         }
 
         [ContextMenu("Test: hit for 10")]
