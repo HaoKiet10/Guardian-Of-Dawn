@@ -3,7 +3,9 @@ using UnityEngine;
 namespace GuardianOfDawn {
     public class WaxPath : MonoBehaviour {
         [SerializeField] private Transform[] waypoints;
+        [SerializeField] private Wall wall;
         public int Count => waypoints.Length;
+        public Wall Wall => wall;
 
         public Vector2 GetPoint(int index)
         {

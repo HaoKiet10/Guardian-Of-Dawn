@@ -64,14 +64,18 @@ namespace GuardianOfDawn
                 if (nextWayPoint >= path.Count)
                 {
                     this.state = WaxState.AttackingTheWall;
-                    Debug.Log(this.definition.DisplayName + "has reached the wall");
+                    Debug.Log(this.definition.DisplayName + " has reached the wall");
                 }
             }
         }
 
         private void AttackWall()
         {
-            
+            if (this.path.Wall)
+            {
+                this.path.Wall.TakeDamage(definition.WallDamagePerSecond * Time.deltaTime);
+            }
+            return;
         }
 
         public void TakeHit(Hit hit)

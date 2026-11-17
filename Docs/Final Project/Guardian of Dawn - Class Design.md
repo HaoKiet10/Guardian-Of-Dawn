@@ -18,7 +18,7 @@ flowchart TB
 | Layer | What it is | Examples |
 |---|---|---|
 | Game systems | Plain C# (`new`), or one manager MonoBehaviour | `DayNightCycle`, `WaveSpawner`, `ResearchNetwork` |
-| Scene objects | Components on GameObjects in the scene, created with `Instantiate` | `Structure`, `Wax`, `Squad`, `WallSegment` |
+| Scene objects | Components on GameObjects in the scene, created with `Instantiate` | `Structure`, `Wax`, `Squad`, `Wall` |
 | Definitions | Data assets edited in the Inspector, shared by every copy | `MachineGun.asset`, `TigerWax.asset`, `Map1.asset` |
 | Behaviour pieces | Small swappable classes that vary behaviour | `SingleShot`, `FrontShell`, `Burning` |
 
@@ -258,7 +258,7 @@ classDiagram
     +UseSkill()
   }
   IDamageable <|.. Combatant
-  IDamageable <|.. WallSegment
+  IDamageable <|.. Wall
   Combatant <|-- Wax
   Combatant <|-- Squad
   Wax --> WaxDefinition
@@ -266,7 +266,7 @@ classDiagram
   Structure --> StructureDefinition
 ```
 
-`Wax` and `Squad` share `Combatant` because both have HP and both get hit. `Structure` is deliberately outside this tree (D3). `IDamageable` is what wax attack: squads and wall segments.
+`Wax` and `Squad` share `Combatant` because both have HP and both get hit. `Structure` is deliberately outside this tree (D3). `IDamageable` is what wax attack: squads and the wall.
 
 ## 5. Game systems
 
@@ -331,14 +331,11 @@ classDiagram
   }
   class Wall {
     +int level
+    +float hp
+    +TakeDamage(float amount)
+    +Repair(float amount)
     +Upgrade()
   }
-  class WallSegment {
-    +int hp
-    +TakeHit(Hit h)
-    +Repair(int amount)
-  }
-  Wall *-- WallSegment
 
   class ResearchNetwork {
     +CanResearch(ResearchNode n) bool
@@ -375,7 +372,7 @@ One day: `DayNightCycle` raises `PhaseChanged` → at Dawn `SolarStormSystem.Rol
 | Arrow | Meaning | Example |
 |---|---|---|
 | `<\|--` solid, hollow triangle | Inheritance ("is-a") | `Wax` is a `Combatant` |
-| `<\|..` dashed, hollow triangle | Implements an interface | `WallSegment` implements `IDamageable` |
+| `<\|..` dashed, hollow triangle | Implements an interface | `Wall` implements `IDamageable` |
 | `*--` filled diamond | Composition: owns it, same lifetime | `MapSession` owns `Wall` |
 | `o--` hollow diamond | Aggregation: has it, can be swapped | `Structure` has a `StructureAction` |
 | `-->` plain arrow | Association: uses / reads | `Wax` reads `WaxDefinition` |
