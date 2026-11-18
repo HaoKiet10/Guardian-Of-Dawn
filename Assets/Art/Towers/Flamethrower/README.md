@@ -16,29 +16,38 @@ Màu riêng: đỏ cam lửa `#ef5b31` ở khối đầu, bình nhiên liệu đ
 - `Base`: bệ tròn thấp có vành sọc vàng đen, sàn thép tối, hai bình nhiên liệu đỏ nằm ngang phía sau nối ống đồng vào vòng xoay. Không đổi theo hướng
 - `Head`: khối đầu đỏ cam thấp và rộng, vòi phun ngắn loe miệng, đèn mồi lửa ở đầu vòi. Vẽ sẵn 8 hướng (5 vẽ + 3 lật ngang)
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_flamethrower_base_idle.png` | Base | idle, đèn trạng thái cam nháy | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_flamethrower_base_build.png` | Base | build, chạy 1 lần | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_flamethrower_base_destroy.png` | Base | destroy, frame 2 bình bùng lửa, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_flamethrower_head_idle.png` | Head | idle, đèn mồi lửa nháy | 5 hàng × 2 frame | 2 | 256×640 |
-| `tower_flamethrower_head_fire_start.png` | Head | mồi lửa: miệng vòi sáng dần, đầu vòi đỏ sẫm | 5 hàng × 3 frame | 10 | 384×640 |
-| `tower_flamethrower_head_fire_loop.png` | Head | phun: đầu vòi nóng đỏ, miệng vòi nháy, rung 1 px | 5 hàng × 4 frame | 12 | 512×640 |
-| `tower_flamethrower_head_fire_end.png` | Head | tắt lửa: khói bốc lên, đầu vòi nguội dần | 5 hàng × 3 frame | 10 | 384×640 |
-| `tower_flamethrower_base_upgrade1.png` | Base | phụ kiện bậc 1: bình thứ ba phía sau, can xăng góc phải | 1 ô | không | 128×128 |
-| `tower_flamethrower_head_upgrade1.png` | Head | phụ kiện bậc 1: tấm chắn nhiệt hai bên vòi, tấm che trước | 5 hàng × 1 | không | 128×640 |
-| `tower_flamethrower_base_upgrade2.png` | Base | phụ kiện bậc 2: bình áp suất lớn vạch đỏ, ống dẫn đôi | 1 ô | không | 128×128 |
-| `tower_flamethrower_head_upgrade2.png` | Head | phụ kiện bậc 2: hai ống áp lực vạch đỏ, bình nén nhỏ | 5 hàng × 1 | không | 128×640 |
-| `vfx_flame_cone.png` | VFX | luồng lửa hình nón, gốc ở giữa mép trái, hướng sang phải | 1 hàng × 4 frame | 12 | 512×64 (ô 128×64) |
-| `vfx_burning.png` | VFX | lửa nhỏ bám trên Dị Thể Sáp đang cháy, đáy lửa ở dòng 28 | 1 hàng × 4 frame | 10 | 128×32 (ô 32×32) |
+| `tower_flamethrower_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_flamethrower_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_flamethrower_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_flamethrower_t0_head_fire_end.png` | 0 | Head | fire_end | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_flamethrower_t0_head_fire_loop.png` | 0 | Head | fire_loop | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_flamethrower_t0_head_fire_start.png` | 0 | Head | fire_start | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_flamethrower_t0_head_idle.png` | 0 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_flamethrower_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_flamethrower_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_flamethrower_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_flamethrower_t1_head_fire_end.png` | 1 | Head | fire_end | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_flamethrower_t1_head_fire_loop.png` | 1 | Head | fire_loop | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_flamethrower_t1_head_fire_start.png` | 1 | Head | fire_start | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_flamethrower_t1_head_idle.png` | 1 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_flamethrower_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_flamethrower_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_flamethrower_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_flamethrower_t2_head_fire_end.png` | 2 | Head | fire_end | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_flamethrower_t2_head_fire_loop.png` | 2 | Head | fire_loop | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_flamethrower_t2_head_fire_start.png` | 2 | Head | fire_start | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_flamethrower_t2_head_idle.png` | 2 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
 
-**Thứ tự hàng trong sheet Head:** Nam (S), Đông Nam (SE), Đông (E), Đông Bắc (NE), Bắc (N).
-Tây Nam, Tây, Tây Bắc dùng hàng SE, E, NE lật ngang (flipX).
-
-- Build và destroy đã vẽ sẵn đầu súng hướng Đông Nam. Code ẩn Head khi bắt đầu phá hủy, bật Head thật sau frame cuối của build.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base hoặc Head. Bậc 2 gắn chồng lên bậc 1.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: bình nhiên liệu vỡ thành cầu lửa, đống đổ nát còn cháy. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/flamethrower.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 flamethrower`.
 
 ## Nhịp phun
 Tìm hướng (`idle`) → `fire_start` 0.3 s → `fire_loop` lặp chừng nào còn mục tiêu trong tầm → `fire_end` 0.3 s → `idle`.
