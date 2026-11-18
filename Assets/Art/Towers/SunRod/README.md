@@ -16,23 +16,29 @@ Silhouette: cây kim mảnh và cao. Footprint nhỏ nhất trong các tháp (kh
 ## Lớp sprite
 - `Base`: một lớp duy nhất, không xoay, không có 8 hướng. Bệ bê tông nhỏ có sọc cảnh báo, hộp đồng bát giác, thân cột trắng với hai cuộn dây đồng, hai sứ cách điện, chóp ba chấu giữ tinh thể, một dây nối đất xuống cọc ở góc bệ
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_sun_rod_base_idle.png` | Base | idle, frame 1 tinh thể lóe sáng | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_sun_rod_base_build.png` | Base | build, chạy 1 lần, frame 4 lắp tinh thể | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_sun_rod_base_absorb.png` | Base | hút tia: tia chạm đỉnh, cột trắng rực, cuộn dây cam rồi đỏ, frame 5 tinh thể nứt | 1 hàng × 6 frame | 12 | 768×128 |
-| `tower_sun_rod_base_destroy.png` | Base | nóng chảy, gập, gãy đổ; frame 5 = chân bệ cháy đen, gốc cột cụt, vũng đồng, mảnh tinh thể | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_sun_rod_base_upgrade1.png` | Base | phụ kiện bậc 1: vòng sáu cánh gương và vành vàng quanh chân tinh thể | 1 ô | không | 128×128 |
-| `tower_sun_rod_base_upgrade2.png` | Base | phụ kiện bậc 2: dây nối đất thứ hai bên trái, đèn báo đỏ | 1 ô | không | 128×128 |
-| `vfx_storm_bolt.png` | VFX | tia bão: frame 0 tia dẫn mờ, frame 1 đến 3 tia chính rồi tắt dần, đốm chạm ở đáy | 1 hàng × 4 frame | 12 | 256×256 (ô 64×256) |
-| `vfx_absorb_spark.png` | VFX | tia lửa điện tỏa ra khi cột hút tia | 1 hàng × 3 frame | ~14 | 192×64 (ô 64×64) |
-| `_preview_tower.png` | không | chỉ để xem: cấp 0, bậc 1, bậc 2 ghép | không | không | 512×128 |
+| `tower_sun_rod_t0_base_absorb.png` | 0 | Base | absorb | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_sun_rod_t1_base_absorb.png` | 1 | Base | absorb | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_sun_rod_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t2_base_absorb.png` | 2 | Base | absorb | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_sun_rod_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_sun_rod_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
 
-- Build kết thúc bằng frame giống idle. Destroy luôn chạy ngay sau absorb, không cần chuyển cảnh.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base. Bậc 2 gắn chồng lên bậc 1.
-- Khi chạy absorb, phụ kiện vẫn hiện và được tint trắng cùng nhịp (frame 0 đến 5: 30%, 85%, 60%, 25%, 0, 0). Ẩn phụ kiện khi bắt đầu destroy. Cột xây lại mất cấp nâng cấp như mọi công trình.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: tinh thể vỡ lóe vàng, đồng nóng chảy bắn ra. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/sun_rod.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 sun_rod`.
 
 ## Nhịp hoạt động
 Bão chọn mục tiêu → vòng cảnh báo dùng chung 10 giây trên công trình bị nhắm (0.7 giây cuối hiện `vfx_storm_bolt` frame 0 chớp tắt phía trên mục tiêu) → tia rơi thẳng xuống 0.14 s tới điểm bẻ góc, cao khoảng 1.2 unit trên mục tiêu → đoạn thứ hai lao vào điểm nhận tia của cột trong 0.08 s → `base_absorb` 0.5 s cùng `vfx_absorb_spark` ~0.2 s → `base_destroy` 0.6 s → giữ frame cuối tới khi xây lại.
