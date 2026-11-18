@@ -1,0 +1,17 @@
+<!doctype html>
+<!-- PROTOTYPE - NOT FOR PRODUCTION
+     Renders every sheet of one tower and prints "Folder/file|dataURL" lines into #out.
+     Driven headlessly by export.ps1 (Chrome --dump-dom). -->
+<html><head><meta charset="utf-8"><title>export</title></head><body>
+<pre id="out"></pre>
+<script src="lib/draw.js"></script><script src="lib/anim.js"></script><script src="lib/sheet.js"></script><script src="lib/destroy_fx.js"></script>
+<script>
+const id=new URLSearchParams(location.search).get('t');
+const s=document.createElement('script');s.src='towers/'+id+'.js';
+s.onload=()=>{const tw=TOWERS[id];const lines=[];
+  tw.sheets.forEach(def=>lines.push(tw.folder+'/'+def.file+'|'+SH.render(tw,def,1).toDataURL('image/png')));
+  lines.push(tw.folder+'/Preview~/_preview_tower.png|'+SH.preview(tw).toDataURL('image/png'));
+  document.getElementById('out').textContent=lines.join('\n');};
+s.onerror=()=>{document.getElementById('out').textContent='ERROR missing towers/'+id+'.js'};
+document.body.appendChild(s);
+</script></body></html>

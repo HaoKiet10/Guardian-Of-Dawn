@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- PROTOTYPE - NOT FOR PRODUCTION — gallery of every tower mockup (3 tiers each). -->
+<html lang="vi"><head><meta charset="utf-8"><title>Tower mockups · 12 tháp</title>
+<style>
+body{margin:0;background:#18131f;color:#ece7f5;font:14px/1.5 system-ui,sans-serif;padding:20px}
+h1{font-size:20px;margin:0 0 4px}.sub{color:#a79fbb;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(560px,1fr));gap:14px}
+.card{background:#211b2d;border:1px solid #352c45;border-radius:10px;padding:12px}
+.card h2{font-size:15px;margin:0 0 8px;display:flex;justify-content:space-between}
+.card h2 a{color:#ffb85c;font-size:12px;font-weight:400}
+.row{display:flex;gap:8px}.cell{display:flex;flex-direction:column;align-items:center;font-size:11px;color:#b9b0cc}
+canvas{border-radius:6px;background:#e9e2cf}
+</style></head><body>
+<h1>Tower mockups — 12 tháp × 3 cấp</h1>
+<div class="sub">Quy tắc cấp: cùng một khối thân, mỗi cấp to hơn · vật liệu tốt hơn (đá → đai thép → bọc thép) · thêm phần tạo dáng · phát sáng/đạo cụ nhiều hơn. Bấm "chi tiết" để xem từng animation.</div>
+<div class="grid" id="g"></div>
+<script src="lib/draw.js"></script><script src="lib/anim.js"></script><script src="lib/sheet.js"></script><script src="lib/destroy_fx.js"></script>
+<script>
+const LIST=[['mortar','Súng cối'],['machine_gun','Súng máy'],['flamethrower','Súng phun lửa'],['fortifier','Tháp gia cố'],['cryo_tower','Tháp làm lạnh'],['chain_tesla','Tháp điện chuỗi'],['sun_rod','Cột thu sáng'],['net_launcher','Tháp phóng lưới'],['solvent_sprayer','Tháp phun dung môi'],['heat_decoy','Mồi nhiệt'],['piercing_cannon','Pháo xuyên giáp'],['sniper_nest','Tháp bắn tỉa']];
+let n=LIST.length;LIST.forEach(([id])=>{const s=document.createElement('script');s.src='towers/'+id+'.js';s.onload=s.onerror=()=>{if(--n===0)draw()};document.body.appendChild(s)});
+function draw(){const g=document.getElementById('g');
+  LIST.forEach(([id,name])=>{const tw=TOWERS[id];const card=document.createElement('div');card.className='card';
+    card.innerHTML=`<h2>${name} <a href="preview.html?t=${id}">chi tiết →</a></h2>`;const row=document.createElement('div');row.className='row';
+    if(!tw){row.textContent='(chưa có)';}else[0,1,2].forEach(t=>{const d=document.createElement('div');d.className='cell';const cv=SH.still(tw,t,null,1.4);d.appendChild(cv);d.append('Cấp '+t);row.appendChild(d)});
+    card.appendChild(row);g.appendChild(card)});document.title='done'}
+</script></body></html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- PROTOTYPE - NOT FOR PRODUCTION -->
+<html lang="vi"><head><meta charset="utf-8"><title>Tower mockup preview</title>
+<style>
+body{margin:0;background:#18131f;color:#ece7f5;font:14px/1.5 system-ui,sans-serif;padding:20px}
+h1{font-size:20px;margin:0 0 4px} h2{font-size:16px;margin:26px 0 8px;color:#ffb85c}
+.row{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.cell{display:flex;flex-direction:column;gap:4px;align-items:center;font-size:12px;color:#b9b0cc}
+canvas,img{image-rendering:auto;border-radius:6px}
+.sheet{display:grid;grid-template-columns:260px 1fr;gap:10px 16px;align-items:center;padding:10px 0;border-top:1px solid #30283f}
+.sheet .meta{font:12px ui-monospace,monospace;color:#cfc6e2}
+.sheet .meta b{color:#fff;font-weight:600;display:block;font-family:system-ui;font-size:13px}
+.strip{background:repeating-conic-gradient(#e9e2cf 0 25%,#ddd3ba 0 50%) 0 0/16px 16px;max-width:100%;overflow-x:auto;border-radius:6px}
+.bgday{background:#e9e2cf}.bgnight{background:#1e2a4a}
+</style></head>
+<body>
+<h1 id="title">Tower mockup</h1>
+<div style="color:#a79fbb">Mỗi sheet: ảnh sprite sheet đúng kích thước xuất (phóng 2×) và bản chạy animation ở fps thật.</div>
+<h2>3 cấp (idle)</h2><div class="row" id="tiers"></div>
+<h2>Silhouette (art bible §3)</h2><div class="row" id="sil"></div>
+<h2>Preview~/_preview_tower.png</h2><div id="prev"></div>
+<h2>Sprite sheets</h2><div id="sheets"></div>
+<script src="lib/draw.js"></script><script src="lib/anim.js"></script><script src="lib/sheet.js"></script><script src="lib/destroy_fx.js"></script>
+<script>
+const id=new URLSearchParams(location.search).get('t')||'mortar';
+const s=document.createElement('script');s.src='towers/'+id+'.js';s.onload=run;document.body.appendChild(s);
+function bg(cv,night){const c=cv.getContext('2d');c.save();c.globalCompositeOperation='destination-over';c.fillStyle=night?'#1e2a4a':'#e9e2cf';c.fillRect(0,0,cv.width,cv.height);c.restore();return cv}
+function run(){
+  const tw=TOWERS[id];document.getElementById('title').textContent=tw.folder+' — '+tw.sheets.length+' sheet';
+  const S=2;
+  [0,1,2].forEach(t=>{const d=document.createElement('div');d.className='cell';
+    const cv=SH.still(tw,t,null,S);d.appendChild(bg(cv));d.append('Cấp '+t);document.getElementById('tiers').appendChild(d);
+    const sv=A.tint(SH.body(1,o=>A.composite(o,tw,t,tw.state(t,'idle',0,2))),'#2c2240',1);const b=A.mk(128,128);const bc=b.getContext('2d');bc.filter='blur(2px)';bc.drawImage(sv,0,0);
+    const ds=document.createElement('div');ds.className='cell';ds.appendChild(bg(b));ds.append('Cấp '+t);document.getElementById('sil').appendChild(ds);});
+  const pv=SH.preview(tw);pv.style.width='768px';document.getElementById('prev').appendChild(pv);
+  const host=document.getElementById('sheets');
+  tw.sheets.forEach(def=>{
+    const sheet=SH.render(tw,def,1);const rows=def.layer==='head'?5:1;
+    const row=document.createElement('div');row.className='sheet';
+    row.innerHTML=`<div class="meta"><b>${def.file}</b>${sheet.width}×${sheet.height} · ${def.frames} frame · ${def.fps} fps${rows>1?' · 5 hướng':''}</div>`;
+    const right=document.createElement('div');right.className='row';
+    const strip=document.createElement('div');strip.className='strip';const im=new Image();im.src=sheet.toDataURL();im.style.width=(sheet.width*2)+'px';strip.appendChild(im);
+    const play=A.mk(256,256*rows/rows);play.width=256;play.height=256;const pc=play.getContext('2d');play.className='bgday';
+    let f=0;setInterval(()=>{pc.clearRect(0,0,256,256);pc.drawImage(sheet,f*128,0,128,128,0,0,256,256);f=(f+1)%def.frames;},1000/def.fps);
+    right.appendChild(play);right.appendChild(strip);row.appendChild(right);host.appendChild(row);
+  });
+  document.title='done';
+}
+</script>
+</body></html>
