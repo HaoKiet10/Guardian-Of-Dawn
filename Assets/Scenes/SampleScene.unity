@@ -469,6 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GuardianOfDawn.Wall
   maxHp: 10
   hp: 0
+  maxDamageReduction: 0.6
 --- !u!1 &1034062296
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,10 +693,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardianOfDawn.TestWaveSpawner
   waxPrefab: {fileID: 3761822562071084320, guid: 24bd2b150b62a2d4faf19060666ba5cb, type: 3}
-  definition: {fileID: 11400000, guid: 0c6a74c457be66e48baa2b485ca545fc, type: 2}
   path: {fileID: 1034062298}
-  count: 10
+  entries:
+  - definition: {fileID: 11400000, guid: 0c6a74c457be66e48baa2b485ca545fc, type: 2}
+    count: 4
+    groupSize: 2
   interval: 1
+  groupSpacing: 0.15
 --- !u!4 &1906638531
 Transform:
   m_ObjectHideFlags: 0

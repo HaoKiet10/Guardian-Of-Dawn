@@ -4,6 +4,8 @@ namespace GuardianOfDawn {
         Bullet,
         Fire,
         Explosive,
-        Electric
+        Electric,
+        Piercing,
+        Solvent
     }
 }
