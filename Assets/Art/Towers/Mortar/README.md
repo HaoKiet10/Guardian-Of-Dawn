@@ -17,25 +17,29 @@ Màu riêng: bao cát vàng đất `#eabb5c`, nòng đồng `#cc823f`. Silhouett
 - `Base`: lớp duy nhất. Bệ bê tông tròn có sọc cảnh báo, hai lớp bao cát, đế cối, chân chống đôi, nòng cối đồng, thùng đạn mở nắp
 - Không có `Head`: nòng luôn chĩa lên trời, đạn đi vòng cầu nên tháp không xoay theo hướng
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_mortar_base_idle.png` | Base | idle, đèn hổ phách trên thùng đạn nháy | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_mortar_base_fire.png` | Base | bắn ở frame 0: chớp lửa, nòng tụt 4/6/4/2/1/0 px, khói phụt rồi tan, bụi chân bao cát | 1 hàng × 6 frame | 12 | 768×128 |
-| `tower_mortar_base_build.png` | Base | build, chạy 1 lần | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_mortar_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_mortar_base_upgrade1.png` | Base | phụ kiện bậc 1: lớp bao cát thứ ba nửa sau, hai tấm thép sọc vàng phía trước | 1 ô | - | 128×128 |
-| `tower_mortar_base_upgrade2.png` | Base | phụ kiện bậc 2: ống ngắm quang học, cột ăng ten đèn đỏ | 1 ô | - | 128×128 |
-| `vfx_mortar_shell.png` | VFX | quả đạn cối, đầu đạn bên phải, xoay quanh trục | 1 hàng × 4 frame | 16 | 128×32 (ô 32×32) |
-| `vfx_mortar_blast.png` | VFX | nổ trên đất: chớp, cầu lửa, vòng xung kích dẹt 0.72, khói, vết cháy | 1 hàng × 6 frame | 14 | 576×96 (ô 96×96) |
-| `vfx_mortar_target.png` | VFX | vòng đánh dấu điểm rơi, đỏ / vàng | 1 hàng × 2 frame | 6 | 192×64 (ô 96×64) |
+| `tower_mortar_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_mortar_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_mortar_t0_base_fire.png` | 0 | Base | fire | 1 hàng × 6 frame | 768×128 |
+| `tower_mortar_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_mortar_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_mortar_t1_base_fire.png` | 1 | Base | fire | 1 hàng × 8 frame | 1024×128 |
+| `tower_mortar_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_mortar_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_mortar_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_mortar_t2_base_fire.png` | 2 | Base | fire | 1 hàng × 8 frame | 1024×128 |
+| `tower_mortar_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_mortar_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
 
-`_preview_tower.png` chỉ để xem nhanh (cấp 0, bậc 1, bậc 2, bậc 2 đang bắn), không import.
-
-- Build: cọc và dây đánh dấu, đổ bệ và xếp nửa sau lớp bao cát đầu, xong lớp một và thùng đạn, xong lớp hai và đế cối, frame 4 thả nòng xuống, frame 5 giống idle.
-- Destroy: chớp trắng, nứt, nòng bật ngửa và bao cát văng, khói, rồi đống đổ nát (bao cát rải rác, nòng đồng nằm nghiêng, thùng đạn gãy).
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base cùng pivot. Bậc 2 gắn chồng lên bậc 1. Phụ kiện không gắn lên nòng nên không lệch khi nòng giật.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: đạn trong nòng nổ ngược, cầu lửa bốc lên từ miệng nòng. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/mortar.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 mortar`.
 
 ## Nhịp hoạt động
 Chọn điểm rơi → `fire` 0.5 s (quả đạn sinh ở frame 0) → nạp 1.6 s (dùng `idle`), khoảng 1 phát mỗi 2.1 giây.
