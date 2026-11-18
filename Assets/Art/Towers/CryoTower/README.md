@@ -14,25 +14,32 @@ Màu riêng: bồn trắng băng `#f3f8fb`, ống xoắn cyan nhạt `#93cdd9` (
 ## Lớp sprite
 - `Base`: lớp duy nhất. Bệ bê tông tròn có sọc cảnh báo, sàn thép, bồn khí lạnh đứng có ống xoắn quanh thân, đầu quạt và hai ống xả trên đỉnh, đá bám ở chân, đèn băng. Tháp không xoay nên không có lớp Head, không lật.
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_cryo_tower_base_idle.png` | Base | idle, quạt quay, đèn nháy dịu, ống xả bốc chút hơi | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_cryo_tower_base_pulse.png` | Base | xả lạnh: frame 0 và 1 tích (ống xoắn sáng từ dưới lên), frame 2 xả, frame 3 đến 5 hơi trắng bốc lên rồi tan | 1 hàng × 6 frame | 8 | 768×128 |
-| `tower_cryo_tower_base_build.png` | Base | build, chạy 1 lần, frame 4 đầu quạt thả xuống | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_cryo_tower_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát (bồn nằm ngang, ống xoắn gãy) | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_cryo_tower_base_upgrade1.png` | Base | phụ kiện bậc 1: bình phụ phía sau bên phải, áo cách nhiệt bọc chân bồn | 1 ô | không | 128×128 |
-| `tower_cryo_tower_base_upgrade2.png` | Base | phụ kiện bậc 2: 8 cánh tản lạnh, vòng đèn dày và sáng hơn, đèn hiệu trên trục quạt | 1 ô | không | 128×128 |
-| `vfx_frost_ring.png` | VFX | vòng băng lan ra trên mặt đất, ép dẹt 0.72 | 1 hàng × 5 frame | 10 | 1280×192 (ô 256×192) |
-| `vfx_slow.png` | VFX | bông tuyết bám kẻ địch bị chậm, lặp | 1 hàng × 3 frame | 6 | 96×32 (ô 32×32) |
-| `vfx_frozen.png` | VFX | khối băng bọc kẻ địch: đóng băng, giữ, vỡ | 1 hàng × 3 frame | không | 144×48 (ô 48×48) |
-| `_preview_tower.png` | không | ảnh tự kiểm tra (cấp 0, bậc 1, bậc 2, pulse; hàng dưới phóng 2×), không import | không | không | 512×384 |
+| `tower_cryo_tower_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_cryo_tower_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_cryo_tower_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_cryo_tower_t0_head_fire.png` | 0 | Head | fire | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_cryo_tower_t0_head_idle.png` | 0 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_cryo_tower_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_cryo_tower_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_cryo_tower_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_cryo_tower_t1_head_fire.png` | 1 | Head | fire | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_cryo_tower_t1_head_idle.png` | 1 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_cryo_tower_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_cryo_tower_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_cryo_tower_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_cryo_tower_t2_head_fire.png` | 2 | Head | fire | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_cryo_tower_t2_head_idle.png` | 2 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
 
-- Build vẽ sẵn cả đầu quạt. Destroy bắt đầu bằng chớp sáng, sau đó bồn nứt xì hơi lạnh.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base. Bậc 2 gắn chồng lên bậc 1.
-- Hơi trắng ở đỉnh và sương ở chân nằm sẵn trong `base_pulse`, không phải VFX riêng.
-- `vfx_frost_ring` làm ô 256×192 thay vì 128×96 để khi scale lên bằng bán kính vùng (khoảng 1.5×) không bị nhòe.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: băng vỡ thành tinh thể, mây sương lạnh, cục băng còn lại. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/cryo_tower.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 cryo_tower`.
 
 ## Nhịp hoạt động
 - Vùng làm chậm luôn bật: kẻ địch trong vùng đi còn 45% tốc độ và mang `vfx_slow`, ra khỏi vùng là hết.
