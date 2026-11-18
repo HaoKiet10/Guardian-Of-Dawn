@@ -21,31 +21,30 @@ Súng vẽ kiểu súng bắn tỉa chung, không sao chép mẫu súng thật c
 - `Base`: chòi canh 4 chân gỗ, thang, sàn ván, bao cát chữ U (mặt trước để trống nên không che xạ thủ). Không đổi theo hướng
 - `Gunner`: người xạ thủ cùng khẩu súng, vẽ sẵn 8 hướng (5 vẽ + 3 lật ngang). Thay cho lớp `Head` của các tháp máy, luôn vẽ đè lên `Base`
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_sniper_nest_base_idle.png` | Base | idle, đèn nháy | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_sniper_nest_base_build.png` | Base | build, frame 4 xạ thủ leo thang | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_sniper_nest_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_sniper_nest_gunner_idle.png` | Gunner | súng hạ, thở, kính mũ lóe | 5 hàng × 2 frame | 2 | 256×640 |
-| `tower_sniper_nest_gunner_aim.png` | Gunner | nâng súng lên vai, giữ frame cuối khi ngắm | 5 hàng × 3 frame | 8 | 384×640 |
-| `tower_sniper_nest_gunner_fire.png` | Gunner | giật, hồi, kéo khóa nòng, đẩy về | 5 hàng × 4 frame | 10 | 512×640 |
-| `tower_sniper_nest_gunner_reload.png` | Gunner | hạ nòng, tháo hộp đạn, lấy hộp mới, lắp | 5 hàng × 4 frame | 5 | 512×640 |
-| `tower_sniper_nest_base_upgrade1.png` | Base | bậc 1: tấm tôn trước chân chòi, thêm bao cát | 1 ô | không | 128×128 |
-| `tower_sniper_nest_gunner_upgrade1.png` | Gunner | bậc 1: ăng-ten radio trên bình khí | 5 hàng × 1 | không | 128×640 |
-| `tower_sniper_nest_base_upgrade2.png` | Base | bậc 2: lưới ngụy trang, đèn pha | 1 ô | không | 128×128 |
-| `tower_sniper_nest_gunner_upgrade2.png` | Gunner | bậc 2: giáp vai, đèn mũ | 5 hàng × 1 | không | 128×640 |
-| `vfx_sniper_flash.png` | VFX | chớp đầu nòng hẹp dài kèm khói | 1 hàng × 3 frame | ~12 | 96×32 (ô 32×32) |
-| `vfx_sniper_hit.png` | VFX | tia lửa và giọt sáp khi trúng | 1 hàng × 3 frame | ~12 | 96×32 (ô 32×32) |
+| `tower_sniper_nest_gunner_aim.png` | chung | Gunner | aim | 5 hàng (S, SE, E, NE, N) × 3 frame | 384×640 |
+| `tower_sniper_nest_gunner_fire.png` | chung | Gunner | fire | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_sniper_nest_gunner_idle.png` | chung | Gunner | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_sniper_nest_gunner_reload.png` | chung | Gunner | reload | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_sniper_nest_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_sniper_nest_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_sniper_nest_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_sniper_nest_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_sniper_nest_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_sniper_nest_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_sniper_nest_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_sniper_nest_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_sniper_nest_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
 
-**Thứ tự hàng trong sheet Gunner:** Nam (S), Đông Nam (SE), Đông (E), Đông Bắc (NE), Bắc (N).
-Tây Nam, Tây, Tây Bắc dùng hàng SE, E, NE lật ngang (flipX).
-
-- Build và destroy đã vẽ sẵn xạ thủ hướng Đông Nam. Code ẩn Gunner khi bắt đầu phá hủy, bật Gunner thật sau frame cuối của build.
-- Phụ kiện của xạ thủ chỉ gắn lên phần ít cử động (bình khí, vai, mũ), không gắn lên súng.
-- Xạ thủ là một phần của công trình, không phải đội lính: bão phá tháp thì xạ thủ biến mất cùng tháp, xây lại thì quay lại.
-- Laser ngắm đỏ và vệt đạn là LineRenderer trong code, không có sprite.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: ống ngắm lóe, ván gỗ và lưới ngụy trang rơi, bụi gỗ. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/sniper_nest.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 sniper_nest`.
 
 ## Nhịp bắn
 Tìm hướng (0.12 s mỗi nấc) → `aim` 0.375 s rồi giữ frame cuối tới 0.975 s → `fire` 0.4 s → giữ tư thế 1.0 s (frame cuối của `fire`).
