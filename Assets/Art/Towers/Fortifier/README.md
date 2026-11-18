@@ -16,25 +16,32 @@ Silhouette là trạm kỹ thuật, cao hơn rộng (khoảng 86 × 100 px trong
 ## Lớp sprite
 - `Base`: một lớp duy nhất, tháp không xoay. Mọi animation nằm trên lớp này, mỗi sheet 1 hàng
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_fortifier_base_idle.png` | Base | idle, đèn xanh nháy chậm | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_fortifier_base_repair_loop.png` | Base | đang sửa: tay gõ mỏ hàn xuống bàn gá (đầu mỏ hàn hạ khoảng 10 px), tia lửa ở frame 1 và 2 | 1 hàng × 4 frame | 8 | 512×128 |
-| `tower_fortifier_base_repair_pulse.png` | Base | đợt gia cố: đèn bùng trắng xanh, vòng sáng lan 20 lên 38 px | 1 hàng × 4 frame | 10 | 512×128 |
-| `tower_fortifier_base_build.png` | Base | build, chạy 1 lần, frame 5 = idle | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_fortifier_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_fortifier_base_upgrade1.png` | Base | phụ kiện bậc 1: thùng đồ nghề, thêm 2 tấm thép, 2 cọc chắn | 1 ô | không | 128×128 |
-| `tower_fortifier_base_upgrade2.png` | Base | phụ kiện bậc 2: ăng-ten điều phối có đèn, chảo thu, đèn vàng | 1 ô | không | 128×128 |
-| `vfx_repair_beam.png` | VFX | đoạn tia sửa, lát ngang được (sóng chu kỳ 32 px) | 1 hàng × 3 frame | 12 | 192×16 (ô 64×16) |
-| `vfx_repair_spark.png` | VFX | chớp xanh rồi cờ lê bật lên ở điểm tia chạm tường | 1 hàng × 4 frame | 12 | 128×32 (ô 32×32) |
-| `vfx_wall_shield.png` | VFX | khiên mờ lưới lục giác, lát ngang theo đoạn tường | 1 hàng × 3 frame | 6 | 192×48 (ô 64×48) |
+| `tower_fortifier_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_fortifier_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_fortifier_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_fortifier_t0_base_repair_loop.png` | 0 | Base | repair_loop | 1 hàng × 4 frame | 512×128 |
+| `tower_fortifier_t0_base_repair_pulse.png` | 0 | Base | repair_pulse | 1 hàng × 4 frame | 512×128 |
+| `tower_fortifier_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_fortifier_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_fortifier_t1_base_repair_loop.png` | 1 | Base | repair_loop | 1 hàng × 4 frame | 512×128 |
+| `tower_fortifier_t1_base_repair_pulse.png` | 1 | Base | repair_pulse | 1 hàng × 4 frame | 512×128 |
+| `tower_fortifier_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_fortifier_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_fortifier_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_fortifier_t2_base_repair_loop.png` | 2 | Base | repair_loop | 1 hàng × 6 frame | 768×128 |
+| `tower_fortifier_t2_base_repair_pulse.png` | 2 | Base | repair_pulse | 1 hàng × 4 frame | 512×128 |
+| `tower_fortifier_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
 
-`_preview_tower.png` chỉ để xem nhanh (idle, repair, pulse, bậc 1, bậc 2), không import.
-
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base. Bậc 2 gắn chồng lên bậc 1. Phụ kiện không che cánh tay nên `repair_loop` vẫn chạy bên dưới.
-- Code tắt phụ kiện khi bắt đầu phá hủy, bật lại sau frame cuối của build.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: mảnh khiên và cờ lê văng, tia lửa teal, vòng sóng teal. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/fortifier.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 fortifier`.
 
 ## Nhịp hoạt động
 - Có đoạn tường trong vùng chưa đầy máu: `repair_loop` lặp, bật tia sửa và tia lửa trên tường.
