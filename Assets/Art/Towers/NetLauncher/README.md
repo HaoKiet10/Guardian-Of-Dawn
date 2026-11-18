@@ -16,30 +16,35 @@ Màu riêng: xanh chanh `#b9de3a` (màu nhận diện), nâu dây thừng `#c08a
 - `Base`: khung thép sơn xanh chanh, sàn ván gỗ, trụ xoay có đèn sẵn sàng, cuộn dây thừng phía sau bên trái, thùng lưới dự phòng phía sau bên phải. Không đổi theo hướng
 - `Head`: ống phóng ngắn miệng loe có gói lưới tròn ở miệng, bình khí nén bên phải, phễu và tay nạp phía trên. Vẽ sẵn 8 hướng (5 vẽ + 3 lật ngang)
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_net_launcher_base_idle.png` | Base | idle, đèn trụ xoay nháy | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_net_launcher_base_build.png` | Base | build, chạy 1 lần | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_net_launcher_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_net_launcher_head_idle.png` | Head | idle, gói lưới trong miệng, đèn bình khí nháy | 5 hàng × 2 frame | 2 | 256×640 |
-| `tower_net_launcher_head_fire.png` | Head | bắn: frame 0 và 1 khí nén phụt, ống giật 6/4/2/0 px, miệng trống | 5 hàng × 4 frame | 12 | 512×640 |
-| `tower_net_launcher_head_reload.png` | Head | nạp: tay nạp gắp gói từ phễu, đưa qua đầu ống, nhét vào miệng | 5 hàng × 4 frame | 8 | 512×640 |
-| `tower_net_launcher_base_upgrade1.png` | Base | phụ kiện bậc 1: thêm thùng lưới phía trước bên trái | 1 ô | không | 128×128 |
-| `tower_net_launcher_head_upgrade1.png` | Head | phụ kiện bậc 1: tấm chắn thép viền vàng bên trái ống | 5 hàng × 1 | không | 128×640 |
-| `tower_net_launcher_base_upgrade2.png` | Base | phụ kiện bậc 2: cuộn dây lớn trên giá thép phía trước bên phải | 1 ô | không | 128×128 |
-| `tower_net_launcher_head_upgrade2.png` | Head | phụ kiện bậc 2: kính ngắm thấu kính xanh trên tấm chắn | 5 hàng × 1 | không | 128×640 |
-| `vfx_net_shot.png` | VFX | gói lưới bay, bung dần (gói tròn, nửa mở, mở hết), hướng sang phải | 1 hàng × 3 frame | theo quãng bay | 144×48 (ô 48×48) |
-| `vfx_net_trap.png` | VFX | lưới chụp lên kẻ địch: chụp, đáp và siết, giữ (2, 3 lặp) | 1 hàng × 4 frame | 0, 1 một lần · 2, 3 lặp 4 fps | 256×64 (ô 64×64) |
-| `vfx_net_burst.png` | VFX | lưới đứt khi hết giờ trói, mảnh dây bật ra rồi rơi | 1 hàng × 3 frame | 10 | 192×64 (ô 64×64) |
+| `tower_net_launcher_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_net_launcher_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_net_launcher_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_net_launcher_t0_head_fire.png` | 0 | Head | fire | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_net_launcher_t0_head_idle.png` | 0 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_net_launcher_t0_head_reload.png` | 0 | Head | reload | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_net_launcher_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_net_launcher_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_net_launcher_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_net_launcher_t1_head_fire.png` | 1 | Head | fire | 5 hàng (S, SE, E, NE, N) × 8 frame | 1024×640 |
+| `tower_net_launcher_t1_head_idle.png` | 1 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_net_launcher_t1_head_reload.png` | 1 | Head | reload | 5 hàng (S, SE, E, NE, N) × 6 frame | 768×640 |
+| `tower_net_launcher_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_net_launcher_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 4 frame | 512×128 |
+| `tower_net_launcher_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_net_launcher_t2_head_fire.png` | 2 | Head | fire | 5 hàng (S, SE, E, NE, N) × 6 frame | 768×640 |
+| `tower_net_launcher_t2_head_idle.png` | 2 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_net_launcher_t2_head_reload.png` | 2 | Head | reload | 5 hàng (S, SE, E, NE, N) × 6 frame | 768×640 |
 
-**Thứ tự hàng trong sheet Head:** Nam (S), Đông Nam (SE), Đông (E), Đông Bắc (NE), Bắc (N).
-Tây Nam, Tây, Tây Bắc dùng hàng SE, E, NE lật ngang (flipX).
-
-- Build và destroy đã vẽ sẵn ống phóng hướng Đông Nam. Code ẩn Head khi bắt đầu phá hủy, bật Head thật sau frame cuối của build.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base hoặc Head. Bậc 2 gắn chồng lên bậc 1.
-- Gói lưới ở miệng ống là tín hiệu sẵn sàng: có gói là sẵn sàng bắn, miệng trống là đang nạp.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: mảnh lưới tung bay, dây thừng rơi. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/net_launcher.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 net_launcher`.
 
 ## Nhịp bắn
 Tìm hướng → `fire` 0.33 s (gói lưới rời ống ở frame 0) → `reload` 0.5 s → nghỉ 1.1 s (dùng `idle`), khoảng 1 phát mỗi 1.9 giây.
