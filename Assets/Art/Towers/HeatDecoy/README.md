@@ -17,25 +17,32 @@ Hình dáng: bệ bê tông tròn, vương miện 8 lá tản nhiệt quanh cộ
 ## Lớp sprite
 - `Base`: một lớp duy nhất, tháp không xoay nên không có `Head` và không có 8 hướng. Mọi animation nằm trên lớp này
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_heat_decoy_base_idle.png` | Base | sẵn sàng: lõi tắt lờ mờ, đèn xanh nháy | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_heat_decoy_base_active.png` | Base | hoạt động: lõi đập như tim, mép lá đỏ dần từ trong ra, đèn cam | 1 hàng × 4 frame | 6, lặp | 512×128 |
-| `tower_heat_decoy_base_cooldown.png` | Base | nguội: lõi mờ dần, hơi nước, đèn đỏ. Chạy 1 lần rồi giữ frame 3 | 1 hàng × 4 frame | 4 | 512×128 |
-| `tower_heat_decoy_base_build.png` | Base | build, frame 4 thả lõi xuống bằng dây | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_heat_decoy_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_heat_decoy_base_upgrade1.png` | Base | phụ kiện bậc 1: 8 lá tản nhiệt phụ, ống khói | 1 ô | không | 128×128 |
-| `tower_heat_decoy_base_upgrade2.png` | Base | phụ kiện bậc 2: vòng phát nhiệt đồng, đèn hổ phách | 1 ô | không | 128×128 |
-| `vfx_heat_wave.png` | VFX | vòng sóng nhiệt lan trên mặt đất, dẹt 0.72 | 1 hàng × 4 frame | 4 | 512×96 (ô 128×96) |
-| `vfx_heat_lure.png` | VFX | tim nhỏ và sóng nhiệt trên đầu kẻ địch bị hút | 1 hàng × 2 frame | 4, lặp | 64×32 (ô 32×32) |
-| `vfx_steam.png` | VFX | cụm hơi nước to dần rồi tan | 1 hàng × 3 frame | ~3 | 144×48 (ô 48×48) |
-| `_preview_tower.png` | không | chỉ để xem: idle, active, cooldown, bậc 1, bậc 2 | 1 hàng × 5 | không | 640×128 |
+| `tower_heat_decoy_t0_base_active.png` | 0 | Base | active | 1 hàng × 4 frame | 512×128 |
+| `tower_heat_decoy_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t0_base_cooldown.png` | 0 | Base | cooldown | 1 hàng × 4 frame | 512×128 |
+| `tower_heat_decoy_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_heat_decoy_t1_base_active.png` | 1 | Base | active | 1 hàng × 4 frame | 512×128 |
+| `tower_heat_decoy_t1_base_cooldown.png` | 1 | Base | cooldown | 1 hàng × 4 frame | 512×128 |
+| `tower_heat_decoy_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_heat_decoy_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t2_base_active.png` | 2 | Base | active | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t2_base_cooldown.png` | 2 | Base | cooldown | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_heat_decoy_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_heat_decoy_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
 
-- Build và destroy vẽ trên cùng lớp Base. Frame cuối của build giống hệt `base_idle` frame 0.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base. Bậc 2 gắn chồng lên bậc 1.
-- `_preview_tower.png` không cần import vào game.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: lõi quá nhiệt nổ, cánh san hô văng, tàn lửa hổ phách. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/heat_decoy.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 heat_decoy`.
 
 ## Nhịp hoạt động
 Sẵn sàng (`idle`, ít nhất 1 s) → tự bật khi có Dị Thể Sáp vào bán kính → `active` lặp 5 s → `cooldown` 4 s (chạy 1 lần ở 4 fps rồi giữ frame 3) → sẵn sàng.
