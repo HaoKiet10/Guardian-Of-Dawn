@@ -17,23 +17,32 @@ Hình dáng: bệ bê tông hình thoi có sọc cảnh báo, ba chân trụ, s�
 - `Base`: lớp duy nhất, không xoay. Mọi animation nằm trên lớp này, mỗi file một hàng
 - Điểm phóng tia: Transform con ở tâm quả cầu, không phải sprite
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_chain_tesla_base_idle.png` | Base | idle, tia điện nhỏ trên quả cầu, đèn trạng thái nháy | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_chain_tesla_base_charge.png` | Base | nạp: đĩa sứ sáng dần từ dưới lên, frame 3 quả cầu sáng tím | 1 hàng × 4 frame | 6 | 512×128 |
-| `tower_chain_tesla_base_discharge.png` | Base | phóng ở frame 0: quả cầu chớp trắng, frame 1 tím nhạt, frame 2 tắt | 1 hàng × 3 frame | 10 | 384×128 |
-| `tower_chain_tesla_base_build.png` | Base | build, chạy 1 lần, frame 5 giống idle | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_chain_tesla_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_chain_tesla_base_upgrade1.png` | Base | phụ kiện bậc 1: vòng đồng dưới quả cầu, hai trụ sứ nhỏ ở góc bệ | 1 ô | - | 128×128 |
-| `tower_chain_tesla_base_upgrade2.png` | Base | phụ kiện bậc 2: vòng hào quang quanh quả cầu, cột phụ nhỏ, dải sáng trên sàn | 1 ô | - | 128×128 |
-| `vfx_tesla_arc.png` | VFX | đoạn tia sét ngang kéo giãn được, hai đầu ở giữa mép trái và phải | 1 hàng × 3 frame | 20 | 384×32 (ô 128×32) |
-| `vfx_tesla_hit.png` | VFX | chớp điện trên thân mục tiêu | 1 hàng × 3 frame | ~14 | 144×48 (ô 48×48) |
-| `_preview_tower.png` | - | chỉ để xem: cấp 0, bậc 1, bậc 2 ở 2x, không import | 3 ô 256×256 | - | 768×256 |
+| `tower_chain_tesla_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_chain_tesla_t0_base_charge.png` | 0 | Base | charge | 1 hàng × 4 frame | 512×128 |
+| `tower_chain_tesla_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_chain_tesla_t0_base_discharge.png` | 0 | Base | discharge | 1 hàng × 3 frame | 384×128 |
+| `tower_chain_tesla_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_chain_tesla_t1_base_charge.png` | 1 | Base | charge | 1 hàng × 4 frame | 512×128 |
+| `tower_chain_tesla_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_chain_tesla_t1_base_discharge.png` | 1 | Base | discharge | 1 hàng × 3 frame | 384×128 |
+| `tower_chain_tesla_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_chain_tesla_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_chain_tesla_t2_base_charge.png` | 2 | Base | charge | 1 hàng × 6 frame | 768×128 |
+| `tower_chain_tesla_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_chain_tesla_t2_base_discharge.png` | 2 | Base | discharge | 1 hàng × 3 frame | 384×128 |
+| `tower_chain_tesla_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_chain_tesla_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
 
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base. Bậc 2 gắn chồng lên bậc 1.
-- Build và destroy đã có đủ tháp cấp 0, không cần lớp nào khác.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: quá tải điện, tia tím chằng chịt, vòng xung tím. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/chain_tesla.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 chain_tesla`.
 
 ## Nhịp hoạt động
 Có Dị Thể Sáp trong tầm → `charge` 0.67 s → `discharge` 0.3 s → nghỉ 0.8 s (dùng `idle`), khoảng 1 lần phóng mỗi 1.8 giây.
