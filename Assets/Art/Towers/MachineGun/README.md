@@ -13,26 +13,33 @@ Bản mẫu xem trực tiếp: https://claude.ai/artifact/XfPccdVVkeionEGqhPpNrE
 - `Base`: chân đế, không đổi theo hướng, pivot ở tâm ô xây trên mặt đất
 - `Head`: đầu súng, vẽ sẵn 8 hướng (5 hướng vẽ + 3 hướng lật ngang), pivot ở tâm mặt trên vòng xoay
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_machine_gun_base_idle.png` | Base | idle, đèn nháy | 1 hàng × 2 frame | 4 | 256×128 |
-| `tower_machine_gun_base_build.png` | Base | build, chạy 1 lần | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_machine_gun_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_machine_gun_head_idle.png` | Head | idle, kính ngắm lóe | 5 hàng × 2 frame | 3 | 256×640 |
-| `tower_machine_gun_head_fire.png` | Head | fire, bắn 1 viên ở frame 1 | 5 hàng × 4 frame | 24 | 512×640 |
-| `tower_machine_gun_base_upgrade1.png` | Base | phụ kiện bậc 1: bao cát | 1 ô | không | 128×128 |
-| `tower_machine_gun_head_upgrade1.png` | Head | phụ kiện bậc 1: tấm chắn | 5 hàng × 1 | không | 128×640 |
-| `tower_machine_gun_base_upgrade2.png` | Base | phụ kiện bậc 2: ăng-ten, vạch cấp bậc | 1 ô | không | 128×128 |
-| `tower_machine_gun_head_upgrade2.png` | Head | phụ kiện bậc 2: hộp đạn tròn, vạch đỏ | 5 hàng × 1 | không | 128×640 |
-| `vfx_muzzle_flash.png` | VFX | chớp đầu nòng | 1 hàng × 3 frame | ~40 | 96×32 (ô 32×32) |
+| `tower_machine_gun_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_machine_gun_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_machine_gun_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_machine_gun_t0_head_fire.png` | 0 | Head | fire | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_machine_gun_t0_head_idle.png` | 0 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_machine_gun_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_machine_gun_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_machine_gun_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_machine_gun_t1_head_fire.png` | 1 | Head | fire | 5 hàng (S, SE, E, NE, N) × 8 frame | 1024×640 |
+| `tower_machine_gun_t1_head_idle.png` | 1 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_machine_gun_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_machine_gun_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_machine_gun_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_machine_gun_t2_head_fire_loop.png` | 2 | Head | fire_loop | 5 hàng (S, SE, E, NE, N) × 4 frame | 512×640 |
+| `tower_machine_gun_t2_head_fire_start.png` | 2 | Head | fire_start | 5 hàng (S, SE, E, NE, N) × 6 frame | 768×640 |
+| `tower_machine_gun_t2_head_idle.png` | 2 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
 
-**Thứ tự hàng trong sheet Head:** Nam (S), Đông Nam (SE), Đông (E), Đông Bắc (NE), Bắc (N).
-Tây Nam, Tây, Tây Bắc dùng hàng SE, E, NE lật ngang (flipX).
-
-- Build và destroy đã vẽ sẵn đầu súng hướng Đông Nam. Code ẩn Head khi bắt đầu phá hủy, và bật Head thật sau frame cuối của build.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base hoặc Head. Bậc 2 gắn chồng lên bậc 1.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: băng đạn nổ lách tách, vỏ đạn đồng văng, tia đạn lạc. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/machine_gun.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 machine_gun`.
 
 ## Thông số Unity
 - Ô sprite 128×128, Pixels Per Unit = 128 (1 ô xây = 1 unit)
