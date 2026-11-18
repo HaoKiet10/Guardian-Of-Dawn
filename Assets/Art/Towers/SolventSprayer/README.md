@@ -16,30 +16,32 @@ Màu riêng: thép sơn xanh ngọc `#35c2a4`, dung môi xanh acid phát sáng `
 - `Base`: bệ bê tông, sàn thép xanh ngọc, thùng phuy hóa chất cao ở góc sau bên trái, ống dẫn có van đỏ, đồng hồ áp suất. Không đổi theo hướng
 - `Head`: hộp bơm có piston, bình dung môi trong suốt phía sau, vòi phun cong kiểu cổ ngỗng phía trước. Vẽ sẵn 8 hướng (5 vẽ + 3 lật ngang)
 
-## File đã có (placeholder dựng bằng code)
+## File đã có (mockup dựng bằng code, bản 2026-11-18)
 
-| File | Lớp | Nội dung | Bố cục | fps | Kích thước |
+Mỗi cấp là **một thân riêng** (`t0` / `t1` / `t2`), không còn ảnh phụ kiện `upgrade1` / `upgrade2` đặt đè. Mỗi cấp to hơn khoảng 15%, lên vật liệu (đá → đai thép tán đinh → giáp) và thêm ít nhất một chi tiết đỉnh mới. `tN_base_upgrade` là hoạt cảnh nâng từ cấp N-1 lên cấp N (frame cuối = idle cấp N).
+
+| File | Cấp | Lớp | Hoạt cảnh | Bố cục | Kích thước |
 |---|---|---|---|---|---|
-| `tower_solvent_sprayer_base_idle.png` | Base | idle, đèn trạng thái nháy, kim áp suất nhích | 1 hàng × 2 frame | 2 | 256×128 |
-| `tower_solvent_sprayer_base_build.png` | Base | build, chạy 1 lần | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_solvent_sprayer_base_destroy.png` | Base | destroy, frame 5 = đống đổ nát có vệt dung môi tràn | 1 hàng × 6 frame | 10 | 768×128 |
-| `tower_solvent_sprayer_head_idle.png` | Head | idle, chất lỏng trong bình sóng sánh, frame 1 có bọt | 5 hàng × 2 frame | 2 | 256×640 |
-| `tower_solvent_sprayer_head_spray.png` | Head | nén, phun, giật, nhỏ giọt | 5 hàng × 4 frame | frame 0 giữ 0.25 s, frame 1 đến 3 ở 10 | 512×640 |
-| `tower_solvent_sprayer_base_upgrade1.png` | Base | phụ kiện bậc 1: thùng phuy thứ hai, hai can dung môi | 1 ô | không | 128×128 |
-| `tower_solvent_sprayer_head_upgrade1.png` | Head | phụ kiện bậc 1: tấm chắn bắn tóe hai bên hộp bơm | 5 hàng × 1 | không | 128×640 |
-| `tower_solvent_sprayer_base_upgrade2.png` | Base | phụ kiện bậc 2: bơm áp lực lớn, cột đèn cảnh báo cam | 1 ô | không | 128×128 |
-| `tower_solvent_sprayer_head_upgrade2.png` | Head | phụ kiện bậc 2: vòi phụ bên hông, đèn cam trên nắp bình | 5 hàng × 1 | không | 128×640 |
-| `vfx_solvent_glob.png` | VFX | khối dung môi bay, hướng sang phải | 1 hàng × 3 frame | 12, lặp khi bay | 96×32 (ô 32×32) |
-| `vfx_solvent_puddle.png` | VFX | vũng trên mặt đất: 0 đến 2 bắn tóe khi rơi, 3 đến 5 sủi bọt | 1 hàng × 6 frame | 10 (0 đến 2, 1 lần), 6 (3 đến 5, lặp) | 768×64 (ô 128×64) |
-| `vfx_melt.png` | VFX | sáp chảy giọt, bọt xanh, khói trên kẻ địch dính dung môi | 1 hàng × 3 frame | 8, lặp | 96×32 (ô 32×32) |
-| `_preview_tower.png` | không | ảnh tự kiểm tra: tháp ghép đủ lớp 5 hướng, cấp 0 và bậc 2. Không import | 2 hàng × 5 | không | 640×256 |
+| `tower_solvent_sprayer_t0_base_build.png` | 0 | Base | build | 1 hàng × 6 frame | 768×128 |
+| `tower_solvent_sprayer_t0_base_destroy.png` | 0 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_solvent_sprayer_t0_base_idle.png` | 0 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_solvent_sprayer_t0_head_idle.png` | 0 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_solvent_sprayer_t0_head_spray.png` | 0 | Head | spray | 5 hàng (S, SE, E, NE, N) × 6 frame | 768×640 |
+| `tower_solvent_sprayer_t1_base_destroy.png` | 1 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_solvent_sprayer_t1_base_idle.png` | 1 | Base | idle | 1 hàng × 2 frame | 256×128 |
+| `tower_solvent_sprayer_t1_base_upgrade.png` | 1 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_solvent_sprayer_t1_head_idle.png` | 1 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_solvent_sprayer_t1_head_spray.png` | 1 | Head | spray | 5 hàng (S, SE, E, NE, N) × 6 frame | 768×640 |
+| `tower_solvent_sprayer_t2_base_destroy.png` | 2 | Base | destroy | 1 hàng × 6 frame | 768×128 |
+| `tower_solvent_sprayer_t2_base_idle.png` | 2 | Base | idle | 1 hàng × 4 frame | 512×128 |
+| `tower_solvent_sprayer_t2_base_upgrade.png` | 2 | Base | upgrade | 1 hàng × 6 frame | 768×128 |
+| `tower_solvent_sprayer_t2_head_idle.png` | 2 | Head | idle | 5 hàng (S, SE, E, NE, N) × 2 frame | 256×640 |
+| `tower_solvent_sprayer_t2_head_spray.png` | 2 | Head | spray | 5 hàng (S, SE, E, NE, N) × 8 frame | 1024×640 |
 
-**Thứ tự hàng trong sheet Head:** Nam (S), Đông Nam (SE), Đông (E), Đông Bắc (NE), Bắc (N).
-Tây Nam, Tây, Tây Bắc dùng hàng SE, E, NE lật ngang (flipX).
-
-- Build và destroy đã vẽ sẵn đầu phun hướng Đông Nam. Code ẩn Head khi bắt đầu phá hủy, bật Head thật sau frame cuối của build.
-- Phụ kiện chỉ chứa phần nhìn thấy được, đặt đè lên Base hoặc Head. Bậc 2 gắn chồng lên bậc 1.
-- Ở frame 1 của `head_spray`, khối dung môi vừa rời miệng vòi là một phần của sprite Head. Khối bay trên không là `vfx_solvent_glob`.
+- Destroy (mọi cấp): sập chung (chớp, nứt, sập, đống đổ nát) cộng hiệu ứng riêng của tháp: bồn vỡ, dung môi bắn tóe, vũng axit sủi bọt. Frame cuối = đống đổ nát.
+- Ô 128×128, pivot Base (0.5, 0.375); Head/Gunner pivot Center. `TowerSpriteImporter` tự cắt ô khi import.
+- `Preview~/_preview_tower.png` chỉ để xem nhanh, Unity bỏ qua thư mục có dấu `~`.
+- Nguồn: `Tools/TowerMockups/towers/solvent_sprayer.js`, xuất lại bằng `Tools/TowerMockups/export.ps1 solvent_sprayer`.
 
 ## Nhịp phun
 Tìm hướng → `spray` frame 0 nén 0.25 s → frame 1 đến 3 phun 0.3 s (tạo glob ở frame 1) → bơm lại 1.5 s (dùng `idle`), khoảng 1 vũng mỗi 2 giây.
