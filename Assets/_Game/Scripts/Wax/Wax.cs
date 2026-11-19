@@ -249,6 +249,15 @@ namespace GuardianOfDawn
             return false;
         }
 
+        public bool HasTrait<T>() where T : WaxTrait
+        {
+            foreach (WaxTrait trait in this.definition.Traits)
+            {
+                if (trait is T) return true;
+            }
+            return false;
+        }
+
         // Stand still for a while (healing wax, convergence).
         public void HoldPosition(float seconds)
         {

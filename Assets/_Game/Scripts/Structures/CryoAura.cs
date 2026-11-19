@@ -4,7 +4,7 @@ using UnityEngine;
 namespace GuardianOfDawn
 {
     // Cryo tower: an aura with no target. Every wax inside its range is slowed while it stays there.
-    // Freezing lens wax (tier 4) is added together with the lens trait.
+    // Lens wax (tier 4, Convergence trait) are frozen solid instead, which also interrupts their convergence.
     public class CryoAura : StructureAction
     {
         [SerializeField, Range(0f, 1f)] private float slowMultiplier = 0.5f;
@@ -21,7 +21,14 @@ namespace GuardianOfDawn
 
             foreach (Wax wax in this.hits)
             {
-                wax.AddEffect(new Slowed(this.slowMultiplier, this.effectDuration));
+                if (wax.HasTrait<Convergence>())
+                {
+                    wax.AddEffect(new Frozen(this.effectDuration));
+                }
+                else
+                {
+                    wax.AddEffect(new Slowed(this.slowMultiplier, this.effectDuration));
+                }
             }
         }
     }

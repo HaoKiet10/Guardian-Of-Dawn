@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f820c260f55f64586ab7f4d7a797f9, type: 3}
+  m_Name: Mirror Wax
+  m_EditorClassIdentifier: GuardianOfDawn::GuardianOfDawn.WaxDefinition
+  displayName: "S\xE1p g\u01B0\u01A1ng"
+  maxHp: 30
+  speed: 1.8
+  wallDamagePerSecond: 1.5
+  resourceDrop: 6
+  isLarge: 0
+  scale: 1
+  tint: {r: 0.85, g: 0.9, b: 0.95, a: 1}
+  traits:
+  - {fileID: 11400000, guid: e56c6e27e3e17a34bafb39475e14a9d0, type: 2}
