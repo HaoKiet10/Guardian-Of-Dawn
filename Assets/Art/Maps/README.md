@@ -18,15 +18,17 @@ Bản mẫu chạy được (quái, tháp tự bắn, ngày/đêm): `Docs/Final 
 |---|---|---|
 | `map_<tên>_background.png` | Mặt đất, đường, nước, nhà, cây, đạo cụ, tiền đồn. Không có tường | Sprite Renderer ở (0, 0), sorting thấp nhất |
 | `map_<tên>_wall_lv0..3.png` | Tường thành theo cấp 0 → 3, nền trong suốt, cùng khung với ảnh nền | Cùng vị trí (0, 0). Chỉ bật lớp đúng cấp tường hiện tại |
-| `map_<tên>_layout.json` | Lưới ô, đường đi, vùng xây theo cấp tường, đạo cụ kể chuyện, vị trí đèn và hiệu ứng | Đọc bằng code khi dựng màn |
+| `map_<tên>_plots.png` | Nền móng dựng sẵn (tấm bê tông), nền trong suốt, cùng khung với ảnh nền. Hố đào quanh nền nằm sẵn trong ảnh nền | Cùng vị trí (0, 0), trên ảnh nền, dưới tháp |
+| `map_<tên>_layout.json` | Lưới ô, đường đi, nền móng đặt tháp, đạo cụ, vị trí đèn và hiệu ứng | Đọc bằng code khi dựng màn |
 
-Thứ tự vẽ: ảnh nền → lớp tường → tháp, quái, hiệu ứng (sort theo trục Y như tháp).
+Thứ tự vẽ: ảnh nền → lớp nền móng → lớp tường → tháp, quái, hiệu ứng (sort theo trục Y như tháp).
 
 ## layout.json
 - Toạ độ tính bằng unit, gốc ở góc dưới trái, trục y hướng lên: khớp với ảnh nền đặt ở (0, 0)
 - `grid`: 24 dòng × 40 ký tự, dòng đầu là hàng trên cùng. Nghĩa từng ký tự nằm trong `gridLegend`
 - `routes`: điểm giữa đường đi theo thứ tự quái đi, từ điểm xuất hiện tới tường
-- `buildZone.masksByWallLevel[cấp]`: 24 dòng chuỗi `0/1`, `1` là ô nhỏ xây được (GDD 4.5: giống nhau ở mọi cấp tường). Một ô xây (1 unit) hợp lệ khi đủ 2×2 ô nhỏ đều là `1`
+- `towerPlots`: nền móng dựng sẵn, chỉ xây tháp trên các nền này (đề xuất, khác đặt tự do ở GDD 4.5). Mỗi nền có `order` (độ ưu tiên, bản mẫu đặt 3/5/7/9 tháp lên các nền đầu tiên theo cấp tường), `cell` (ô lưới trên trái), `rectUnits`, `towerPivot` (chỗ đặt pivot Base của tháp, đã đẩy xa đường) và `previewTower` (tháp bản mẫu đặt lên)
+- `buildZone.masksByWallLevel[cấp]`: 24 dòng chuỗi `0/1`, `1` là ô nhỏ thuộc một nền móng, giống nhau ở mọi cấp tường
 - `props`: đạo cụ có tên (tên, ghi chú hiện khi rê chuột, `blocksBuilding`)
 - `lights`, `fires`, `lanterns`, `beacons`: dùng cho Light 2D ban đêm (màu `r,g,b`, bán kính tính bằng unit)
 - `ambient`: điểm cho hoạt ảnh nền: cửa sổ có người ngó ra, khói từ mái sập, chỗ quạ đậu, giọt sáp, nắp cống bốc hơi, biển neon, hologram
