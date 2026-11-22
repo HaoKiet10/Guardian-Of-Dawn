@@ -1,0 +1,233 @@
+{
+  "character": "wax_standard",
+  "psb": "Tools/ArtGen/source/wax/rig/standard/wax_standard_rig.psb",
+  "canvas": [
+    181,
+    256
+  ],
+  "pixels_per_unit": 256,
+  "feet_y": 232.0,
+  "layer_order_back_to_front": [
+    "leg_L",
+    "leg_R",
+    "arm_L",
+    "arm_R",
+    "torso",
+    "head"
+  ],
+  "parts": {
+    "leg_L": {
+      "top_left": [
+        57,
+        144
+      ],
+      "size": [
+        35,
+        88
+      ],
+      "parent": null,
+      "pivot": [
+        77.9,
+        153.2
+      ]
+    },
+    "leg_R": {
+      "top_left": [
+        90,
+        142
+      ],
+      "size": [
+        40,
+        81
+      ],
+      "parent": null,
+      "pivot": [
+        103.9,
+        150.6
+      ]
+    },
+    "arm_L": {
+      "top_left": [
+        24,
+        98
+      ],
+      "size": [
+        49,
+        81
+      ],
+      "parent": "torso",
+      "pivot": [
+        59.8,
+        105.9
+      ]
+    },
+    "arm_R": {
+      "top_left": [
+        110,
+        99
+      ],
+      "size": [
+        47,
+        78
+      ],
+      "parent": "torso",
+      "pivot": [
+        122.3,
+        107.0
+      ]
+    },
+    "torso": {
+      "top_left": [
+        57,
+        91
+      ],
+      "size": [
+        69,
+        79
+      ],
+      "parent": null,
+      "pivot": [
+        89.8,
+        160.5
+      ]
+    },
+    "head": {
+      "top_left": [
+        60,
+        24
+      ],
+      "size": [
+        84,
+        84
+      ],
+      "parent": "torso",
+      "pivot": [
+        92.0,
+        96.0
+      ]
+    }
+  },
+  "bones": {
+    "hip": {
+      "start": [
+        89.8,
+        160.5
+      ],
+      "end": [
+        90.9,
+        128.2
+      ],
+      "parent": null
+    },
+    "chest": {
+      "start": [
+        90.9,
+        128.2
+      ],
+      "end": [
+        92.0,
+        96.0
+      ],
+      "parent": "hip"
+    },
+    "head": {
+      "start": [
+        92.0,
+        96.0
+      ],
+      "end": [
+        92.0,
+        45.0
+      ],
+      "parent": "chest"
+    },
+    "upper_arm_L": {
+      "start": [
+        59.8,
+        105.9
+      ],
+      "end": [
+        42.5,
+        138
+      ],
+      "parent": "chest"
+    },
+    "forearm_L": {
+      "start": [
+        42.5,
+        138
+      ],
+      "end": [
+        37.5,
+        170
+      ],
+      "parent": "upper_arm_L"
+    },
+    "thigh_L": {
+      "start": [
+        77.9,
+        153.2
+      ],
+      "end": [
+        71.5,
+        187
+      ],
+      "parent": "hip"
+    },
+    "shin_L": {
+      "start": [
+        71.5,
+        187
+      ],
+      "end": [
+        75.5,
+        224
+      ],
+      "parent": "thigh_L"
+    },
+    "upper_arm_R": {
+      "start": [
+        122.3,
+        107.0
+      ],
+      "end": [
+        138.0,
+        137
+      ],
+      "parent": "chest"
+    },
+    "forearm_R": {
+      "start": [
+        138.0,
+        137
+      ],
+      "end": [
+        143.0,
+        167
+      ],
+      "parent": "upper_arm_R"
+    },
+    "thigh_R": {
+      "start": [
+        103.9,
+        150.6
+      ],
+      "end": [
+        105.5,
+        182
+      ],
+      "parent": "hip"
+    },
+    "shin_R": {
+      "start": [
+        105.5,
+        182
+      ],
+      "end": [
+        111.5,
+        215
+      ],
+      "parent": "thigh_R"
+    }
+  }
+}
