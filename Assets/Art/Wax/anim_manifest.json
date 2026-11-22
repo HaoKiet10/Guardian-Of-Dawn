@@ -1,0 +1,1060 @@
+{
+  "version": 1,
+  "rows": [
+    "S",
+    "E",
+    "N"
+  ],
+  "ppu": 128,
+  "pivot": [
+    0.5,
+    0.125
+  ],
+  "note": "rows: 0=S (faces down-left), 1=E (faces right), 2=N (=S); W = E with flipX. frames are columns, left to right. impact_frame is 0-based.",
+  "creatures": {
+    "Standard": {
+      "folder": "Standard",
+      "cell": 160,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 105,
+      "source": "Tools/ArtGen/source/wax_poses/standard.png",
+      "anims": {
+        "walk": {
+          "file": "Standard/wax_standard_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Standard/wax_standard_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Standard/wax_standard_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Standard/wax_standard_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        }
+      }
+    },
+    "Shard": {
+      "folder": "Shard",
+      "cell": 64,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 39,
+      "source": "Tools/ArtGen/source/wax_poses/shard.png",
+      "anims": {
+        "walk": {
+          "file": "Shard/wax_shard_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Shard/wax_shard_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Shard/wax_shard_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Shard/wax_shard_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        }
+      }
+    },
+    "Crab": {
+      "folder": "Crab",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 94,
+      "source": "Tools/ArtGen/source/wax_poses/crab.png",
+      "anims": {
+        "walk": {
+          "file": "Crab/wax_crab_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Crab/wax_crab_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Crab/wax_crab_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Crab/wax_crab_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        }
+      }
+    },
+    "Tiger": {
+      "folder": "Tiger",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 101,
+      "source": "Tools/ArtGen/source/wax_poses/tiger.png",
+      "anims": {
+        "walk": {
+          "file": "Tiger/wax_tiger_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Tiger/wax_tiger_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Tiger/wax_tiger_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Tiger/wax_tiger_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        }
+      }
+    },
+    "TigerCub": {
+      "folder": "TigerCub",
+      "cell": 64,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 46,
+      "source": "Tools/ArtGen/source/wax_poses/tiger_cub.png",
+      "anims": {
+        "walk": {
+          "file": "TigerCub/wax_tiger_cub_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "TigerCub/wax_tiger_cub_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "TigerCub/wax_tiger_cub_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "TigerCub/wax_tiger_cub_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        }
+      }
+    },
+    "Healer": {
+      "folder": "Healer",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 110,
+      "source": "Tools/ArtGen/source/wax_poses/healer.png",
+      "anims": {
+        "walk": {
+          "file": "Healer/wax_healer_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Healer/wax_healer_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Healer/wax_healer_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Healer/wax_healer_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "heal": {
+          "file": "Healer/wax_healer_heal.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Đứng yên hồi máu: rung chuông, hoa nến sáng; lặp trong lúc hồi"
+        }
+      }
+    },
+    "Spore": {
+      "folder": "Spore",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 108,
+      "source": "Tools/ArtGen/source/wax_poses/spore.png",
+      "anims": {
+        "walk": {
+          "file": "Spore/wax_spore_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Spore/wax_spore_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Spore/wax_spore_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Spore/wax_spore_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây Frame cuối có 3 Sáp vụn nhỏ bên vũng (GDD: vỡ thành 3 Sáp vụn) – code sinh 3 Sáp vụn thật ở frame 4."
+        }
+      }
+    },
+    "Lens": {
+      "folder": "Lens",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 109,
+      "source": "Tools/ArtGen/source/wax_poses/lens.png",
+      "anims": {
+        "walk": {
+          "file": "Lens/wax_lens_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Lens/wax_lens_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Lens/wax_lens_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Lens/wax_lens_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "focus": {
+          "file": "Lens/wax_lens_focus.png",
+          "frames": 8,
+          "fps": 8,
+          "loop": false,
+          "impact_frame": 4,
+          "duration_s": 1.0,
+          "note": "Hội tụ: đưa thấu kính ra trước, giữ, lóe sáng (frame 4 = bắn tia), hạ xuống"
+        }
+      }
+    },
+    "Mirror": {
+      "folder": "Mirror",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 107,
+      "source": "Tools/ArtGen/source/wax_poses/mirror.png",
+      "anims": {
+        "walk": {
+          "file": "Mirror/wax_mirror_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Mirror/wax_mirror_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Mirror/wax_mirror_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Mirror/wax_mirror_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        }
+      }
+    },
+    "Ultimate": {
+      "folder": "Ultimate",
+      "cell": 192,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 162,
+      "source": "Tools/ArtGen/source/wax_poses/ultimate.png",
+      "anims": {
+        "walk": {
+          "file": "Ultimate/wax_ultimate_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Ultimate/wax_ultimate_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Ultimate/wax_ultimate_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Ultimate/wax_ultimate_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "selfheal": {
+          "file": "Ultimate/wax_ultimate_selfheal.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Tự hồi phục: sáp sáng lên rồi dịu lại, lặp"
+        }
+      }
+    },
+    "Frenzy": {
+      "folder": "Frenzy",
+      "cell": 128,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 107,
+      "source": "Tools/ArtGen/source/wax_poses/frenzy.png",
+      "anims": {
+        "walk": {
+          "file": "Frenzy/wax_frenzy_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Frenzy/wax_frenzy_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Frenzy/wax_frenzy_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Frenzy/wax_frenzy_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "howl": {
+          "file": "Frenzy/wax_frenzy_howl.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": false,
+          "impact_frame": 4,
+          "duration_s": 0.8,
+          "note": "Gào: frame 4 = tiếng gào, code tăng tốc đồng loại xung quanh"
+        }
+      }
+    },
+    "Primordial": {
+      "folder": "Primordial",
+      "cell": 256,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 214,
+      "source": "Tools/ArtGen/source/wax_poses/primordial.png",
+      "anims": {
+        "walk": {
+          "file": "Primordial/wax_primordial_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Primordial/wax_primordial_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Primordial/wax_primordial_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Primordial/wax_primordial_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "shed": {
+          "file": "Primordial/wax_primordial_shed.png",
+          "frames": 8,
+          "fps": 8,
+          "loop": false,
+          "impact_frame": 4,
+          "duration_s": 1.0,
+          "note": "Bong tróc: frame 0-3 vết nứt sáng (lặp 2-3 cho đủ 3 giây cảnh báo), frame 4 mảng sáp văng ra, code thả Sáp vụn"
+        }
+      }
+    },
+    "AlphaTiger": {
+      "folder": "AlphaTiger",
+      "cell": 256,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 219,
+      "source": "Tools/ArtGen/source/wax_poses/alpha_tiger.png",
+      "anims": {
+        "walk": {
+          "file": "AlphaTiger/wax_alpha_tiger_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "AlphaTiger/wax_alpha_tiger_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "AlphaTiger/wax_alpha_tiger_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "AlphaTiger/wax_alpha_tiger_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "crouch": {
+          "file": "AlphaTiger/wax_alpha_tiger_crouch.png",
+          "frames": 6,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.6,
+          "note": "Vồ – cảnh báo: cúi người rung, lặp trong 2 giây"
+        },
+        "pounce": {
+          "file": "AlphaTiger/wax_alpha_tiger_pounce.png",
+          "frames": 6,
+          "fps": 10,
+          "loop": false,
+          "impact_frame": 5,
+          "duration_s": 0.6,
+          "note": "Vồ – bật nhảy (hình giữa không trung); code dời vị trí theo cung, frame 5 = chạm đất"
+        },
+        "headbutt": {
+          "file": "AlphaTiger/wax_alpha_tiger_headbutt.png",
+          "frames": 6,
+          "fps": 10,
+          "loop": false,
+          "impact_frame": 2,
+          "duration_s": 0.6,
+          "note": "Húc tường: frame 0-1 cúi đầu (giữ 1,5 giây), frame 2 = lúc trúng"
+        },
+        "roar": {
+          "file": "AlphaTiger/wax_alpha_tiger_roar.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": false,
+          "impact_frame": 2,
+          "duration_s": 0.75,
+          "note": "Gọi bầy: gầm, code triệu hồi 4–6 hổ con ở frame 2"
+        }
+      }
+    },
+    "MotherTree": {
+      "folder": "MotherTree",
+      "cell": 256,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 218,
+      "source": "Tools/ArtGen/source/wax_poses/mother_tree.png",
+      "anims": {
+        "walk": {
+          "file": "MotherTree/wax_mother_tree_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "MotherTree/wax_mother_tree_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "MotherTree/wax_mother_tree_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "MotherTree/wax_mother_tree_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "seed": {
+          "file": "MotherTree/wax_mother_tree_seed.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.75,
+          "note": "Gieo hạt: frame 0-2 rung cành (cảnh báo), frame 3 thả hạt, code đặt 4–6 quả hạt"
+        },
+        "roots": {
+          "file": "MotherTree/wax_mother_tree_roots.png",
+          "frames": 6,
+          "fps": 6,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 1.0,
+          "note": "Rễ nuôi: rễ trồi lên quanh gốc, lặp (vòng hồi máu do VFX vẽ)"
+        },
+        "bark": {
+          "file": "MotherTree/wax_mother_tree_bark.png",
+          "frames": 6,
+          "fps": 6,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 1.0,
+          "note": "Vỏ cây: tấm vỏ che phía trước (giảm sát thương trực diện), lặp"
+        }
+      }
+    },
+    "Prism": {
+      "folder": "Prism",
+      "cell": 256,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 212,
+      "source": "Tools/ArtGen/source/wax_poses/prism.png",
+      "anims": {
+        "walk": {
+          "file": "Prism/wax_prism_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Prism/wax_prism_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Prism/wax_prism_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Prism/wax_prism_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "focus": {
+          "file": "Prism/wax_prism_focus.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Hội tụ: đầu trượng sáng, lặp trong 5 giây nạp tia"
+        },
+        "multi_focus": {
+          "file": "Prism/wax_prism_multi_focus.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Hội tụ đa điểm (50% máu): các tinh thể cùng sáng, lặp 5 giây"
+        },
+        "open_core": {
+          "file": "Prism/wax_prism_open_core.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Mở lõi: lõi sáng = đang nhận gấp đôi sát thương, lặp"
+        },
+        "mirror_skin": {
+          "file": "Prism/wax_prism_mirror_skin.png",
+          "frames": 6,
+          "fps": 10,
+          "loop": false,
+          "impact_frame": 2,
+          "duration_s": 0.6,
+          "note": "Da gương: lóe lên khi phản đạn"
+        }
+      }
+    },
+    "Myriad": {
+      "folder": "Myriad",
+      "cell": 256,
+      "rows": [
+        "S",
+        "E",
+        "N"
+      ],
+      "pivot": [
+        0.5,
+        0.125
+      ],
+      "ppu": 128,
+      "height_px": 213,
+      "source": "Tools/ArtGen/source/wax_poses/myriad.png",
+      "anims": {
+        "walk": {
+          "file": "Myriad/wax_myriad_walk.png",
+          "frames": 8,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.8,
+          "note": "đi: 4 tư thế vẽ tay, mỗi tư thế giữ 2 frame với nhịp nhún"
+        },
+        "attack": {
+          "file": "Myriad/wax_myriad_attack.png",
+          "frames": 7,
+          "fps": 12,
+          "loop": false,
+          "impact_frame": 3,
+          "duration_s": 0.583,
+          "note": "lấy đà → giơ cao (giữ) → đánh; frame 3 = lúc trúng"
+        },
+        "hit": {
+          "file": "Myriad/wax_myriad_hit.png",
+          "frames": 4,
+          "fps": 14,
+          "loop": false,
+          "impact_frame": 0,
+          "duration_s": 0.286,
+          "note": "tư thế trúng đòn (vẽ tay), nháy trắng, nảy lùi"
+        },
+        "die": {
+          "file": "Myriad/wax_myriad_die.png",
+          "frames": 7,
+          "fps": 16,
+          "loop": false,
+          "impact_frame": null,
+          "duration_s": 0.438,
+          "note": "3 giai đoạn tan chảy (vẽ tay) rồi lún và mờ dần; 0,44 giây"
+        },
+        "absorb": {
+          "file": "Myriad/wax_myriad_absorb.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Hấp thụ: kéo xác về phía mình, lặp"
+        },
+        "scream": {
+          "file": "Myriad/wax_myriad_scream.png",
+          "frames": 6,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.6,
+          "note": "Vạn người (66% và 33% máu): các khuôn mặt gào, rung; code sinh bầy"
+        },
+        "last_heart": {
+          "file": "Myriad/wax_myriad_last_heart.png",
+          "frames": 6,
+          "fps": 8,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.75,
+          "note": "Trái tim cuối cùng (10% máu): vỏ nứt hóa cứng, tim nhật thực rực sáng, lặp"
+        },
+        "charge": {
+          "file": "Myriad/wax_myriad_charge.png",
+          "frames": 4,
+          "fps": 10,
+          "loop": true,
+          "impact_frame": null,
+          "duration_s": 0.4,
+          "note": "Lao về phía tường sau Trái tim cuối cùng, lặp"
+        }
+      }
+    }
+  }
+}
