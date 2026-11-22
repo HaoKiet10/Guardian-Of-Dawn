@@ -1,0 +1,1478 @@
+{
+ "version": 1,
+ "generator": "Tools/ArtGen/gen_vfx.py",
+ "pixels_per_unit": 128,
+ "fields": {
+  "cell": "[width, height] of one frame in px; frames run left to right in one row",
+  "fps": "suggested playback speed; 0 = not an animation (pick a frame)",
+  "pivot": "Unity pivot [x from left, y from BOTTOM], 0..1",
+  "anchor_px": "the same point in px from the TOP-LEFT of the cell (for canvas drawImage)",
+  "blend": "alpha = normal blending; additive = add (canvas \"lighter\"), also acceptable as alpha",
+  "scale": "suggested scale for a tier-1 creature (128 px = 1 build cell); see notes for other sizes",
+  "layer": "ground = under units, over = on top of the unit, icon = above the head/health bar, screen = full-viewport overlay",
+  "tintable": "true = neutral white wax, multiply with the creature accent colour",
+  "status_icon_frames": "frame index of each status badge inside vfx_status_icons"
+ },
+ "status_icon_frames": {
+  "burning": 0,
+  "frozen": 1,
+  "solvent": 2,
+  "netted": 3,
+  "slowed": 4,
+  "tar": 5,
+  "haste": 6,
+  "regen": 7
+ },
+ "effects": [
+  {
+   "name": "vfx_step_dust",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_step_dust.png",
+   "cell": [
+    64,
+    48
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.429,
+   "pivot": [
+    0.5,
+    0.2
+   ],
+   "anchor_px": [
+    32.0,
+    38.4
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "walk: spawn at a foot on every step (walk frames 0 and half-cycle). Map: Outskirts road, Old Town cobbles (default)",
+   "notes": "grey-brown dust puff; scale 0.6 for shard/cub, 1.8 for bosses"
+  },
+  {
+   "name": "vfx_step_splash",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_step_splash.png",
+   "cell": [
+    64,
+    48
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.429,
+   "pivot": [
+    0.5,
+    0.2
+   ],
+   "anchor_px": [
+    32.0,
+    38.4
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "walk: spawn at a foot on every step (walk frames 0 and half-cycle). Map: Harbor (wet planks, water edge)",
+   "notes": "water ripple and droplets; scale 0.6 for shard/cub, 1.8 for bosses"
+  },
+  {
+   "name": "vfx_step_salt",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_step_salt.png",
+   "cell": [
+    64,
+    48
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.429,
+   "pivot": [
+    0.5,
+    0.2
+   ],
+   "anchor_px": [
+    32.0,
+    38.4
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "walk: spawn at a foot on every step (walk frames 0 and half-cycle). Map: White Plains",
+   "notes": "white salt puff with square crystals; scale 0.6 for shard/cub, 1.8 for bosses"
+  },
+  {
+   "name": "vfx_step_snow",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_step_snow.png",
+   "cell": [
+    64,
+    48
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.429,
+   "pivot": [
+    0.5,
+    0.2
+   ],
+   "anchor_px": [
+    32.0,
+    38.4
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "walk: spawn at a foot on every step (walk frames 0 and half-cycle). Map: Observatory",
+   "notes": "lavender snow puff with flakes; scale 0.6 for shard/cub, 1.8 for bosses"
+  },
+  {
+   "name": "vfx_wax_drip",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_wax_drip.png",
+   "cell": [
+    32,
+    32
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 12,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.2
+   ],
+   "anchor_px": [
+    16.0,
+    25.6
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": true,
+   "used_by": "all",
+   "when": "walk: wax drop falling off the creature every 0.4-0.8 s, leaves a small splat",
+   "notes": "neutral white wax; tint (multiply) with the creature accent colour"
+  },
+  {
+   "name": "vfx_hit_splash",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_hit_splash.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 20,
+   "loop": false,
+   "duration": 0.3,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    48.0,
+    48.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": true,
+   "used_by": "all",
+   "when": "hit: at the impact point when a creature takes damage (with vfx_hit_flash)",
+   "notes": "wax shards and droplets; tint with the creature accent colour"
+  },
+  {
+   "name": "vfx_hit_flash",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_hit_flash.png",
+   "cell": [
+    64,
+    64
+   ],
+   "frames": 3,
+   "rows": 1,
+   "fps": 30,
+   "loop": false,
+   "duration": 0.1,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    32.0,
+    32.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "hit: one short white impact flash at the impact point",
+   "notes": "draw above the splash"
+  },
+  {
+   "name": "vfx_attack_slash",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_attack_slash.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 5,
+   "rows": 1,
+   "fps": 20,
+   "loop": false,
+   "duration": 0.25,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    64.0
+   ],
+   "blend": "alpha",
+   "scale": 0.8,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "attack: claw swipe in front of tiger, tiger cub, alpha tiger, frenzy, crab (attack frame 2-3)",
+   "notes": "drawn swiping toward +x (east); rotate to the attack direction, flipX for west"
+  },
+  {
+   "name": "vfx_attack_swipe",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_attack_swipe.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 5,
+   "rows": 1,
+   "fps": 20,
+   "loop": false,
+   "duration": 0.25,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    64.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "attack: weapon swing arc for armed creatures (standard, primordial, healer, spore, mother tree, lens, mirror, prism, ultimate, myriad)",
+   "notes": "drawn swinging toward +x; rotate to the attack direction; scale 1.8 for bosses"
+  },
+  {
+   "name": "vfx_attack_impact",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_attack_impact.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 5,
+   "rows": 1,
+   "fps": 20,
+   "loop": false,
+   "duration": 0.25,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    48.0,
+    48.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "attack: burst at the target (wall or squad) on the hit frame of any creature attack",
+   "notes": "scale 0.6 for shard/cub, 1.6 for bosses"
+  },
+  {
+   "name": "vfx_death_melt",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_death_melt.png",
+   "cell": [
+    128,
+    64
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 20,
+   "loop": false,
+   "duration": 0.4,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    32.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": true,
+   "used_by": "all",
+   "when": "death: wax puddle that spreads then evaporates (0.4 s) under any creature, starts with the die animation",
+   "notes": "neutral white wax; tint with the accent colour; scale 0.5 shard/cub, 2.0 bosses"
+  },
+  {
+   "name": "vfx_drop_resource",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_drop_resource.png",
+   "cell": [
+    48,
+    64
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 16,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.15
+   ],
+   "anchor_px": [
+    24.0,
+    54.4
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "death: gold 4-point star rising where a creature dropped resources",
+   "notes": "shape = star (resource)"
+  },
+  {
+   "name": "vfx_drop_specimen",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_drop_specimen.png",
+   "cell": [
+    48,
+    64
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 16,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.15
+   ],
+   "anchor_px": [
+    24.0,
+    54.4
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "death: lilac hexagon gem rising where a creature dropped a research specimen",
+   "notes": "shape = hexagon gem (specimen), so it does not rely on colour"
+  },
+  {
+   "name": "vfx_shadow_blob",
+   "group": "Shared",
+   "file": "Assets/Art/VFX/Shared/vfx_shadow_blob.png",
+   "cell": [
+    128,
+    64
+   ],
+   "frames": 1,
+   "rows": 1,
+   "fps": 0,
+   "loop": false,
+   "duration": 0,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    32.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "always: soft blob shadow under a unit that has no baked shadow (flying shards, pouncing boss, pods)",
+   "notes": "scale x to the unit width; shrink while the unit is in the air"
+  },
+  {
+   "name": "vfx_status_burning",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_burning.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.08
+   ],
+   "anchor_px": [
+    48.0,
+    88.32
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status burning (Flamethrower): loop on the creature while it burns",
+   "notes": "flames hug the feet and the sides so the body stays visible; scale = unit cell / 128 (0.5 shard, 2.0 boss). Replaces the 32 px placeholder Towers/Flamethrower/vfx_burning.png"
+  },
+  {
+   "name": "vfx_status_frozen",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_frozen.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 8,
+   "loop": true,
+   "duration": 0.75,
+   "pivot": [
+    0.5,
+    0.08
+   ],
+   "anchor_px": [
+    48.0,
+    88.32
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status frozen (Cryo Tower fully freezes the lens tier and interrupts focus): loop while frozen",
+   "notes": "ice crust at the feet plus a see-through frost sheen; also tint the unit pale blue in code"
+  },
+  {
+   "name": "vfx_status_frozen_break",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_frozen_break.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 20,
+   "loop": false,
+   "duration": 0.3,
+   "pivot": [
+    0.5,
+    0.08
+   ],
+   "anchor_px": [
+    48.0,
+    88.32
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status frozen ends: ice crust shatters",
+   "notes": "one shot, then remove vfx_status_frozen"
+  },
+  {
+   "name": "vfx_status_solvent",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_solvent.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.08
+   ],
+   "anchor_px": [
+    48.0,
+    88.32
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status solvent (Solvent Sprayer puddle, Hunter weapons): loop while the creature is dissolving (cannot heal, armour melts)",
+   "notes": "acid drips running down the body and bubbles at the feet"
+  },
+  {
+   "name": "vfx_status_netted",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_netted.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 4,
+   "rows": 1,
+   "fps": 6,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.08
+   ],
+   "anchor_px": [
+    48.0,
+    88.32
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status netted (Net Launcher): loop while the creature is tied down (bosses and the ultimate tier are only slowed: use vfx_status_slowed for them)",
+   "notes": "see-through rope dome with weights; matches Towers/NetLauncher/vfx_net_trap"
+  },
+  {
+   "name": "vfx_status_slowed",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_slowed.png",
+   "cell": [
+    96,
+    64
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.42
+   ],
+   "anchor_px": [
+    48.0,
+    37.12
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status slowed (Cryo Tower aura; Net Launcher on bosses and the ultimate tier): loop at the feet",
+   "notes": "frost ring with dragging chevrons and snowflakes; drawn under the unit"
+  },
+  {
+   "name": "vfx_status_tar",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_tar.png",
+   "cell": [
+    96,
+    64
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 8,
+   "loop": true,
+   "duration": 1.0,
+   "pivot": [
+    0.5,
+    0.42
+   ],
+   "anchor_px": [
+    48.0,
+    37.12
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status tar-stuck (Warden tar trap): loop at the feet while the creature is stuck",
+   "notes": "dark tar puddle with stretching strands; drawn under the unit, strands overlap the feet"
+  },
+  {
+   "name": "vfx_status_icons",
+   "group": "Status",
+   "file": "Assets/Art/VFX/Status/vfx_status_icons.png",
+   "cell": [
+    40,
+    40
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 0,
+   "loop": false,
+   "duration": 0,
+   "pivot": [
+    0.5,
+    0.0
+   ],
+   "anchor_px": [
+    20.0,
+    40.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "icon",
+   "tintable": false,
+   "used_by": "all",
+   "when": "status: badge above the head of a creature for each active status (GDD 8.5: never colour alone). Frame index = 0 burning, 1 frozen, 2 solvent, 3 netted, 4 slowed, 5 tar, 6 haste, 7 regen",
+   "notes": "not an animation: pick one frame per status. Each badge has its own plate SHAPE: burning circle, frozen hexagon, solvent droplet, netted square, slowed diamond, tar light shield, haste up-arrow, regen cross. Place side by side 4 px above the health bar; keep at scale 1 (40 px) for all units"
+  },
+  {
+   "name": "vfx_heal_ring",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_heal_ring.png",
+   "cell": [
+    256,
+    192
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    128.0,
+    96.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "healer",
+   "when": "healer (tier 3) heal: green zone on the ground while it stands still and heals; radius = heal radius",
+   "notes": "ellipse 236x172 px in the cell; scale so the ring matches the heal radius (y squash 0.72)"
+  },
+  {
+   "name": "vfx_heal_sparkle",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_heal_sparkle.png",
+   "cell": [
+    48,
+    64
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.1
+   ],
+   "anchor_px": [
+    24.0,
+    57.6
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "healer, mother_tree, any healed ally",
+   "when": "heal received: loop on every creature that is being healed by a healer or by the mother tree roots",
+   "notes": "green plus signs rising; pair with the regen badge (vfx_status_icons frame 7)"
+  },
+  {
+   "name": "vfx_lens_charge_bar",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_lens_charge_bar.png",
+   "cell": [
+    96,
+    24
+   ],
+   "frames": 21,
+   "rows": 1,
+   "fps": 4,
+   "loop": false,
+   "duration": 5.25,
+   "pivot": [
+    0.5,
+    0.0
+   ],
+   "anchor_px": [
+    48.0,
+    24.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "icon",
+   "tintable": false,
+   "used_by": "lens, prism",
+   "when": "lens (tier 4) focus: bar above the head filling over 5 s while it stands next to a tower; frame = round(progress * 20); frame 20 = full (tower destroyed)",
+   "notes": "5 segments = 5 seconds; high visual priority (GDD 8.3). Reset to frame 0 when the Cryo Tower freezes the creature"
+  },
+  {
+   "name": "vfx_lens_beam",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_lens_beam.png",
+   "cell": [
+    128,
+    32
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.5,
+   "pivot": [
+    0.0,
+    0.5
+   ],
+   "anchor_px": [
+    0.0,
+    16.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "lens",
+   "when": "lens (tier 4) focus: light beam from the lens on its back to the tower it is destroying",
+   "notes": "tileable along x and seamless as a loop: anchor at the lens, rotate toward the tower and stretch or repeat x to the distance. Amber edge so it reads on the white salt flat"
+  },
+  {
+   "name": "vfx_lens_beam_hit",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_lens_beam_hit.png",
+   "cell": [
+    64,
+    64
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    32.0,
+    32.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "lens, prism",
+   "when": "lens focus / prism focus: hot spot on the tower at the end of the beam",
+   "notes": "spinning sun rays; scale up with charge (0.7 -> 1.2)"
+  },
+  {
+   "name": "vfx_frenzy_howl",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_frenzy_howl.png",
+   "cell": [
+    256,
+    192
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 16,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    128.0,
+    96.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "frenzy",
+   "when": "frenzy howl: sound-wave rings expanding from the creature when it speeds up nearby creatures (howl frame 2); scale to the buff radius",
+   "notes": "crimson broken rings; buffed allies get the haste badge (vfx_status_icons frame 6)"
+  },
+  {
+   "name": "vfx_ultimate_regen",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_ultimate_regen.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 12,
+   "loop": false,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.1
+   ],
+   "anchor_px": [
+    64.0,
+    115.2
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "ultimate, myriad",
+   "when": "ultimate (tier 5) self-heal tick: pulse rising around the body every time it regenerates",
+   "notes": "one shot per tick; do not play while burning or under solvent (healing is blocked)"
+  },
+  {
+   "name": "vfx_spore_burst",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_spore_burst.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 7,
+   "rows": 1,
+   "fps": 18,
+   "loop": false,
+   "duration": 0.389,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    64.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "spore",
+   "when": "spore death: purple spore cloud and 3 wax chunks flying out where the 3 shards will spawn (skip it when the spore dies burning or under solvent: it does not split)",
+   "notes": "chunks fly to 150, 30 and 270 degrees; spawn the shards at those offsets (about 40 px)"
+  },
+  {
+   "name": "vfx_crab_shell_soften",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_crab_shell_soften.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.08
+   ],
+   "anchor_px": [
+    48.0,
+    88.32
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "crab, mother_tree (bark)",
+   "when": "crab under solvent: shell flakes sliding off while its front armour is melted (optional overlay on top of vfx_status_solvent)",
+   "notes": "coral flakes; for the mother tree bark tint the flakes brown"
+  },
+  {
+   "name": "vfx_mirror_reflect",
+   "group": "Skills",
+   "file": "Assets/Art/VFX/Skills/vfx_mirror_reflect.png",
+   "cell": [
+    64,
+    64
+   ],
+   "frames": 5,
+   "rows": 1,
+   "fps": 24,
+   "loop": false,
+   "duration": 0.208,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    32.0,
+    32.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "mirror, prism",
+   "when": "mirror reflect: spark on the salt-crystal skin when it bounces a single-target shot back (Machine Gun, Sniper, Hunter); also the prism boss mirror skin",
+   "notes": "the streak leaves toward +x: rotate toward the tower that fired"
+  },
+  {
+   "name": "vfx_primordial_crack_glow",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_primordial_crack_glow.png",
+   "cell": [
+    256,
+    256
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    128.0,
+    128.0
+   ],
+   "blend": "additive",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "primordial",
+   "when": "boss 1 Shed warning (66% and 33% HP): cracks on the body glow pale white-yellow for 3 s before the wax plates fall off",
+   "notes": "centre on the chest (about 110 px above the feet); pulse gets faster in code (fps 10 -> 20). Additive, but also fine with normal alpha"
+  },
+  {
+   "name": "vfx_primordial_shed_burst",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_primordial_shed_burst.png",
+   "cell": [
+    256,
+    256
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 16,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    128.0,
+    128.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "primordial",
+   "when": "boss 1 Shed: wax plates blast off the body and become 8-10 shards around the boss",
+   "notes": "spawn the shards as the plates land (frame 5)"
+  },
+  {
+   "name": "vfx_tiger_pounce_line",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tiger_pounce_line.png",
+   "cell": [
+    128,
+    32
+   ],
+   "frames": 4,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.333,
+   "pivot": [
+    0.0,
+    0.5
+   ],
+   "anchor_px": [
+    0.0,
+    16.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "alpha_tiger",
+   "when": "boss 2 Pounce warning (2 s crouch): red chevron line on the lane from the boss to the landing point",
+   "notes": "tileable along x and seamless as a loop: rotate toward the landing point and repeat x to the distance. Follows the lane; end it with vfx_tiger_pounce_marker"
+  },
+  {
+   "name": "vfx_tiger_pounce_marker",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tiger_pounce_marker.png",
+   "cell": [
+    192,
+    144
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    96.0,
+    72.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "alpha_tiger",
+   "when": "boss 2 Pounce warning: landing marker on the lane for the 2 s crouch (blink faster near the end)",
+   "notes": "supersedes the 128x64 placeholder Wax/AlphaTiger/vfx_pounce_target.png; red target with a paw print"
+  },
+  {
+   "name": "vfx_tiger_land_dust",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tiger_land_dust.png",
+   "cell": [
+    256,
+    192
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 16,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    128.0,
+    96.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "alpha_tiger",
+   "when": "boss 2 Pounce landing: dust ring and cracks where the boss lands",
+   "notes": "also usable for the primordial heavy step at scale 0.6"
+  },
+  {
+   "name": "vfx_tiger_roar_ring",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tiger_roar_ring.png",
+   "cell": [
+    256,
+    192
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.571,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    128.0,
+    96.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "alpha_tiger",
+   "when": "boss 2 Call the Pack (50% HP): roar rings from the boss when it summons tiger cubs (roar frame 3), together with vfx_screen_edge_pulse",
+   "notes": "jagged gold and bone rings; scale 1.5 on the boss"
+  },
+  {
+   "name": "vfx_screen_edge_pulse",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_screen_edge_pulse.png",
+   "cell": [
+    480,
+    270
+   ],
+   "frames": 1,
+   "rows": 1,
+   "fps": 0,
+   "loop": false,
+   "duration": 0,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    240.0,
+    135.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "screen",
+   "tintable": false,
+   "used_by": "alpha_tiger",
+   "when": "boss 2 Call the Pack warning: screen edges blink red while the boss roars; also usable for the myriad Last Heart darkening with a dark tint",
+   "notes": "single frame: stretch over the whole viewport and animate alpha in code (0 -> 0.9 -> 0, 3 pulses of 0.5 s). Centre is fully transparent so it never hides enemies or the storm ring"
+  },
+  {
+   "name": "vfx_tiger_headbutt_impact",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tiger_headbutt_impact.png",
+   "cell": [
+    192,
+    192
+   ],
+   "frames": 7,
+   "rows": 1,
+   "fps": 18,
+   "loop": false,
+   "duration": 0.389,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    96.0,
+    96.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "alpha_tiger",
+   "when": "boss 2 Wall Ram (first hit on the wall, after a 1.5 s head-down warning): impact burst on the wall (headbutt frame 3)",
+   "notes": "also good for the primordial heavy wall hit"
+  },
+  {
+   "name": "vfx_tree_root_ring",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tree_root_ring.png",
+   "cell": [
+    384,
+    288
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 8,
+   "loop": true,
+   "duration": 1.0,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    192.0,
+    144.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "mother_tree",
+   "when": "boss 3 Feeding Roots (always on): green ring on the ground around the walking boss; creatures inside heal slowly",
+   "notes": "ellipse 352x256 px; scale so it matches the aura radius. Loop"
+  },
+  {
+   "name": "vfx_tree_seed_pod_blink",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tree_seed_pod_blink.png",
+   "cell": [
+    64,
+    64
+   ],
+   "frames": 4,
+   "rows": 1,
+   "fps": 6,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.1
+   ],
+   "anchor_px": [
+    32.0,
+    57.6
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "mother_tree",
+   "when": "boss 3 Seeding (66% and 33% HP): seed pod dropped on the lane, blinking for 5 s before it hatches into a healer",
+   "notes": "raise fps from 6 to 16 over the 5 s; pods can be destroyed by area damage"
+  },
+  {
+   "name": "vfx_tree_seed_pod_hatch",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_tree_seed_pod_hatch.png",
+   "cell": [
+    96,
+    96
+   ],
+   "frames": 7,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.5,
+   "pivot": [
+    0.5,
+    0.2
+   ],
+   "anchor_px": [
+    48.0,
+    76.8
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "mother_tree",
+   "when": "boss 3 Seeding: the pod swells, cracks and bursts; spawn the healer on frame 4",
+   "notes": "play instead of the blink loop when the 5 s are over"
+  },
+  {
+   "name": "vfx_prism_charge_beam",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_prism_charge_beam.png",
+   "cell": [
+    128,
+    48
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.5,
+   "pivot": [
+    0.0,
+    0.5
+   ],
+   "anchor_px": [
+    0.0,
+    24.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "prism",
+   "when": "boss 4 Focus and Multi-Focus: rainbow beam from the prism sceptre to each targeted tower, charging for 5 s",
+   "notes": "tileable along x and seamless as a loop: rotate and repeat x to the distance; scale y 0.4 -> 1.0 with charge progress"
+  },
+  {
+   "name": "vfx_prism_target_marker",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_prism_target_marker.png",
+   "cell": [
+    128,
+    96
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    48.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "prism",
+   "when": "boss 4 Multi-Focus (50% HP): marker under each of the 3 targeted towers for the 5 s charge",
+   "notes": "high priority (same family as the storm ring): draw it above tower bases, never above the storm ring"
+  },
+  {
+   "name": "vfx_prism_mirror_glint",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_prism_mirror_glint.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 6,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.429,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    64.0
+   ],
+   "blend": "additive",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "prism, mirror",
+   "when": "boss 4 Mirror Skin (always on): glints running over the crystals every few seconds, and whenever a single-target shot is reflected",
+   "notes": "centre on the body; additive, also fine with normal alpha"
+  },
+  {
+   "name": "vfx_prism_core_glow",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_prism_core_glow.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    64.0
+   ],
+   "blend": "additive",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "prism",
+   "when": "boss 4 Open Core (while it charges a beam, it takes double damage): glowing core on the chest crystal",
+   "notes": "centre on the big chest crystal; additive, also fine with normal alpha"
+  },
+  {
+   "name": "vfx_myriad_absorb_trail",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_myriad_absorb_trail.png",
+   "cell": [
+    128,
+    48
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 12,
+   "loop": true,
+   "duration": 0.667,
+   "pivot": [
+    0.0,
+    0.5
+   ],
+   "anchor_px": [
+    0.0,
+    24.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "myriad",
+   "when": "boss 5 Absorb (always on): wax of a creature that died nearby streams toward the boss and heals it",
+   "notes": "tileable along x and seamless as a loop; blobs travel toward +x: anchor at the corpse, rotate toward the boss, repeat x to the distance. Blocked by fire and solvent"
+  },
+  {
+   "name": "vfx_myriad_scream_wave",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_myriad_scream_wave.png",
+   "cell": [
+    384,
+    288
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 14,
+   "loop": false,
+   "duration": 0.571,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    192.0,
+    144.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "ground",
+   "tintable": false,
+   "used_by": "myriad",
+   "when": "boss 5 Ten Thousand (66% and 33% HP): the faces scream and a wave spreads out as it spawns a mixed pack with a frenzy",
+   "notes": "jagged violet rings; play on the scream frame"
+  },
+  {
+   "name": "vfx_myriad_heart_glow",
+   "group": "Boss",
+   "file": "Assets/Art/VFX/Boss/vfx_myriad_heart_glow.png",
+   "cell": [
+    128,
+    128
+   ],
+   "frames": 8,
+   "rows": 1,
+   "fps": 10,
+   "loop": true,
+   "duration": 0.8,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "anchor_px": [
+    64.0,
+    64.0
+   ],
+   "blend": "alpha",
+   "scale": 1.0,
+   "layer": "over",
+   "tintable": false,
+   "used_by": "myriad",
+   "when": "boss 5 Last Heart (10% HP): the eclipsed-sun heart opens on its back and beats; only squads can damage it",
+   "notes": "centre on the heart on the boss back; heartbeat loop (two thumps per cycle)"
+  }
+ ]
+}
