@@ -1,0 +1,173 @@
+# Guardian of Dawn – art spec (single source of truth for sprite style)
+# Human-readable view: style-guide.md (same folder). Change rules HERE first.
+# Sources: GDD v2.0 sections 1.7, 6.2, 6.6, 7.3, 4.6, 5.3, 8.1–8.5,
+# plus the shipped map and tower sprites (colours below were sampled from them).
+
+version: 1
+# Chosen direction since 2026-11-18: options/gothic_v5 (chibi monsters in charred-wax armour, one accent
+# colour each). The creature-specific rules below predate it; the general rules still apply.
+chosen_option: Assets/Art/_ArtDirection/options/gothic_v5
+game: Guardian of Dawn
+
+north_star:
+  touchstones:
+    - Assets/Art/Maps/*/map_*_background.png   # the five maps: the look every unit must sit in
+    - Assets/Art/Towers/*/tower_*_idle.png      # tower sprites: line, shading, view angle
+  mood: [gloomy but hopeful, survival, readable, flat cartoon]
+  anti_mood: [glossy 3D render, fire or lava, skulls or undead, gore, busy micro-detail]
+
+craft:
+  finish: flat
+  view: "3/4 top-down, camera about 40 degrees above the ground; feet on the ground plane, body slightly foreshortened"
+  light_direction: "single soft key light from the top-left"
+  shading: "cel shading, 3 tones per colour (light, mid, dark) plus at most one soft highlight blob per mass"
+  outline: "uniform thick outline #2c2240 (about 6 px on a 768 px source, about 1-1.5 px in a 128 px cell)"
+  detail_budget: "at most 3 interior details per creature; it must read at the in-game cell size (64/128/192/256 px)"
+  ground: "no wax puddle and no cast shadow in the source art; the sprite builder adds a soft feet shadow"
+
+palette:
+  roles:
+    outline: "#2c2240"
+    ally_white: "#eef2f5"      # squads only
+    ally_orange: "#ff8a3d"     # squads only
+    ally_visor: "#ffc94a"      # squads only
+  wax:                          # sampled from the wax trees (Old Town) and the wax dome (Observatory)
+    light: "#f8d888"
+    mid: "#e8c868"
+    base: "#d8a848"
+    shadow: "#c89838"
+    deep: "#9a6c2c"
+    highlight: "#fff2c8"
+    face_hole: "#2a1206"       # eye and mouth holes
+    face_rim: "#4e3612"
+    hands: "#f6eac6"           # pale cream hands, as on the Observatory dome
+    root_trunk: "#422a1e"      # dark trunk and roots of the wax trees
+  reserved_for_status:          # creatures must NOT use these as body colours
+    burning: "#ef5b31"          # Flamethrower red-orange
+    solvent: "#a6ff4d"          # Solvent Sprayer acid green
+    ice: ["#93cdd9", "#8ff1ff", "#9ff6ff"]   # Cryo Tower; frozen enemies are tinted pale blue in code
+    heal_zone: green            # Tier 3 heal ring (GDD 7.8): green appears only in heal frames
+  telegraph_glow: "#fff6d8"     # pale white-yellow, only in skill/warning frames, never in walk frames
+
+regions:                         # GDD 6.2: each region has its own palette; creatures borrow ACCENTS only
+  outskirts:
+    map: Assets/Art/Maps/Outskirts/map_outskirts_background.png
+    ground: ["#6c6c3c", "#546c3c", "#54546c", "#3c3c3c"]
+    accents: { clothing_denim: "#5c6a8a", clothing_grey: "#8a8a80", clothing_olive: "#5a6a3a" }
+    note: "abandoned homes, cracked asphalt; brown-grey"
+  harbor:
+    map: Assets/Art/Maps/Harbor/map_harbor_background.png
+    ground: ["#0c243c", "#3c543c", "#6c543c", "#9c6c3c"]
+    accents: { rust: "#9c5a3a", iron: "#5a5050", barnacle: "#e8e0c8", moss: "#546c3c" }
+    note: "containers, cranes, dark water; moss green and rust"
+  old_town:
+    map: Assets/Art/Maps/OldTown/map_old_town_background.png
+    ground: ["#9c8454", "#b49c6c", "#846c3c", "#3c2424"]
+    accents: { canopy_light: "#f8d858", canopy_mid: "#e8b838", canopy_dark: "#c89838", roof_tile: "#8a3a2a", plaster: "#9a958a" }
+    note: "collapsed houses, wax trees with puffy cloud canopies; wax-yellow. Ground is yellow-beige, so creatures rely on the dark outline, dark trunks and the deep wax shadow for contrast"
+  white_plains:
+    map: Assets/Art/Maps/WhitePlains/map_white_plains_background.png
+    ground: ["#e4e4e4", "#fcfcfc", "#e4e4b4", "#e4cc9c"]
+    accents: { sea: "#2f9fb5", sea_dark: "#1d5f78", sea_light: "#6cc0d0", salt_pink: "#f0a0b0", salt_peach: "#f6c890" }
+    note: "white salt flat, no cover; glaring white. Ground is near-white, so creature bodies must be mid-to-dark in value (sea-teal water), never white or iridescent"
+  observatory:
+    map: Assets/Art/Maps/Observatory/map_observatory_background.png
+    ground: ["#e4e4fc", "#cccce4", "#9c849c", "#b49ccc"]
+    accents: { lavender: "#9c849c", dome_steel: "#8a8fa0", frenzy_crimson: "#8e2a4e" }
+    note: "dome, telescope, wax over everything, snowy ridges; yellow-violet"
+
+wax_rules:                       # apply to every Di The Sap
+  material: "candle wax: matte, slightly translucent at the edges, drips that end in round beads; one soft highlight per mass, no wet gloss"
+  faces: "simple human faces like the Observatory dome: two dark oval eye holes and an open round mouth (sorrow, fear); no skulls, no teeth (tigers excepted), no glowing eyes"
+  people_inside: "they are people to be saved (GDD 7.3): keep a human silhouette and a few scraps of everyday clothing on humanoid forms"
+  hands: "humanoid forms have human hands in pale cream wax (#f6eac6)"
+  glow: "no fire, lava, embers or inner glow in the base art; glow only in telegraph frames (cracks before Shed, Lens focus, Prism core, Myriad heart)"
+  silhouettes:                   # GDD 8.1, must stay distinct when filled black
+    tier1: "thin hunched humanoid, long drooping arms"
+    tier2: "long, low quadruped (tiger)"
+    tier3: "humanoid with branches and a puffy canopy"
+    tier4: "tall water-drop humanoid"
+    tier5: "wide mound with many heads and arms"
+
+style_token: >-
+  2D game sprite in the exact style of the reference map art: flat cel shading with 3 tones per colour
+  and at most one soft highlight, uniform thick dark-violet outline (#2c2240), simple rounded shapes,
+  low detail that still reads at 128 px, one soft light from the top-left, matte candle wax
+  (not glossy, no glow, no fire, no lava), 3/4 top-down view with the camera about 40 degrees above
+  the ground, full body, centred on a flat pure magenta (#FF00FF) background, no ground puddle,
+  no shadow, no text.
+
+conditioning:
+  style_anchor_images:
+    - Assets/Art/_ArtDirection/refs/style_anchor_map_wax.png
+    - Assets/Art/_ArtDirection/refs/style_anchor_towers.png
+  generator: "ChatGPT image (browser, ChatGPT Go account), magenta background, cut out with sprite-gen cutout --key magenta"
+  output_dir: Tools/ArtGen/source/wax/
+
+# Frozen identity strings: later prompts change only pose/action, never these sentences.
+characters:
+  standard:
+    region: outskirts
+    canon_sheet: Assets/Art/_ArtDirection/sheets/standard_canon.png
+    canon_status: candidate   # waiting for the team's approval; becomes "frozen" once approved
+    identity_string: "A thin, hunched person melted into butter-yellow candle wax, long drooping arms with pale cream hands, a simple sad face with dark oval eye holes and a round open mouth, a faded denim jacket collar and one sneaker still visible through the wax."
+  shard:
+    region: outskirts
+    canon_sheet: null
+    identity_string: "A small round blob of butter-yellow wax that broke off a melted person, two dark oval eye holes, a torn grey fabric scrap stuck to it, two stubby drips as feet."
+  primordial:
+    region: outskirts
+    canon_sheet: null
+    identity_string: "A giant version of the standard melted person, very broad and heavy, thick wax layers, torn shirt and jacket pieces stuck all over the body, deep dark cracks across the chest (cracks glow pale white-yellow only in its Shed warning frames)."
+  tiger:
+    region: harbor
+    canon_sheet: null
+    identity_string: "A long, low tiger made of butter-yellow candle wax, darker amber wax stripes, round drip beads along the belly and tail, dark oval eyes, rust-brown stains on the paws from the harbour."
+  crab:
+    region: harbor
+    canon_sheet: null
+    identity_string: "A hunched melted person (tier 1 body and face) carrying a thick crab-like carapace on its front and back, the carapace is hardened amber wax crusted with barnacles and rust flecks; both hands have grown into blunt claws."
+  alpha_tiger:
+    region: harbor
+    canon_sheet: null
+    identity_string: "A huge, scarred wax tiger, the tiger design scaled up and heavier, a broken rusty iron chain collar around the neck, torn ear, scar lines across the face, four clearly separated legs."
+  tiger_cub:
+    region: harbor
+    canon_sheet: null
+    identity_string: "A small, round wax tiger cub, same stripes and palette as the tiger, big head, short legs."
+  healer:
+    region: old_town
+    canon_sheet: null
+    identity_string: "A melted person fused with an Old Town wax tree: dark brown trunk-like legs and roots, wax body, and a puffy cloud-shaped butter-yellow canopy growing from the head and shoulders exactly like the map's wax trees, two thin branch arms."
+  spore:
+    region: old_town
+    canon_sheet: null
+    identity_string: "A tier 3 tree-person whose canopy has swollen into three round, heavy wax pods with thin seams, pods sag over the shoulders as if about to split."
+  mother_tree:
+    region: old_town
+    canon_sheet: null
+    identity_string: "A giant walking Old Town wax tree: huge puffy cloud canopy, thick dark brown trunk with a sad wax face, walks on spreading roots, red-brown roof tiles and a broken window frame caught in the branches."
+  lens:
+    region: white_plains
+    canon_sheet: null
+    identity_string: "A tall water-drop person made of sea-teal water-wax, slightly translucent, butter-yellow wax veins and edges, a round clear lens in the chest, simple face with dark oval eyes."
+  mirror:
+    region: white_plains
+    canon_sheet: null
+    identity_string: "The lens person with a skin of salt crystals: chunky faceted crystals in salt-pink and peach with dark outlines over the teal water-wax body."
+  prism:
+    region: white_plains
+    canon_sheet: null
+    identity_string: "A large living prism of sea water and salt: a wide teal water-wax body holding a big faceted salt-crystal prism in its chest, crystal spikes on the shoulders in salt-pink and peach; the core glows only in its focus and open-core frames."
+  ultimate:
+    region: observatory
+    canon_sheet: null
+    identity_string: "A wide, slow mound fused from many tier 1 wax people: three or four simple sad faces on top, several long arms with pale cream hands, thick butter-yellow wax layers."
+  frenzy:
+    region: observatory
+    canon_sheet: null
+    identity_string: "A wax tiger with its head always raised, howling: a spiky mane of upright drips, deep crimson wax stripes and mane tips (#8e2a4e), the only red-striped wax creature."
+  myriad:
+    region: observatory
+    canon_sheet: null
+    identity_string: "A mountain of butter-yellow wax like the wax that covers the Observatory dome: lumpy round masses, many simple screaming faces with dark oval eyes and round mouths, many pale cream human hands reaching up, thick drips and root-like tendrils at the base, a closed heart-shaped lump on its back."

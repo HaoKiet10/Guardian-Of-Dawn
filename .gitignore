@@ -156,3 +156,15 @@ crashlytics-build.properties
 Thumbs.db
 desktop.ini
 .vscode/
+# Third-party Claude skills cloned for reference (local only, not part of the game)
+/ExternalSkills/
+# Links to the skills above, so Claude Code loads them (they point into /ExternalSkills/)
+/.claude/skills/character-design
+/.claude/skills/game-art
+/.claude/skills/unity-asset-designer
+/.claude/skills/unity-2d-animation
+
+# Local-only art backups and tool caches
+/Tools/ArtGen/backup_old_wax/
+__pycache__/
+/.serena/
