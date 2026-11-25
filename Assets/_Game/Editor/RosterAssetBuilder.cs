@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace GuardianOfDawn.Editor
     // 10 wax types, 5 bosses and the 7 wax traits. It only creates what is missing, so assets you
     // already made or tuned by hand are never touched. Numbers are starting values for balancing.
     // A structure whose upgrade list is empty also gets starting values for tier 1 and tier 2.
+    // Squads: the Warden and Hunter definitions and a squad prefab for each.
     //
     // Run from the menu: Guardian Of Dawn > Create Missing Roster Assets
     // or in batch mode: -executeMethod GuardianOfDawn.Editor.RosterAssetBuilder.CreateMissing
@@ -16,6 +18,7 @@ namespace GuardianOfDawn.Editor
         private const string StructureFolder = "Assets/_Game/Data/Structure";
         private const string WaxFolder = "Assets/_Game/Data/Wax";
         private const string TraitFolder = "Assets/_Game/Data/WaxTraits";
+        private const string SquadFolder = "Assets/_Game/Data/Squad";
         private const string PrefabFolder = "Assets/_Game/Prefabs";
         private const string SpriteSourcePrefab = "Assets/_Game/Prefabs/Machine Gun.prefab";
 
@@ -25,10 +28,12 @@ namespace GuardianOfDawn.Editor
             EnsureFolder(StructureFolder);
             EnsureFolder(WaxFolder);
             EnsureFolder(TraitFolder);
+            EnsureFolder(SquadFolder);
             EnsureFolder(PrefabFolder);
 
             CreateStructures();
             CreateWax();
+            CreateSquads();
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
@@ -219,6 +224,54 @@ namespace GuardianOfDawn.Editor
             AssetDatabase.CreateAsset(trait, path);
             Debug.Log($"RosterAssetBuilder: created {path}");
             return trait;
+        }
+
+        // ── Squads ──
+
+        private static void CreateSquads()
+        {
+            // name, members, soldier HP, range, TBA, damage, idle sprite sheet
+            // Warden holds the wall: tougher, weaker shots. Hunter: highest single-target damage (GDD 4.6).
+            Squad("Warden", "Lính trấn thủ", 3, 40f, 3f, 0.6f, 3f, "Assets/Art/Squads/Warden/squad_warden_idle.png");
+            Squad("Hunter", "Thợ săn", 2, 30f, 3.5f, 0.8f, 8f, "Assets/Art/Squads/Hunter/squad_hunter_idle.png");
+        }
+
+        private static void Squad(string fileName, string displayName, int members, float hp, float range, float tba,
+                                  float damage, string spriteSheet)
+        {
+            string assetPath = $"{SquadFolder}/{fileName}.asset";
+            SquadDefinition definition = AssetDatabase.LoadAssetAtPath<SquadDefinition>(assetPath);
+            if (definition == null)
+            {
+                definition = ScriptableObject.CreateInstance<SquadDefinition>();
+                var so = new SerializedObject(definition);
+                so.FindProperty("displayName").stringValue = displayName;
+                so.FindProperty("memberCount").intValue = members;
+                so.FindProperty("soldierMaxHp").floatValue = hp;
+                so.FindProperty("range").floatValue = range;
+                so.FindProperty("tba").floatValue = tba;
+                so.FindProperty("damage").floatValue = damage;
+                // First frame of the idle sheet, facing the camera (row 0 = S).
+                so.FindProperty("sprite").objectReferenceValue = AssetDatabase.LoadAllAssetsAtPath(spriteSheet)
+                    .OfType<Sprite>()
+                    .FirstOrDefault(s => s.name.EndsWith("_r0_c0"));
+                so.ApplyModifiedPropertiesWithoutUndo();
+                AssetDatabase.CreateAsset(definition, assetPath);
+                Debug.Log($"RosterAssetBuilder: created {assetPath}");
+            }
+
+            string prefabPath = $"{PrefabFolder}/{fileName} Squad.prefab";
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath) != null) return;
+
+            var root = new GameObject($"{fileName} Squad");
+            var squad = root.AddComponent<Squad>();
+            var squadSo = new SerializedObject(squad);
+            squadSo.FindProperty("definition").objectReferenceValue = definition;
+            squadSo.ApplyModifiedPropertiesWithoutUndo();
+
+            PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
+            Object.DestroyImmediate(root);
+            Debug.Log($"RosterAssetBuilder: created {prefabPath}");
         }
 
         private static void EnsureFolder(string path)
