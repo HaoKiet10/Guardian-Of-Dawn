@@ -18,10 +18,10 @@ namespace GuardianOfDawn
         {
             Vector2 impact = target.transform.position;
 
-            if (structure.Definition.Damage > 0f)
+            if (structure.Damage > 0f)
             {
                 Vector2 direction = (impact - (Vector2)structure.transform.position).normalized;
-                target.TakeHit(new Hit(structure.Definition.Damage, structure.Definition.DamageType, direction));
+                target.TakeHit(new Hit(structure.Damage, structure.Definition.DamageType, direction));
             }
 
             SolventPuddle puddle = this.puddlePrefab != null

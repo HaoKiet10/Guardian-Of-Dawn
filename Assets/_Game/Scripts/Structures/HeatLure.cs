@@ -36,7 +36,7 @@ namespace GuardianOfDawn
             this.activeTimeLeft -= Time.deltaTime;
 
             Vector2 lurePoint = this.structure.transform.position;
-            TargetSelector.InRange(lurePoint, this.structure.Definition.Range, this.hits);
+            TargetSelector.InRange(lurePoint, this.structure.Range, this.hits);
             foreach (Wax wax in this.hits)
             {
                 // Short and refreshed every frame, so the pull ends soon after the decoy cools down.

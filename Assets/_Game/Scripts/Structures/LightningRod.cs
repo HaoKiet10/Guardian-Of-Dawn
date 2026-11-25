@@ -25,7 +25,7 @@ namespace GuardianOfDawn
                 if (!structure.IsActive || structure.GetComponent<LightningRod>() == null) continue;
 
                 float distance = Vector2.Distance(structure.transform.position, target.transform.position);
-                if (distance > structure.Definition.Range || distance >= rodDistance) continue;
+                if (distance > structure.Range || distance >= rodDistance) continue;
 
                 rod = structure;
                 rodDistance = distance;

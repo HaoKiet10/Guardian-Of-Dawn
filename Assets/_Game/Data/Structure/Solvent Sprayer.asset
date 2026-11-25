@@ -18,3 +18,12 @@ MonoBehaviour:
   tba: 3
   damage: 1
   damageType: 5
+  upgrades:
+  - cost: 38
+    range: 5
+    tba: 2.6999998
+    damage: 1.5
+  - cost: 62
+    range: 5.5
+    tba: 2.4
+    damage: 2.2

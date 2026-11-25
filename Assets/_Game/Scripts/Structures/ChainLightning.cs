@@ -20,7 +20,7 @@ namespace GuardianOfDawn
             this.alreadyHit.Clear();
             Vector2 from = structure.transform.position;
             Wax current = target;
-            float damage = structure.Definition.Damage;
+            float damage = structure.Damage;
 
             for (int i = 0; i < this.maxTargets && current != null; i++)
             {

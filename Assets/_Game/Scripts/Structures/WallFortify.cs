@@ -28,7 +28,7 @@ namespace GuardianOfDawn
             if (this.wall == null) return;
 
             this.wall.SetDamageReduction(this, this.damageReduction);
-            this.wall.Heal(this.healPerSecond * structure.Definition.TBA);
+            this.wall.Heal(this.healPerSecond * structure.TBA);
         }
 
         private void OnShattered(Structure shattered)

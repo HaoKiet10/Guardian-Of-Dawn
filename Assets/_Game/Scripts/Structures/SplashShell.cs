@@ -18,7 +18,7 @@ namespace GuardianOfDawn
             foreach (Wax wax in this.hits)
             {
                 Vector2 direction = ((Vector2)wax.transform.position - impact).normalized;
-                wax.TakeHit(new Hit(structure.Definition.Damage, structure.Definition.DamageType, direction));
+                wax.TakeHit(new Hit(structure.Damage, structure.Definition.DamageType, direction));
             }
 
             // Placeholder impact mark, Scene view only.

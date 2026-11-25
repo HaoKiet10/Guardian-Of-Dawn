@@ -7,6 +7,7 @@ namespace GuardianOfDawn.Editor
     // Creates the data assets and placeholder prefabs for the full roster (GDD 4.6): 11 structures,
     // 10 wax types, 5 bosses and the 7 wax traits. It only creates what is missing, so assets you
     // already made or tuned by hand are never touched. Numbers are starting values for balancing.
+    // A structure whose upgrade list is empty also gets starting values for tier 1 and tier 2.
     //
     // Run from the menu: Guardian Of Dawn > Create Missing Roster Assets
     // or in batch mode: -executeMethod GuardianOfDawn.Editor.RosterAssetBuilder.CreateMissing
@@ -70,6 +71,7 @@ namespace GuardianOfDawn.Editor
                 AssetDatabase.CreateAsset(definition, assetPath);
                 Debug.Log($"RosterAssetBuilder: created {assetPath}");
             }
+            FillUpgradesIfEmpty(definition, assetPath);
 
             string prefabPath = $"{PrefabFolder}/{name}.prefab";
             // Also accept a hand-made prefab saved without spaces (e.g. CryoAura.prefab).
@@ -93,6 +95,36 @@ namespace GuardianOfDawn.Editor
             PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
             Object.DestroyImmediate(root);
             Debug.Log($"RosterAssetBuilder: created {prefabPath}");
+        }
+
+        // Starting values only: tune them in the Inspector after playtesting.
+        // Tier 1: damage x1.5, range +0.5, 10% faster.  Tier 2: damage x2.2, range +1, 20% faster.
+        // Cost: 75% then 125% of the build cost.
+        private static readonly (float damage, float range, float tba, float cost)[] UpgradeSteps =
+        {
+            (1.5f, 0.5f, 0.9f, 0.75f),
+            (2.2f, 1f, 0.8f, 1.25f),
+        };
+
+        private static void FillUpgradesIfEmpty(StructureDefinition definition, string assetPath)
+        {
+            var so = new SerializedObject(definition);
+            SerializedProperty upgrades = so.FindProperty("upgrades");
+            if (upgrades.arraySize > 0) return;
+
+            upgrades.arraySize = UpgradeSteps.Length;
+            for (int i = 0; i < UpgradeSteps.Length; i++)
+            {
+                var step = UpgradeSteps[i];
+                SerializedProperty tier = upgrades.GetArrayElementAtIndex(i);
+                tier.FindPropertyRelative("cost").intValue = Mathf.RoundToInt(definition.BuildCost * step.cost);
+                tier.FindPropertyRelative("range").floatValue = definition.Range + step.range;
+                tier.FindPropertyRelative("tba").floatValue = definition.TBA * step.tba;
+                tier.FindPropertyRelative("damage").floatValue = definition.Damage * step.damage;
+            }
+            so.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(definition);
+            Debug.Log($"RosterAssetBuilder: added tier 1 and tier 2 to {assetPath}");
         }
 
         private static Sprite PlaceholderSprite()

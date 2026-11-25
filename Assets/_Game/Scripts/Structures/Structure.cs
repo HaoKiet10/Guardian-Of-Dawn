@@ -8,6 +8,7 @@ namespace GuardianOfDawn
 
         private StructureAction action;
         private float cooldown;
+        private int tier;
         private StructureState state = StructureState.Active;
         private SpriteRenderer[] sprites;
         private Color[] originalColors;
@@ -16,6 +17,16 @@ namespace GuardianOfDawn
         public StructureState State => state;
         public bool IsActive => this.state == StructureState.Active && enabled;
         public event System.Action<Structure> Shattered;
+        public event System.Action<Structure> Upgraded;
+
+        // Current tier (0 = just built). Actions read their stats from here, not from the definition,
+        // so every number follows the tier.
+        public int Tier => this.tier;
+        public float Range => this.definition.RangeAt(this.tier);
+        public float TBA => this.definition.TBAAt(this.tier);
+        public float Damage => this.definition.DamageAt(this.tier);
+        public bool CanUpgrade => this.IsActive && this.tier < this.definition.MaxTier;
+        public int NextUpgradeCost => this.definition.UpgradeCostFrom(this.tier);
 
         private void Awake()
         {
@@ -59,7 +70,7 @@ namespace GuardianOfDawn
 
             if (this.action.NeedsTarget)
             {
-                Wax target = TargetSelector.ClosestToWall(this.transform.position, this.definition.Range);
+                Wax target = TargetSelector.ClosestToWall(this.transform.position, this.Range);
                 if (target == null) return;
                 this.action.Act(this, target);
             }
@@ -67,7 +78,7 @@ namespace GuardianOfDawn
             {
                 this.action.Act(this, null);
             }
-            this.cooldown = this.definition.TBA;
+            this.cooldown = this.TBA;
         }
 
         // Destroyed by a solar storm or a lens wax's convergence: leaves rubble and stops working.
@@ -76,6 +87,8 @@ namespace GuardianOfDawn
             if (this.state == StructureState.Rubble) return;
 
             this.state = StructureState.Rubble;
+            // GDD 4.9: the upgrades belong to this structure, so a storm takes them too.
+            this.tier = 0;
             SetColorMultiplier(0.3f);
             Debug.Log(this.definition.DisplayName + " was shattered", this);
             Shattered?.Invoke(this);
@@ -88,6 +101,16 @@ namespace GuardianOfDawn
             this.state = StructureState.Active;
             this.cooldown = 0f;
             SetColorMultiplier(1f);
+        }
+
+        // Resources and research checks come later with the economy; for now this only raises the tier.
+        public bool Upgrade()
+        {
+            if (!CanUpgrade) return false;
+
+            this.tier++;
+            Upgraded?.Invoke(this);
+            return true;
         }
 
         private void SetColorMultiplier(float brightness)
@@ -104,7 +127,7 @@ namespace GuardianOfDawn
             if (this.definition == null) return;
 
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(this.transform.position, this.definition.Range);
+            Gizmos.DrawWireSphere(this.transform.position, this.definition.RangeAt(this.tier));
         }
 
         [ContextMenu("Test: shatter")]
@@ -112,5 +135,12 @@ namespace GuardianOfDawn
 
         [ContextMenu("Test: rebuild")]
         private void TestRebuild() => Rebuild();
+
+        [ContextMenu("Test: upgrade")]
+        private void TestUpgrade()
+        {
+            if (Upgrade()) Debug.Log($"{this.definition.DisplayName} is now tier {this.tier}", this);
+            else Debug.Log($"{this.definition.DisplayName} can't upgrade (tier {this.tier} of {this.definition.MaxTier})", this);
+        }
     }
 }

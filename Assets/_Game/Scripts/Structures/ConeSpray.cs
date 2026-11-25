@@ -43,13 +43,13 @@ namespace GuardianOfDawn
             this.sprayTimeLeft -= Time.deltaTime;
 
             Vector2 origin = this.structure.transform.position;
-            float range = this.structure.Definition.Range;
+            float range = this.structure.Range;
 
             // Follow the wax closest to the wall; with nobody in range, keep spraying the same way.
             Wax target = TargetSelector.ClosestToWall(origin, range);
             if (target != null) this.aim = AimAt(target);
 
-            float damageThisFrame = this.structure.Definition.Damage * Time.deltaTime;
+            float damageThisFrame = this.structure.Damage * Time.deltaTime;
             TargetSelector.InRange(origin, range, this.hits);
 
             foreach (Wax wax in this.hits)

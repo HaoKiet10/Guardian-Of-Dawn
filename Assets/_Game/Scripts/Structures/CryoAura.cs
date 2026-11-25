@@ -17,7 +17,7 @@ namespace GuardianOfDawn
 
         public override void Act(Structure structure, Wax target)
         {
-            TargetSelector.InRange(structure.transform.position, structure.Definition.Range, this.hits);
+            TargetSelector.InRange(structure.transform.position, structure.Range, this.hits);
 
             foreach (Wax wax in this.hits)
             {

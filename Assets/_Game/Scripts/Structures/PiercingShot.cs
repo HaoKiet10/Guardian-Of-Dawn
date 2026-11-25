@@ -18,7 +18,7 @@ namespace GuardianOfDawn
         {
             Vector2 start = structure.transform.position;
             Vector2 direction = ((Vector2)target.transform.position - start).normalized;
-            Vector2 end = start + direction * structure.Definition.Range;
+            Vector2 end = start + direction * structure.Range;
 
             // Collect first, damage after: a dying wax can spawn new ones, which changes WaxRegistry.
             this.hits.Clear();
@@ -30,7 +30,7 @@ namespace GuardianOfDawn
 
             foreach (Wax wax in this.hits)
             {
-                float damage = structure.Definition.Damage + this.percentOfMaxHp * wax.MaxHp;
+                float damage = structure.Damage + this.percentOfMaxHp * wax.MaxHp;
                 wax.TakeHit(new Hit(damage, structure.Definition.DamageType, direction));
             }
 
