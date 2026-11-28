@@ -38,7 +38,12 @@ namespace GuardianOfDawn
                 var go = new GameObject($"{this.definition.DisplayName} {i + 1}");
                 go.transform.SetParent(this.transform, false);
                 go.transform.localPosition = FormationOffset(i, count, this.definition.Spacing);
-                go.AddComponent<SpriteRenderer>();
+                // The sprite sits on a child so the animator can bob and tilt it without moving
+                // the soldier. Soldiers standing lower in the row draw in front.
+                var body = new GameObject("Body");
+                body.transform.SetParent(go.transform, false);
+                body.AddComponent<SpriteRenderer>().sortingOrder = i % 2;
+                go.AddComponent<SoldierAnimator>(); // before Soldier, which looks it up in Awake
 
                 Soldier soldier = go.AddComponent<Soldier>();
                 soldier.Init(this, this.definition);

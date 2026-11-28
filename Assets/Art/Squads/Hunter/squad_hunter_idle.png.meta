@@ -127,74 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfe3e1a8eb6abdc4e930e2d2b45f8127
-      internalID: 2022776234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r0_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83fdc5d1a020c7542b67b3034170cba1
-      internalID: 335788076
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r0_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2c013f7e0d8d7f54b92976818fc7c7d3
-      internalID: -1369694403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r0_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef4ae672132b04b489316e637711e58b
-      internalID: 2123165344
+      spriteID: 9824a4a742213124c921c27ba10d78b7
+      internalID: 804302999
       vertices: []
       indices: 
       edges: []
@@ -215,74 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 426b4682cba2e5143bd28801e56b0faf
-      internalID: -170804127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r1_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00f23b56bbef4f84786f68ac76ab2d97
-      internalID: 1902054527
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r1_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da81b3abd10160646b80ffc959162f73
-      internalID: -594768673
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r1_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6383a0c6a9a870448815cfa3ceaf9f17
-      internalID: 746177856
+      spriteID: 3432f99996615304691210f19a0257bb
+      internalID: -890918519
       vertices: []
       indices: 
       edges: []
@@ -303,74 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 088ce5ac4084a324bb9b7ce9b6c6790d
-      internalID: -90090968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r2_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 730be8347b9979440a04af0645ee0020
-      internalID: -236773592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r2_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddd2bbc9840ecdf4abd99e960044af12
-      internalID: -1048952869
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_idle_r2_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 33ddd078fba62f2418535ab46ae2acaa
-      internalID: 1327493715
+      spriteID: eba0c34bccee1f64ca123a2fb92718e9
+      internalID: -2056338195
       vertices: []
       indices: 
       edges: []
@@ -379,7 +181,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 36f602dc078d70f49bb2a54949c72294
+    spriteID: c0d08aca2d1a81544bb041d21c259ba8
     internalID: 0
     vertices: []
     indices: 
@@ -389,18 +191,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      squad_hunter_idle_r0_c0: 2022776234
-      squad_hunter_idle_r0_c1: 335788076
-      squad_hunter_idle_r0_c2: -1369694403
-      squad_hunter_idle_r0_c3: 2123165344
-      squad_hunter_idle_r1_c0: -170804127
-      squad_hunter_idle_r1_c1: 1902054527
-      squad_hunter_idle_r1_c2: -594768673
-      squad_hunter_idle_r1_c3: 746177856
-      squad_hunter_idle_r2_c0: -90090968
-      squad_hunter_idle_r2_c1: -236773592
-      squad_hunter_idle_r2_c2: -1048952869
-      squad_hunter_idle_r2_c3: 1327493715
+      squad_hunter_idle_r0_c0: 804302999
+      squad_hunter_idle_r1_c0: -890918519
+      squad_hunter_idle_r2_c0: -2056338195
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -127,74 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d42d074935910d4997c4e87cb74d159
-      internalID: -2002839162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r0_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3287adc2e3686b41a75ac8fea856453
-      internalID: -1508834218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r0_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97d925e4f37963f4ea4f06b0af2c3933
-      internalID: 865423286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r0_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 543816388fb3d2f42819d65dfcbe192a
-      internalID: 678083380
+      spriteID: 4b4829817c6150545bd2ccb36882d81c
+      internalID: -349532020
       vertices: []
       indices: 
       edges: []
@@ -215,74 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c029ce101d52c1f49b8ee35e2f90a685
-      internalID: -401420446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r1_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1e3cac2853d4474a9b8b330238620ba
-      internalID: -719936502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r1_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a90d0f6c214c01488bc03233ec7ee51
-      internalID: 1684099746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r1_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0780e1d28f16c524f82fb6bf30644efb
-      internalID: -188633224
+      spriteID: d6353ab678790a44aa5aebbfcd0ee6bf
+      internalID: -1922256
       vertices: []
       indices: 
       edges: []
@@ -303,74 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca8a98fc2bd84e418b4318274ced5f0
-      internalID: 510544630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r2_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d01852a88139a843aae0c0eb462eea3
-      internalID: 621140511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r2_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4a1466d4272b5e549b15db54a08f3a5f
-      internalID: -1095547679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_fire_r2_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f806be4ba2e28348bf18eab4784e31d
-      internalID: 434966988
+      spriteID: 8121b483760d7e0448c1f60b8b33e9f8
+      internalID: -1172484909
       vertices: []
       indices: 
       edges: []
@@ -379,7 +181,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 70db920029290b042811795fb2e4d63c
+    spriteID: 672034b8551afef47979a2f205a3cb6b
     internalID: 0
     vertices: []
     indices: 
@@ -389,18 +191,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      squad_warden_fire_r0_c0: -2002839162
-      squad_warden_fire_r0_c1: -1508834218
-      squad_warden_fire_r0_c2: 865423286
-      squad_warden_fire_r0_c3: 678083380
-      squad_warden_fire_r1_c0: -401420446
-      squad_warden_fire_r1_c1: -719936502
-      squad_warden_fire_r1_c2: 1684099746
-      squad_warden_fire_r1_c3: -188633224
-      squad_warden_fire_r2_c0: 510544630
-      squad_warden_fire_r2_c1: 621140511
-      squad_warden_fire_r2_c2: -1095547679
-      squad_warden_fire_r2_c3: 434966988
+      squad_warden_fire_r0_c0: -349532020
+      squad_warden_fire_r1_c0: -1922256
+      squad_warden_fire_r2_c0: -1172484909
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -230,15 +230,43 @@ namespace GuardianOfDawn.Editor
 
         private static void CreateSquads()
         {
-            // name, members, soldier HP, range, TBA, damage, idle sprite sheet
+            // name, members, soldier HP, range, TBA, damage, pose sheet prefix, skill sheet
             // Warden holds the wall: tougher, weaker shots. Hunter: highest single-target damage (GDD 4.6).
-            Squad("Warden", "Lính trấn thủ", 3, 40f, 3f, 0.6f, 3f, "Assets/Art/Squads/Warden/squad_warden_idle.png");
-            Squad("Hunter", "Thợ săn", 2, 30f, 3.5f, 0.8f, 8f, "Assets/Art/Squads/Hunter/squad_hunter_idle.png");
+            Squad("Warden", "Lính trấn thủ", 3, 40f, 3f, 0.6f, 3f, "Assets/Art/Squads/Warden/squad_warden_", "skill_hold");
+            Squad("Hunter", "Thợ săn", 2, 30f, 3.5f, 0.8f, 8f, "Assets/Art/Squads/Hunter/squad_hunter_", "skill_execute");
+            // Engineer is support: repairs and rebuilds; her pistol is only a weak sidearm (GDD 4.6).
+            Squad("Engineer", "Công binh", 2, 25f, 2.5f, 1f, 2f, "Assets/Art/Squads/Engineer/squad_engineer_", "skill_build");
+        }
+
+        private const string MuzzleFlashSheet = "Assets/Art/VFX/Shared/vfx_hit_flash.png";
+
+        // The S, E and N sprites of one pose sheet (rows 0, 1, 2).
+        private static Sprite[] PoseRow(string sheet)
+        {
+            Sprite[] all = AssetDatabase.LoadAllAssetsAtPath(sheet).OfType<Sprite>().ToArray();
+            return Enumerable.Range(0, 3).Select(r => all.FirstOrDefault(s => s.name.EndsWith($"_r{r}_c0"))).ToArray();
+        }
+
+        // The frames of one walk loop sheet (a single row, _r0_c0 .. _r0_cN), in order; empty if missing.
+        public static Sprite[] WalkLoop(string sheet)
+        {
+            return AssetDatabase.LoadAllAssetsAtPath(sheet).OfType<Sprite>()
+                .Where(s => s.name.Contains("_r0_c"))
+                .OrderBy(s => int.Parse(s.name.Substring(s.name.LastIndexOf("_c") + 2)))
+                .ToArray();
+        }
+
+        private static void SetPoseRow(SerializedObject so, string field, Sprite[] sprites)
+        {
+            SerializedProperty prop = so.FindProperty("poses." + field);
+            prop.arraySize = sprites.Length;
+            for (int i = 0; i < sprites.Length; i++) prop.GetArrayElementAtIndex(i).objectReferenceValue = sprites[i];
         }
 
         private static void Squad(string fileName, string displayName, int members, float hp, float range, float tba,
-                                  float damage, string spriteSheet)
+                                  float damage, string sheetPrefix, string skillSheet)
         {
+            string spriteSheet = sheetPrefix + "idle.png";
             string assetPath = $"{SquadFolder}/{fileName}.asset";
             SquadDefinition definition = AssetDatabase.LoadAssetAtPath<SquadDefinition>(assetPath);
             if (definition == null)
@@ -255,6 +283,14 @@ namespace GuardianOfDawn.Editor
                 so.FindProperty("sprite").objectReferenceValue = AssetDatabase.LoadAllAssetsAtPath(spriteSheet)
                     .OfType<Sprite>()
                     .FirstOrDefault(s => s.name.EndsWith("_r0_c0"));
+                SetPoseRow(so, "idle", PoseRow(spriteSheet));
+                SetPoseRow(so, "fire", PoseRow(sheetPrefix + "fire.png"));
+                SetPoseRow(so, "skill", PoseRow(sheetPrefix + skillSheet + ".png"));
+                SetPoseRow(so, "walkS", WalkLoop(sheetPrefix + "walk_s.png"));
+                SetPoseRow(so, "walkE", WalkLoop(sheetPrefix + "walk_e.png"));
+                SetPoseRow(so, "walkN", WalkLoop(sheetPrefix + "walk_n.png"));
+                so.FindProperty("muzzleFlash").objectReferenceValue = AssetDatabase.LoadAllAssetsAtPath(MuzzleFlashSheet)
+                    .OfType<Sprite>().FirstOrDefault(s => s.name.EndsWith("_c0"));
                 so.ApplyModifiedPropertiesWithoutUndo();
                 AssetDatabase.CreateAsset(definition, assetPath);
                 Debug.Log($"RosterAssetBuilder: created {assetPath}");

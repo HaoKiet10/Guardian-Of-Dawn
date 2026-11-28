@@ -21,4 +21,49 @@ MonoBehaviour:
   damage: 8
   damageType: 0
   spacing: 0.45
-  sprite: {fileID: 2022776234, guid: 05dbc3db0e74bea4aab862387cf59c08, type: 3}
+  sprite: {fileID: 804302999, guid: 05dbc3db0e74bea4aab862387cf59c08, type: 3}
+  poses:
+    idle:
+    - {fileID: 804302999, guid: 05dbc3db0e74bea4aab862387cf59c08, type: 3}
+    - {fileID: -890918519, guid: 05dbc3db0e74bea4aab862387cf59c08, type: 3}
+    - {fileID: -2056338195, guid: 05dbc3db0e74bea4aab862387cf59c08, type: 3}
+    fire:
+    - {fileID: 668783660, guid: e1731b67b3087ec41b8dafab8c8e8f56, type: 3}
+    - {fileID: 1488467959, guid: e1731b67b3087ec41b8dafab8c8e8f56, type: 3}
+    - {fileID: 1447499970, guid: e1731b67b3087ec41b8dafab8c8e8f56, type: 3}
+    skill:
+    - {fileID: -1079783595, guid: 552fb291256c3db498a6cd00a8fd558f, type: 3}
+    - {fileID: 1096638900, guid: 552fb291256c3db498a6cd00a8fd558f, type: 3}
+    - {fileID: -464659569, guid: 552fb291256c3db498a6cd00a8fd558f, type: 3}
+    walkS:
+    - {fileID: 370839809, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: -667456073, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: 1502873768, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: 494628673, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: 414042128, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: 2131113887, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: 291545057, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    - {fileID: -408813900, guid: f47b4e274b832444987ba8c704e9e9ce, type: 3}
+    walkE:
+    - {fileID: 560776476, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: -87543371, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: -502733143, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: 1218023091, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: -469958443, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: 1343847391, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: 1473602021, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    - {fileID: 1079330207, guid: 81e6671e43857854aa3ce85647889e32, type: 3}
+    walkN:
+    - {fileID: 1336234991, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: -1283626092, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: 582500780, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: -1483521845, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: -400590573, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: 1975882061, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: -13198650, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+    - {fileID: -972376252, guid: 908d9ac51afdd8d4bab730d98ac2003a, type: 3}
+  muzzleFlash: {fileID: 1414421980, guid: 81268c3d67317764ca9094af9d0a5298, type: 3}
+  muzzleOffsets:
+  - {x: 0.25, y: 0.2}
+  - {x: 0.24, y: 0.29}
+  - {x: -0.16, y: 0.34}

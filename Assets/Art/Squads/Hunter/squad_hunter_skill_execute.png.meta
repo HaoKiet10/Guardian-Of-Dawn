@@ -127,118 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c9fc229820b02a48b45685f11f85e79
-      internalID: -1129766444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r0_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dcd7324533c7cf74d852171ce135ab27
-      internalID: -1112440691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r0_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b30193110d9f014f844a89116c97b4b
-      internalID: -1563035256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r0_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66b520010b2a0f7408f4bf737029161a
-      internalID: -741836599
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r0_c4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 550f9808d6823cc4a8026856cf903301
-      internalID: -230733134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r0_c5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 607615ad451c783418845a5007ea0f91
-      internalID: -1338942905
+      spriteID: 7d1f3306ad3b340408dca21ac05b6b49
+      internalID: -1079783595
       vertices: []
       indices: 
       edges: []
@@ -259,118 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 070ec4a534a481e46b38d25ca1aef309
-      internalID: -1930654601
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r1_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b2adcdbabeb32de4185c704274be331e
-      internalID: 1940282294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r1_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b666b093232cb164d9085a0013d4c977
-      internalID: -24706075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r1_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aca6d9bd9b9e6674cb6181a0e1358584
-      internalID: 1651278649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r1_c4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5dfd31bd350fc347852746bd7bf0c45
-      internalID: -415318747
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r1_c5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 073fc74c962f00142aa1e835125bbe5f
-      internalID: 1755723098
+      spriteID: e00b9581a9aa18f43aa2d17972efb0cc
+      internalID: 1096638900
       vertices: []
       indices: 
       edges: []
@@ -391,118 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da40c2b922d903b4d91cbd8d342679c7
-      internalID: 33497481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r2_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbf52de57aa46b24fb4e1d3e3b957f7a
-      internalID: 793391990
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r2_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37924bb9b1d8ce743843132f7331c4cb
-      internalID: -589846172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r2_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 008cefb334c4574428cb51a8a76ddf99
-      internalID: -1926503973
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r2_c4
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77239861c801bd446adb396b8dee517d
-      internalID: 1589434369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_hunter_skill_execute_r2_c5
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cc3b4c8aee9cf04fa69a1a71d7bd28e
-      internalID: 1185653934
+      spriteID: 159be4a69efea484d95e948aa2b77947
+      internalID: -464659569
       vertices: []
       indices: 
       edges: []
@@ -511,7 +181,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 13e68a2fe199ab24ca17d96619b33a34
+    spriteID: db2de984303a10c449014b247c1834e1
     internalID: 0
     vertices: []
     indices: 
@@ -521,24 +191,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      squad_hunter_skill_execute_r0_c0: -1129766444
-      squad_hunter_skill_execute_r0_c1: -1112440691
-      squad_hunter_skill_execute_r0_c2: -1563035256
-      squad_hunter_skill_execute_r0_c3: -741836599
-      squad_hunter_skill_execute_r0_c4: -230733134
-      squad_hunter_skill_execute_r0_c5: -1338942905
-      squad_hunter_skill_execute_r1_c0: -1930654601
-      squad_hunter_skill_execute_r1_c1: 1940282294
-      squad_hunter_skill_execute_r1_c2: -24706075
-      squad_hunter_skill_execute_r1_c3: 1651278649
-      squad_hunter_skill_execute_r1_c4: -415318747
-      squad_hunter_skill_execute_r1_c5: 1755723098
-      squad_hunter_skill_execute_r2_c0: 33497481
-      squad_hunter_skill_execute_r2_c1: 793391990
-      squad_hunter_skill_execute_r2_c2: -589846172
-      squad_hunter_skill_execute_r2_c3: -1926503973
-      squad_hunter_skill_execute_r2_c4: 1589434369
-      squad_hunter_skill_execute_r2_c5: 1185653934
+      squad_hunter_skill_execute_r0_c0: -1079783595
+      squad_hunter_skill_execute_r1_c0: 1096638900
+      squad_hunter_skill_execute_r2_c0: -464659569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

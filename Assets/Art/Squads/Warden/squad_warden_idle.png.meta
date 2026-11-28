@@ -127,74 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93792ec051007334d804bce4c7b74cf8
-      internalID: 316578277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r0_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d16b390e728f11448882096bb29626e
-      internalID: -775795172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r0_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f91bb8bbd5690994886c75e369582dc1
-      internalID: -1657441680
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r0_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf6c28cef816fef4298634757da8b1ac
-      internalID: -1690914906
+      spriteID: 4298f9993543a344986200c453a35e87
+      internalID: 596939423
       vertices: []
       indices: 
       edges: []
@@ -215,74 +149,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0dc30350fc472041963b35f3c4b53a2
-      internalID: 865518800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r1_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 44dc91443bebe28428b7b86fb00376f9
-      internalID: -261339698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r1_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d4b0b2bc7aa2e94a845c767cfc9f72a
-      internalID: -1544575289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r1_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0c7fae22cadf5e439d67743d6768670
-      internalID: -2097229205
+      spriteID: 4ff87c34a0f97594dbbf74976d8853f0
+      internalID: 1851972985
       vertices: []
       indices: 
       edges: []
@@ -303,74 +171,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cdf3820a12175546bb8cf82b31f88ed
-      internalID: 248771946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r2_c1
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67bf8caf04fbcfc42ab77d58338f2a1d
-      internalID: -1763965689
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r2_c2
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88102ab12782942488577ec931c6b1e0
-      internalID: -1981330559
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: squad_warden_idle_r2_c3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 128
-        height: 128
-      alignment: 9
-      pivot: {x: 0.5, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f39e8228f5d3d240be445b71efd2a6c
-      internalID: 1322976090
+      spriteID: 4a097349681b0474799864b7595efaf6
+      internalID: 306888204
       vertices: []
       indices: 
       edges: []
@@ -379,7 +181,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a226cb8b9609c6c44ab74ea2ef3299da
+    spriteID: cd1c929123078c342972059bf998041a
     internalID: 0
     vertices: []
     indices: 
@@ -389,18 +191,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      squad_warden_idle_r0_c0: 316578277
-      squad_warden_idle_r0_c1: -775795172
-      squad_warden_idle_r0_c2: -1657441680
-      squad_warden_idle_r0_c3: -1690914906
-      squad_warden_idle_r1_c0: 865518800
-      squad_warden_idle_r1_c1: -261339698
-      squad_warden_idle_r1_c2: -1544575289
-      squad_warden_idle_r1_c3: -2097229205
-      squad_warden_idle_r2_c0: 248771946
-      squad_warden_idle_r2_c1: -1763965689
-      squad_warden_idle_r2_c2: -1981330559
-      squad_warden_idle_r2_c3: 1322976090
+      squad_warden_idle_r0_c0: 596939423
+      squad_warden_idle_r1_c0: 1851972985
+      squad_warden_idle_r2_c0: 306888204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -11,6 +11,7 @@ namespace GuardianOfDawn
         private float hp;
         private float cooldown;
         private SpriteRenderer spriteRenderer;
+        private SoldierAnimator animator;
 
         public Squad Squad => this.squad;
         public float Hp => this.hp;
@@ -27,7 +28,8 @@ namespace GuardianOfDawn
 
         private void Awake()
         {
-            this.spriteRenderer = GetComponent<SpriteRenderer>();
+            this.spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            this.animator = GetComponent<SoldierAnimator>();
         }
 
         private void Start()
@@ -38,7 +40,9 @@ namespace GuardianOfDawn
                 enabled = false;
                 return;
             }
-            if (this.spriteRenderer != null) this.spriteRenderer.sprite = this.definition.Sprite;
+            if (this.spriteRenderer == null) return;
+            if (this.animator != null) this.animator.Init(this.definition, this.spriteRenderer);
+            else this.spriteRenderer.sprite = this.definition.Sprite;
         }
 
         private void OnEnable()
@@ -63,6 +67,7 @@ namespace GuardianOfDawn
 
             Vector2 direction = ((Vector2)(target.transform.position - this.transform.position)).normalized;
             target.TakeHit(new Hit(this.definition.Damage, this.definition.DamageType, direction));
+            if (this.animator != null) this.animator.PlayFire(direction);
             this.cooldown = this.definition.TBA;
         }
 
@@ -71,13 +76,18 @@ namespace GuardianOfDawn
             if (!IsAlive || amount <= 0f) return;
 
             this.hp = Mathf.Max(0f, this.hp - amount);
+            if (this.animator != null) this.animator.PlayHurt();
             if (this.hp <= 0f) Die();
         }
 
+        // Leaves the squad and the registry at once; the body stays for the death animation
+        // (about half a second) when there is an animator, then the animator destroys it.
         private void Die()
         {
             Died?.Invoke(this);
-            Destroy(this.gameObject);
+            enabled = false; // stops shooting; OnDisable unregisters the soldier
+            if (this.animator != null) this.animator.PlayDeath();
+            else Destroy(this.gameObject);
         }
 
         [ContextMenu("Test: take 10 damage")]
